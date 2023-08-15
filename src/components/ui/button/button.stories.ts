@@ -3,41 +3,41 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Button } from './'
 
 const meta = {
-    title: 'Components/Button',
-    component: Button,
-    tags: ['autodocs'],
-    argTypes: {
-        variant: {
-            options: ['primary', 'secondary', 'tertiary', 'link'],
-            control: { type: 'radio' },
-        },
+  title: 'Components/Button',
+  component: Button,
+  tags: ['autodocs'],
+  argTypes: {
+    variant: {
+      options: ['primary', 'secondary', 'tertiary', 'link'],
+      control: { type: 'radio' },
     },
+  },
 } satisfies Meta<typeof Button>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
-    args: {
-        variant: 'primary',
-        children: 'Primary Button',
-        disabled: false,
-    },
+  args: {
+    variant: 'primary',
+    children: 'Primary Button',
+    disabled: false,
+  },
 }
 
 export const Secondary: Story = {
-    args: {
-        variant: 'secondary',
-        children: 'Secondary Button',
-        disabled: false,
-    },
+  args: {
+    variant: 'secondary',
+    children: 'Secondary Button',
+    disabled: false,
+  },
 }
 export const Tertiary: Story = {
-    args: {
-        variant: 'tertiary',
-        children: 'Tertiary Button',
-        disabled: false,
-    },
+  args: {
+    variant: 'tertiary',
+    children: 'Tertiary Button',
+    disabled: false,
+  },
 }
 // export const Link: Story = {
 //     args: {
@@ -48,21 +48,21 @@ export const Tertiary: Story = {
 // }
 
 export const FullWidth: Story = {
-    args: {
-        variant: 'primary',
-        children: 'Full Width Button',
-        disabled: false,
-        fullWidth: true,
-    },
+  args: {
+    variant: 'primary',
+    children: 'Full Width Button',
+    disabled: false,
+    fullWidth: true,
+  },
 }
 
 export const Link: Story = {
-    args: {
-        as:'a',
-        size: 'small',
-        label: 'Button',
-        children:"this button is link",
-        variant:'link',
-        href:'https://www.google.com'
-    },
-};
+  args: {
+    as: 'a',
+    size: 'small',
+    label: 'Button',
+    children: 'this button is link',
+    variant: 'link',
+    href: 'https://www.google.com',
+  },
+}

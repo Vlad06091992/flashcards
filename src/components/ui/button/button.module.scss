@@ -1,19 +1,143 @@
-.primary {
-  background-color: red;
+.button {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 30px;
+
+  font-size: var(--font-size-s);
+
+  border-radius: 4px;
+}
+
+.button:focus {
+  border: 2px solid var(--color-info-500);
+  outline: none;
+}
+
+.primary, .primary:visited {
+  background-color: var(--color-accent-500);
+}
+
+.primary:active {
+  background-color: var(--color-accent-700);
+}
+
+.primary:not(:active):hover {
+  background-color: var(--color-accent-300);
+}
+
+.primary:disabled, .primary:disabled:hover, {
+  background-color: var(--color-accent-900);
 }
 
 .secondary {
-  background-color: green;
+  background-color: var(--color-dark-300);
+}
+
+.secondary:active {
+  background-color: var(--color-dark-500);
+}
+
+.secondary:not(:active):hover {
+  background-color: var(--color-dark-100);
+}
+
+.secondary:disabled, .secondary:disabled:hover {
+  opacity: 0.5;
+  background-color: var(--color-dark-100);
 }
 
 .tertiary {
-  background-color: blue;
+  color: var(--color-accent-500);
+  background: var(--color-dark-900);
+  border: 2px solid var(--color-accent-500);
 }
 
-.link {
-  background-color: yellow;
+.tertiary:active {
+  background-color: var(--color-accent-700);
 }
+
+.tertiary:not(:active):hover {
+  background-color: var(--color-dark-500);
+}
+
+.link, .link:visited {
+  display: inline-block;
+
+  padding: 6px 16px;
+
+  font-size: var(--font-size-m);
+  color: var(--color-accent-500);
+  text-decoration: none;
+
+}
+
+.link:active, .link:active:visited {
+  color: var(--color-accent-700);
+}
+
+;
+
+.link:focus {
+  border-radius: 20px;
+}
+
+.link:hover {
+  color: var(--color-accent-300);
+}
+
+
+
+.disabledLink{
+  pointer-events: none; /* Запретить события указателя */
+  cursor: not-allowed; /* Изменить курсор */
+  text-decoration: none; /* Убрать подчеркивание */
+  opacity: 0.5;
+}
+
+//.link:visited {
+//  color: var(--color-accent-500);
+//}
+//
+//.link:focus, .link:visited:focus {
+//  color: var(--color-accent-500);
+//  border-radius: 20px;
+//}
+//
+//.link:focus {
+//  color: var(--color-accent-500);
+//}
+//
+// .link:active:visited {
+//   color: var(--color-accent-700);
+// };
+//
+//.link-disabled {
+//  pointer-events: none;
+//  color: var(--color-accent-900);
+//  border: none;
+//};
+//
+//.link-disabled:focus{
+//
+//}
+
+.link-disabled:active {
+  color: red;
+  border: none
+}
+
+.link-disabled:active:visited:hover, .link-disabled:active:hover {
+  cursor: none;
+  font-size: 20px;
+  color: red;
+  border: none
+}
+
 
 .fullWidth {
   width: 100%;
 }
+

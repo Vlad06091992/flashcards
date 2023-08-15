@@ -6,6 +6,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.material-icons{
+  font-size: var(--font-size-s)
+}
+
 *,
 *::before,
 *::after {

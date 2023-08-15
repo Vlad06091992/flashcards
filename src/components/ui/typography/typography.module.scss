@@ -1,0 +1,65 @@
+@mixin typography($weight,$size,$line-height) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+  color: var(--color-dark-900)npm install @radix-ui/react-checkbox
+
+}
+
+.large {
+  @include typography(var(--font-weight-bold), var(--font-size-xxl), var(--line-height-l));
+}
+
+.h1 {
+  @include typography((--font-weight-bold), var(--font-size-xl), var(--line-height-l))
+}
+
+.h2 {
+  @include typography((--font-weight-bold), var(--font-size-l), var(--line-height-m))
+}
+
+.h3 {
+  @include typography((--font-weight-bold), var(--font-size-m), var(--line-height-m))
+}
+
+.body1 {
+  @include typography((--font-weight-regular), var(--font-size-m), var(--line-height-m))
+}
+
+.body2 {
+  @include typography((--font-weight-regular), var(--font-size-s), var(--line-height-m))
+}
+
+.subtitle1 {
+  @include typography((--font-weight-bold), var(--font-size-m), var(--line-height-m))
+}
+
+.subtitle2 {
+  @include typography((--font-weight-bold), var(--font-size-s), var(--line-height-m))
+}
+
+.caption {
+  @include typography((--font-weight-regular), var(--font-size-xs), var(--line-height-s
+  ))
+}
+
+.overline {
+  @include typography((--font-weight-bold), var(--font-size-xs), var(--line-height-s))
+}
+
+.link1, link1:visited {
+  @include typography((--font-weight-regular), var(--font-size-s), var(--line-height-m));
+
+  cursor: pointer;
+  color: var(--color-info-500);
+  text-decoration: underline;
+}
+
+.link2, link2:visited {
+  @include typography((--font-weight-regular), var(--font-size-xs), var(--line-height-s));
+
+  cursor: pointer;
+  color: var(--color-info-500);
+  text-decoration: underline;
+}
+

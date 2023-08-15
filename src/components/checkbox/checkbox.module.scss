@@ -1,0 +1,117 @@
+//@import '@radix-ui/colors/black-alpha.css';
+//@import '@radix-ui/colors/violet.css';
+
+/* reset */
+* {
+  outline: none;
+}
+
+.root {
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+
+.root_disabled {
+  display: flex;
+  align-items: center;
+  opacity: 0.5;
+}
+
+.root_disabled::before {
+  opacity: 0;
+}
+
+.root::before {
+  content: '';
+
+  position: relative;
+  z-index: 2;
+  left: 17px;
+
+  width: 36px;
+  height: 36px;
+  margin: -10px;
+
+  opacity: 0;
+  background-color: grey;
+  border-radius: 18px;
+}
+
+button {
+  all: unset;
+}
+
+.root:hover::before {
+  color: var(--color-dark-500);
+  opacity: 1;
+
+}
+
+.root:focus::before {
+  color: green;
+  opacity: 1;
+
+
+}
+
+:root:focus {
+
+
+}
+
+
+.CheckboxIndicator:focus {
+  font-size: 100px;
+  color: var(--color-dark-100);
+  opacity: 1;
+}
+
+
+.CheckboxRoot {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+
+  background-color: var(--color-light-100);
+  border-radius: 4px;
+
+  //box-shadow: 0 2px 10px green;
+}
+
+
+.CheckboxRoot_checked {
+  width: 14px;
+  height: 14px;
+  background-color: var(--color-dark-900);
+  border: 2px solid var(--color-light-900);
+}
+
+
+.CheckboxIndicator {
+  color: var(--color-dark-900);
+}
+
+.CheckboxIndicator
+.CheckboxIcon {
+  position: relative;
+  z-index: 2;
+  top: 2px
+}
+
+.label {
+  padding-left: 15px;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--color-light-900);
+}
+
+.label_checked {
+  color: var(--color-light-100);
+}
