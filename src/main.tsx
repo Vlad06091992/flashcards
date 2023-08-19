@@ -3,7 +3,6 @@ import '@fontsource/roboto/700.css'
 import './styles/index.scss'
 import { StrictMode } from 'react'
 
-import { Theme } from '@radix-ui/themes'
 import { createRoot } from 'react-dom/client'
 
 import App from './App.tsx'

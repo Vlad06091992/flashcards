@@ -1,0 +1,22 @@
+
+input {
+width: 191px;
+  padding: 5px 10px 5px 26px;
+
+  font-size: 10px;
+  color: var(--color-dark-300); /* Цвет текста */
+  letter-spacing: 0.3px;
+
+  background-color: var(--color-dark-900); /* Желаемый цвет фона */
+}
+
+.inputPrimary {
+  border: 1px solid var(--color-dark-300);
+}
+
+.icon {
+  position: relative;
+  top:4px;
+  left: 20px;
+  color: var(--color-dark-300)
+}

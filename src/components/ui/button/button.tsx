@@ -7,6 +7,8 @@ import s from './button.module.scss'
  * Shows a button
  */
 
+//icons - material icons
+
 export type ButtonProps<T extends ElementType = 'button'> = {
   /*tag*/
   as?: T

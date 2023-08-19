@@ -6,15 +6,18 @@ import { runStep } from '@storybook/addon-interactions/dist/preview'
 
 import s from './checkbox.module.scss'
 
-export const CheckboxComponent: React.FC<ComponentPropsWithoutRef<'input'>> = ({
+type Props = {
+  label?: string
+}
+
+export const CheckboxComponent: React.FC<ComponentPropsWithoutRef<'input'> & Props> = ({
   className,
   checked,
   defaultChecked,
   disabled,
+  label,
   ...restProps
 }) => {
-  // debugger
-
   const [toggleChecked, setChecked] = useState(checked || defaultChecked)
 
   return (
@@ -44,9 +47,7 @@ export const CheckboxComponent: React.FC<ComponentPropsWithoutRef<'input'>> = ({
               <CheckIcon className={s.CheckboxIcon} />
             </Checkbox.Indicator>
           </Checkbox.Root>
-          <span className={toggleChecked ? `${s.label} ${s.label_checked}` : s.label}>
-            Check-box
-          </span>
+          <span className={toggleChecked ? `${s.label} ${s.label_checked}` : s.label}>{label}</span>
         </div>
       </label>
     </form>

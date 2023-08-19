@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { FieldForLogoutButton } from './FieldForLogoutButton.tsx'
+
 import { Button } from './'
 
 const meta = {
@@ -39,6 +41,16 @@ export const Tertiary: Story = {
     disabled: false,
   },
 }
+
+export const WithIcon: Story = {
+  args: {
+    as: 'button',
+    variant: 'tertiary',
+    children: FieldForLogoutButton(),
+    disabled: false,
+  },
+}
+
 // export const Link: Story = {
 //     args: {
 //         variant: 'link',
