@@ -45,6 +45,7 @@ export const Tertiary: Story = {
 export const WithIcon: Story = {
   args: {
     as: 'button',
+
     variant: 'tertiary',
     children: FieldForLogoutButton(),
     disabled: false,

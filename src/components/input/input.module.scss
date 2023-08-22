@@ -1,22 +1,95 @@
+.rootSearchAndVisible {
+  position: relative;
+  right: 20px;
+}
 
 input {
-width: 191px;
-  padding: 5px 10px 5px 26px;
-
-  font-size: 10px;
+  font-size: var(--font-size-m);
   color: var(--color-dark-300); /* Цвет текста */
-  letter-spacing: 0.3px;
-
   background-color: var(--color-dark-900); /* Желаемый цвет фона */
+}
+
+input:hover {
+  background-color: var(--color-dark-700)
+}
+
+input:active {
+  border: 1px solid var(--color-info-700);
+}
+
+input:focus {
+  border: 1px solid var(--color-info-700);
+}
+
+.inputStandart{
+  width: 283px;
+  padding: 7px 10px;
+}
+
+.inputSearch {
+  width: 283px;
+  padding: 7px 10px 7px 40px;
+}
+
+.inputVisible {
+  width: 283px;
+  padding: 7px 40px 7px 10px;
 }
 
 .inputPrimary {
   border: 1px solid var(--color-dark-300);
 }
 
-.icon {
+.inputPrimary:focus {
+  border: 2px solid var(--color-info-700);
+  outline: none;
+}
+
+.inputPrimary:active  {
+  border: 2px solid white;
+  outline: none;
+}
+
+.inputError, .inputError:focus, .inputError:active{
+  color:var(--color-danger-300);
+  border: 1px solid var(--color-danger-300);
+}
+
+.iconSearch {
   position: relative;
-  top:4px;
-  left: 20px;
+  top: 4px;
+  left: 30px;
+
+  font-size: 20px;
   color: var(--color-dark-300)
+}
+
+.iconVisible {
+  position: relative;
+  top: 4px;
+  left: 272px;
+
+  font-size: 20px;
+  color: white;
+}
+
+.errorDescription{
+  position: relative;
+  left:20px;
+
+  margin:0;
+
+  font-size:var(--font-size-xs);
+  color:red;
+}
+
+.errorDescriptionStandart{
+  position: static;
+}
+
+.inputDisabled{
+  pointer-events: none; /* Запретить события указателя */
+  cursor: not-allowed; /* Изменить курсор */
+  text-decoration: none; /* Убрать подчеркивание */
+  opacity: 0.5;
 }

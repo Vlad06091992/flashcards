@@ -4,8 +4,8 @@ import { Input } from './components/input/input.tsx'
 
 function App() {
   return (
-    <div>
-      <Input />
+    <div style={{ display: 'flex' }}>
+      <Input placeholder={'Input'} disabled={true} variant={'visible'} />
     </div>
   )
 }

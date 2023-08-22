@@ -6,7 +6,7 @@ export const FieldForLogoutButton = () => {
       <span style={{ fontFamily: 'Material Icons' }} className="material-icons">
         logout
       </span>
-      <div>Button primary</div>
+      <div style={{ paddingLeft: '10px' }}>Button primary</div>
     </div>
   )
 }

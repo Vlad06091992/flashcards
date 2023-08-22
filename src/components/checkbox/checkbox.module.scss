@@ -52,7 +52,6 @@ button {
 .root:hover::before {
   color: var(--color-dark-500);
   opacity: 1;
-
 }
 
 .root:hover:focus::before, .root:hover:active::before {
