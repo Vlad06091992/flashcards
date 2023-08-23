@@ -1,13 +1,15 @@
 //Input, button, таблицы, карточка, пагинация  --- нативно, остальные на основе Radix
 
-import { Input } from './components/input/input.tsx'
+import { useRef } from 'react'
 
-function App() {
+import { LoginForm } from '@/components/auth/login-form/login-form.tsx'
+
+export const App = () => {
   return (
-    <div style={{ display: 'flex' }}>
-      <Input placeholder={'Input'} disabled={true} variant={'visible'} />
+    <div>
+      <LoginForm />
     </div>
   )
 }
 
-export default App
+// export default App

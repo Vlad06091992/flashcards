@@ -29,7 +29,6 @@ export const Typography = <T extends ElementType = 'h1'>({
   color,
   ...rest
 }: TypographyProps<T>) => {
-  // debugger
   let Component = as || 'h1'
 
   return <Component style={{ color }} className={`${s[variant]} ${className} `} {...rest} />

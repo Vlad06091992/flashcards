@@ -21,18 +21,24 @@ input:focus {
   border: 1px solid var(--color-info-700);
 }
 
-.inputStandart{
-  width: 283px;
+.inputStandart {
+  width: 90%;
+
+  //width: 283px;
   padding: 7px 10px;
 }
 
 .inputSearch {
-  width: 283px;
+  width: 90%;
+
+  //width: 283px;
   padding: 7px 10px 7px 40px;
 }
 
 .inputVisible {
-  width: 283px;
+  width: 90%;
+
+  //width: 283px;
   padding: 7px 40px 7px 10px;
 }
 
@@ -45,13 +51,13 @@ input:focus {
   outline: none;
 }
 
-.inputPrimary:active  {
+.inputPrimary:active {
   border: 2px solid white;
   outline: none;
 }
 
-.inputError, .inputError:focus, .inputError:active{
-  color:var(--color-danger-300);
+.inputError, .inputError:focus, .inputError:active {
+  color: var(--color-danger-300);
   border: 1px solid var(--color-danger-300);
 }
 
@@ -73,21 +79,33 @@ input:focus {
   color: white;
 }
 
-.errorDescription{
+.errorDescription {
   position: relative;
-  left:20px;
+  left: 20px;
 
-  margin:0;
+  margin: 0;
 
-  font-size:var(--font-size-xs);
-  color:red;
+  font-size: var(--font-size-xs);
+  color: red;
 }
 
-.errorDescriptionStandart{
+.label {
+  position: relative;
+  margin: 0;
+  font-size: var(--font-size-xs);
+  color: var(--color-dark-100);
+}
+
+.labelStandart {
+  position: relative;
+  left: 20px;
+}
+
+.errorDescriptionStandart {
   position: static;
 }
 
-.inputDisabled{
+.inputDisabled {
   pointer-events: none; /* Запретить события указателя */
   cursor: not-allowed; /* Изменить курсор */
   text-decoration: none; /* Убрать подчеркивание */

@@ -8,7 +8,5 @@ type Props = ComponentPropsWithoutRef<'div'> & {}
 // })
 
 export const Card = React.forwardRef<HTMLDivElement, Props>(({ className, ...restProps }, ref) => {
-  debugger
-
   return <div className={`${className} ${s.root}`} ref={ref} {...restProps}></div>
 })

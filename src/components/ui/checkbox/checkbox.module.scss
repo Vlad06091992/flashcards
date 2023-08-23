@@ -3,17 +3,19 @@
 }
 
 .root {
-  position: absolute;
-
-  //left: -17px;
+  position: relative;
+  left: -20px;
 
   display: flex;
   align-items: center;
+
   margin: 0;
+  padding: 15px;
 }
 
 .root_disabled {
   position: relative;
+  left: -20px;
 
   display: flex;
   flex-wrap: wrap;
@@ -70,6 +72,7 @@ button {
   position: relative;
   z-index: 2;
 
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,8 +87,11 @@ button {
 
 
 .CheckboxRoot_checked {
+  position: relative;
+
   width: 14px;
   height: 14px;
+
   background-color: var(--color-dark-900);
   border: 2px solid var(--color-light-900);
 }
@@ -99,7 +105,7 @@ button {
 .CheckboxIcon {
   position: relative;
   z-index: 2;
-  top: 2px
+  top: 1px
 }
 
 .label {
