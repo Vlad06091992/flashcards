@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, useState } from 'react'
+import { ComponentPropsWithoutRef } from 'react'
 
 import * as Checkbox from '@radix-ui/react-checkbox'
 import { CheckIcon } from '@radix-ui/react-icons'
@@ -10,7 +10,9 @@ type Props = {
   onChange: (arg: boolean) => void
 }
 
-export const CheckboxComponent: React.FC<ComponentPropsWithoutRef<'input'> & Props> = ({
+export type CheckBoxProps = ComponentPropsWithoutRef<'input'> & Props
+
+export const CheckboxComponent: React.FC<CheckBoxProps> = ({
   checked,
 
   disabled,
@@ -20,7 +22,7 @@ export const CheckboxComponent: React.FC<ComponentPropsWithoutRef<'input'> & Pro
   // const [toggleChecked, setChecked] = useState(checked)
 
   return (
-    <form>
+    <div>
       <label className={s.Label} htmlFor="c1">
         <div
           tabIndex={1}
@@ -46,8 +48,6 @@ export const CheckboxComponent: React.FC<ComponentPropsWithoutRef<'input'> & Pro
           <span className={checked ? `${s.label} ${s.label_checked}` : s.label}>{label}</span>
         </div>
       </label>
-    </form>
+    </div>
   )
 }
-
-export default CheckboxComponent
