@@ -1,6 +1,8 @@
 //Input, button, таблицы, карточка, пагинация  --- нативно, остальные на основе Radix
 
-import { LoginForm, Typography } from '@/components'
+import { Typography } from '../src/components/ui/typography/typography.tsx'
+
+import { LoginForm } from '@/components'
 
 export const App = () => {
   return (
