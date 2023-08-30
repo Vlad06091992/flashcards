@@ -1,18 +1,31 @@
-import { useController, UseControllerProps } from 'react-hook-form'
+import { PathValue, useController, UseControllerProps } from 'react-hook-form'
 
 import { CheckboxComponent, CheckBoxProps } from '@/components'
+import { LoginFormType } from '@/components/auth/login-form/login-form.tsx'
 
-export const ControlledCheckbox = ({
+type Props<T extends LoginFormType> = UseControllerProps<T> &
+  Omit<CheckBoxProps, 'onChange' | 'value' | 'id'>
+
+export const ControlledCheckbox = <T extends LoginFormType>({
   control,
   name,
   shouldUnregister,
   rules,
   defaultValue,
   ...restProps
-}: UseControllerProps<any> & Omit<CheckBoxProps, 'onChange' | 'value' | 'id'>) => {
+}: Props<T>) => {
   const {
     field: { value, onChange },
-  } = useController({ control, name, defaultValue: false })
+  } = useController({ control, name, defaultValue: false as PathValue<boolean, () => boolean> })
 
-  return <CheckboxComponent {...{ onChange, checked: value, ...restProps }} />
+  return (
+    <CheckboxComponent
+      {...{
+        onChange,
+        checked: value as boolean,
+        id: name,
+        ...restProps,
+      }}
+    />
+  )
 }

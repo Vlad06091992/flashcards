@@ -1,3 +1,4 @@
+import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -7,37 +8,39 @@ import { ControlledCheckbox } from '@/components/ui/controlled'
 import { Input } from '@/components/ui/input/input.tsx'
 
 const loginSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(3, { message: 'минимальная длина пароля 3 символа' }),
-  rememberMe: z.boolean().default(false),
+  email: z.string().email().default(''),
+  password: z.string().min(3, { message: 'минимальная длина пароля 3 символа' }).default(''),
+  rememberMe: z.boolean().default(false).default(false),
 })
 
 export type LoginFormType = z.infer<typeof loginSchema>
-
-type FormValues = {
-  email: string
-  password: string
-  rememberMe?: boolean
-}
 
 export const LoginForm = () => {
   const { register, handleSubmit, control, formState } = useForm<LoginFormType>({
     resolver: zodResolver(loginSchema),
   })
 
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = (data: LoginFormType) => {
     console.log(data)
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      {/*rhv dev too*/}
+      <DevTool control={control} />
+      {/*rhv dev too*/}
       <Input {...register('email')} error={formState.errors?.email?.message} label={'email'} />
       <Input
         {...register('password')}
         error={formState.errors.password?.message}
         label={'password'}
       />
-      <ControlledCheckbox name={'rememberMe'} control={control} label={'remember me'} />
+      <ControlledCheckbox
+        name={'rememberMe'}
+        control={control}
+        label={'remember me'}
+        disabled={false}
+      />
       <Button type="submit">Submit</Button>
     </form>
   )

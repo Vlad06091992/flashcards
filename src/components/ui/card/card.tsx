@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef, FC } from 'react'
+import React, { ComponentPropsWithoutRef } from 'react'
 
 import s from './card.module.scss'
 
