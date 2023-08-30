@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Typography } from '../typography/typography.tsx'
-
 import { Card } from './card.tsx'
+
+import { Typography } from '@/components'
 
 const meta = {
   title: 'Components/Card',
