@@ -1,22 +1,24 @@
 //Input, button, таблицы, карточка, пагинация  --- нативно, остальные на основе Radix
 
-import { LoginForm, Typography } from '@/components'
-import RadioGroup, { RadioGroupDataType } from '@/components/ui/radio-group/radio-group.tsx'
+import { LoginForm, Typography, RadioGroup, RadioGroupDemo, RadioGroupDataType } from '@/components'
 
 export const App = () => {
   const data: RadioGroupDataType[] = [
-    { value: 'default', id: 'r1' },
-    { value: 'comfortable', id: 'r2' },
-    { value: 'compact', id: 'r3' },
+    { value: 'default', id: 'r1', label: 'default' },
+    { value: 'comfortable', id: 'r2', label: 'comfortable' },
+    { value: 'compact', id: 'r3', label: 'compact' },
+  ]
+  //
+
+  const options = [
+    { label: 'one', value: '1' },
+    { label: 'two', value: '2' },
   ]
 
   return (
     <div>
-      {/*<LoginForm />*/}
-      {/*<Typography color={'white'} variant={'large'}>*/}
-      {/*  Card*/}
-      {/*</Typography>*/}
-      <RadioGroup data={data} />
+      <RadioGroupDemo disabled={false} data={data} />
+      {/*<RadioGroup options={options} />*/}
     </div>
   )
 }
