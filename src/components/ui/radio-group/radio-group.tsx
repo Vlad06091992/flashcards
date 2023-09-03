@@ -1,21 +1,25 @@
 import React from 'react'
 
 import * as RadioGroup from '@radix-ui/react-radio-group'
+import { RadioGroupIndicator } from '@radix-ui/react-radio-group'
 
 import style from './radio-group.module.scss'
 
 export type RadioGroupDataType = {
   value: string
   id: string
+  label: string
 }
 
 export type Props = {
   data: RadioGroupDataType[]
+  disabled?: boolean
 }
 
-const RadioGroupDemo = ({ data }: Props) => (
+const RadioGroupDemo = ({ data, disabled }: Props) => (
   <form>
     <RadioGroup.Root
+      disabled={disabled}
       onValueChange={(value: string) => {
         console.log(value)
       }}
@@ -24,30 +28,29 @@ const RadioGroupDemo = ({ data }: Props) => (
       aria-label="View density"
     >
       {data.map(el => {
-        return <RadioGroupItem value={el.value} id={el.id} key={el.id} />
+        return (
+          <div
+            className={disabled ? style.disabled : ''}
+            key={el.id}
+            style={{ position: 'relative', display: 'flex', alignItems: 'center', margin: '10px' }}
+          >
+            <RadioGroup.Item
+              className={style.RadioGroupItem}
+              value={el.value}
+              id={el.id}
+              key={el.id}
+            >
+              <RadioGroupIndicator className={style.RadioGroupIndicator} />
+            </RadioGroup.Item>
+
+            <label className="Label" htmlFor={el.id}>
+              {el.label}
+            </label>
+          </div>
+        )
       })}
     </RadioGroup.Root>
   </form>
 )
 
-const RadioGroupItem = ({ value, id }: RadioGroupDataType) => {
-  return (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-      <RadioGroup.Item
-        className={style.RadioGroupItem}
-        value={value}
-        id={id}
-        onChange={() => {
-          debugger
-        }}
-      >
-        <RadioGroup.Indicator className={style.RadioGroupIndicator} />
-      </RadioGroup.Item>
-      <label className="Label" htmlFor={id}>
-        {value}
-      </label>
-    </div>
-  )
-}
-
-export default RadioGroupDemo
+export { RadioGroupDemo }
