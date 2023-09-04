@@ -1,13 +1,16 @@
-import { useController } from 'react-hook-form'
+import { Control, FieldValues, Path, useController } from 'react-hook-form'
 
 import { Textfield, TextfieldProps } from '@/components'
 
-type ControlledTextfieldProps = {
-  control: any
-  name: string
+type ControlledTextfieldProps<TFieldValues extends FieldValues> = {
+  control: Control<TFieldValues>
+  name: Path<TFieldValues>
 } & Omit<TextfieldProps, 'onChange' | 'value' | 'id' | 'name'>
 
-export const ControlledTextfield = ({ control, ...restProps }: ControlledTextfieldProps) => {
+export const ControlledTextfield = <TFieldValues extends FieldValues>({
+  control,
+  ...restProps
+}: ControlledTextfieldProps<TFieldValues>) => {
   const {
     field: { value, onChange },
   } = useController({
