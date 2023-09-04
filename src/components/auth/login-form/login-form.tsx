@@ -3,20 +3,27 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
+import { RadioGroupOptionsType } from '@/components'
 import { Button } from '@/components/ui/button/button.tsx'
-import { ControlledCheckbox } from '@/components/ui/controlled'
-import { Input } from '@/components/ui/input/input.tsx'
+import { ControlledCheckbox, ControlledRadioGroup } from '@/components/ui/controlled'
+import { ControlledTextfield } from '@/components/ui/controlled/controlled-textfield.tsx'
 
 const loginSchema = z.object({
   email: z.string().email().default(''),
   password: z.string().min(3, { message: 'минимальная длина пароля 3 символа' }).default(''),
+  options: z.string().default(''),
   rememberMe: z.boolean().default(false).default(false),
 })
+
+const options: RadioGroupOptionsType[] = [
+  { value: 'RadioGroup', id: 'r1', label: 'RadioGroup' },
+  { value: 'comfortable', id: 'r2', label: 'comfortable' },
+]
 
 export type LoginFormType = z.infer<typeof loginSchema>
 
 export const LoginForm = () => {
-  const { register, handleSubmit, control, formState } = useForm<LoginFormType>({
+  const { handleSubmit, control, formState } = useForm<LoginFormType>({
     resolver: zodResolver(loginSchema),
   })
 
@@ -26,21 +33,30 @@ export const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {/*rhv dev too*/}
       <DevTool control={control} />
-      {/*rhv dev too*/}
-      <Input {...register('email')} error={formState.errors?.email?.message} label={'email'} />
-      <Input
-        {...register('password')}
-        error={formState.errors.password?.message}
+
+      <ControlledTextfield
+        control={control}
+        error={formState.errors?.email?.message}
+        name={'email'}
+        label={'email'}
+      />
+
+      <ControlledTextfield
+        control={control}
+        error={formState.errors?.password?.message}
+        name={'password'}
         label={'password'}
       />
+
       <ControlledCheckbox
         name={'rememberMe'}
         control={control}
         label={'remember me'}
         disabled={false}
       />
+      <ControlledRadioGroup options={options} control={control} name={'options'} />
+
       <Button type="submit">Submit</Button>
     </form>
   )
@@ -74,7 +90,7 @@ export const LoginForm = () => {
 //
 //   return (
 //     <form onSubmit={handleSubmit(onSubmit)}>
-//       <Input
+//       <Textfield
 //         {...register('email', {
 //           required: 'Email is required',
 //           pattern: { value: emailRegex, message: 'invalid email' },
@@ -82,7 +98,7 @@ export const LoginForm = () => {
 //         error={formState.errors?.email?.message}
 //         label={'email'}
 //       />
-//       <Input
+//       <Textfield
 //         {...register('password', {
 //           minLength: {
 //             value: 3,

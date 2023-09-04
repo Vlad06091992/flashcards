@@ -21,7 +21,7 @@ export const RadioGroupComponent = ({
   onChange,
   ...restProps
 }: RadioGroupPropsTypes) => (
-  <form>
+  <div>
     <RadioGroup.Root
       disabled={disabled}
       onValueChange={() => onChange}
@@ -57,5 +57,5 @@ export const RadioGroupComponent = ({
         )
       })}
     </RadioGroup.Root>
-  </form>
+  </div>
 )
