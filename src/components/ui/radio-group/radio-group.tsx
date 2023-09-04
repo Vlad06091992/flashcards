@@ -1,33 +1,35 @@
-import React from 'react'
-
 import * as RadioGroup from '@radix-ui/react-radio-group'
-import { RadioGroupIndicator } from '@radix-ui/react-radio-group'
+import { RadioGroupIndicator, RadioGroupProps } from '@radix-ui/react-radio-group'
 
 import style from './radio-group.module.scss'
 
-export type RadioGroupDataType = {
+import { Typography } from '@/components'
+
+export type RadioGroupOptionsType = {
   value: string
   id: string
   label: string
 }
 
-export type Props = {
-  data: RadioGroupDataType[]
-  disabled?: boolean
-}
+export type RadioGroupPropsTypes = {
+  options: RadioGroupOptionsType[]
+} & RadioGroupProps
 
-const RadioGroupDemo = ({ data, disabled }: Props) => (
+export const RadioGroupComponent = ({
+  options,
+  disabled,
+  onChange,
+  ...restProps
+}: RadioGroupPropsTypes) => (
   <form>
     <RadioGroup.Root
       disabled={disabled}
-      onValueChange={(value: string) => {
-        console.log(value)
-      }}
+      onValueChange={() => onChange}
       className="RadioGroupRoot"
-      defaultValue="default"
       aria-label="View density"
+      {...restProps}
     >
-      {data.map(el => {
+      {options.map(el => {
         return (
           <div
             className={disabled ? style.disabled : ''}
@@ -43,14 +45,17 @@ const RadioGroupDemo = ({ data, disabled }: Props) => (
               <RadioGroupIndicator className={style.RadioGroupIndicator} />
             </RadioGroup.Item>
 
-            <label className="Label" htmlFor={el.id}>
-              {el.label}
-            </label>
+            <Typography
+              style={{ marginLeft: '6px', color: 'white' }}
+              variant={'body2'}
+              as={'label'}
+              htmlFor={el.value}
+            >
+              <label htmlFor={el.id}> {el.label}</label>
+            </Typography>
           </div>
         )
       })}
     </RadioGroup.Root>
   </form>
 )
-
-export { RadioGroupDemo }
