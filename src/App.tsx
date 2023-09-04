@@ -1,11 +1,12 @@
-//Input, button, таблицы, карточка, пагинация  --- нативно, остальные на основе Radix
+//Textfield, button, таблицы, карточка, пагинация  --- нативно, остальные на основе Radix
 
-import TestControlledRadioGroupAndInput from '@/components/TestControlledRadioGroupAndInput/TestControlledRadioGroupAndInput.tsx'
+import { LoginForm } from '@/components'
 
 export const App = () => {
   return (
     <div>
-      <TestControlledRadioGroupAndInput />
+      <LoginForm />
+      {/*<TestControlledRadioGroupAndInput />*/}
       {/*<RadioGroupDemo disabled={false} data={data} />*/}
       {/*<RadioGroup options={options} />*/}
     </div>
