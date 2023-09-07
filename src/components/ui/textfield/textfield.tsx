@@ -2,6 +2,8 @@ import { ComponentPropsWithoutRef, forwardRef, useState } from 'react'
 
 import s from './textfield.module.scss'
 
+import { Typography } from '@/components'
+
 export type TextfieldProps = {
   error?: string
   variant?: 'search' | 'visible'
@@ -27,12 +29,10 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
     const [visible, setVisible] = useState(type == 'password')
 
     return (
-      <div
-        className={`${variant == 'search' || variant == 'visible' ? s.rootSearchAndVisible : ''}  ${
-          disabled ? s.inputDisabled : ''
-        }`}
-      >
-        <span className={!variant ? s.label : `${s.label} ${s.labelStandart}`}>{label}</span>
+      <div className={` ${disabled ? s.inputDisabled : ''}`}>
+        <Typography variant={'body2'} className={s.label}>
+          {label}
+        </Typography>
         {!variant && (
           <div>
             <input
@@ -48,22 +48,22 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
         )}
 
         {variant == 'visible' && (
-          <div>
+          <div style={{ position: 'relative' }}>
             {visible && (
-              <span
+              <div
                 onClick={() => setVisible(!visible)}
                 className={`material-icons ${s.iconVisible}`}
               >
                 visibility
-              </span>
+              </div>
             )}
             {!visible && (
-              <span
+              <div
                 onClick={() => setVisible(!visible)}
                 className={`material-icons ${s.iconVisible}`}
               >
                 visibility_off
-              </span>
+              </div>
             )}
 
             <input

@@ -9,6 +9,7 @@ type ControlledTextfieldProps<TFieldValues extends FieldValues> = {
 
 export const ControlledTextfield = <TFieldValues extends FieldValues>({
   control,
+  className,
   ...restProps
 }: ControlledTextfieldProps<TFieldValues>) => {
   const {
@@ -19,5 +20,5 @@ export const ControlledTextfield = <TFieldValues extends FieldValues>({
     rules: { required: true },
   })
 
-  return <Textfield onChange={onChange} value={value} {...restProps} />
+  return <Textfield className={className} onChange={onChange} value={value} {...restProps} />
 }

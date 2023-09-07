@@ -3,19 +3,16 @@
 }
 
 .root {
-  position: relative;
-  left: -20px;
-
   display: flex;
   align-items: center;
-
   margin: 0;
-  padding: 15px;
+
+  //padding: 15px;
 }
 
 .root_disabled {
   position: relative;
-  left: -20px;
+  left: -22px;
 
   display: flex;
   flex-wrap: wrap;
@@ -35,7 +32,7 @@
 
   position: relative;
   z-index: 2;
-  left: 17px;
+  left: 16px;
 
   width: 36px;
   height: 36px;
@@ -77,8 +74,8 @@ button {
   align-items: center;
   justify-content: center;
 
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
 
   background-color: var(--color-light-100);
   border-radius: 4px;
@@ -89,11 +86,11 @@ button {
 .CheckboxRoot_checked {
   position: relative;
 
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
 
   background-color: var(--color-dark-900);
-  border: 2px solid var(--color-light-900);
+  outline: 2px solid var(--color-light-900);
 }
 
 

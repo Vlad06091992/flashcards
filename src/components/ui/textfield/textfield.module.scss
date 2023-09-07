@@ -1,12 +1,9 @@
-.rootSearchAndVisible {
-  position: relative;
-  right: 20px;
-}
 
 input {
   font-size: var(--font-size-m);
-  color: var(--color-dark-300); /* Цвет текста */
+  color: var(--color-light-100); /* Цвет текста */
   background-color: var(--color-dark-900); /* Желаемый цвет фона */
+  border: 1px solid grey;
 }
 
 input:hover {
@@ -14,11 +11,11 @@ input:hover {
 }
 
 input:active {
-  border: 1px solid var(--color-info-700);
+  outline: 1px solid var(--color-info-700);
 }
 
 input:focus {
-  border: 1px solid var(--color-info-700);
+  outline: 1px solid var(--color-info-700);
 }
 
 .inputStandart {
@@ -43,22 +40,24 @@ input:focus {
 }
 
 .inputPrimary {
-  border: 1px solid var(--color-dark-300);
+  outline: 1px solid var(--color-dark-300);
 }
 
 .inputPrimary:focus {
-  border: 2px solid var(--color-info-700);
-  outline: none;
+  outline: 2px solid var(--color-info-700);
+
+  //outline: none;
 }
 
 .inputPrimary:active {
-  border: 2px solid white;
-  outline: none;
+  outline: 2px solid var(--color-light-100);
+
+  //outline: none;
 }
 
 .inputError, .inputError:focus, .inputError:active {
   color: var(--color-danger-300);
-  border: 1px solid var(--color-danger-300);
+  outline: 1px solid var(--color-danger-300);
 }
 
 .iconSearch {
@@ -71,9 +70,11 @@ input:focus {
 }
 
 .iconVisible {
-  position: relative;
-  top: 4px;
-  left: 272px;
+  position: absolute;
+  top: 8px;
+  left: 85%;
+
+  width: 20px;
 
   font-size: 20px;
   color: white;
@@ -91,9 +92,13 @@ input:focus {
 
 .label {
   position: relative;
+  left: 20px;
+
   margin: 0;
-  font-size: var(--font-size-xs);
+
+  //font-size: var(--font-size-xs);
   color: var(--color-dark-100);
+ text-align: left;
 }
 
 .labelStandart {
