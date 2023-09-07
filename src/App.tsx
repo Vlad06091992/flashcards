@@ -1,14 +1,17 @@
 //Textfield, button, таблицы, карточка, пагинация  --- нативно, остальные на основе Radix
 
-import { LoginForm } from '@/components'
+import { CheckboxComponent, LoginForm, SignIn, Textfield } from '@/components'
 
 export const App = () => {
   return (
     <div>
-      <LoginForm />
-      {/*<TestControlledRadioGroupAndInput />*/}
-      {/*<RadioGroupDemo disabled={false} data={data} />*/}
-      {/*<RadioGroup options={options} />*/}
+      {/*<LoginForm />*/}
+      <SignIn />
+      {/*<*/}
+      {/*<span>123</span>*/}
+      {/*<CheckboxComponent checked={true} onChange={() => {}} />*/}
+      {/*<Textfield />*/}
+      <div style={{ width: '420px' }}></div>
     </div>
   )
 }

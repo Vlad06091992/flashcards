@@ -13,6 +13,7 @@
 
 .button:focus {
   outline: 2px solid var(--color-info-500);
+
   //outline: none;
 }
 
@@ -89,40 +90,13 @@
 }
 
 
-
-.disabledLink{
+.disabledLink {
   pointer-events: none; /* Запретить события указателя */
   cursor: not-allowed; /* Изменить курсор */
   text-decoration: none; /* Убрать подчеркивание */
   opacity: 0.5;
 }
 
-//.link:visited {
-//  color: var(--color-accent-500);
-//}
-//
-//.link:focus, .link:visited:focus {
-//  color: var(--color-accent-500);
-//  border-radius: 20px;
-//}
-//
-//.link:focus {
-//  color: var(--color-accent-500);
-//}
-//
-// .link:active:visited {
-//   color: var(--color-accent-700);
-// };
-//
-//.link-disabled {
-//  pointer-events: none;
-//  color: var(--color-accent-900);
-//  border: none;
-//};
-//
-//.link-disabled:focus{
-//
-//}
 
 .link-disabled:active {
   color: red;
@@ -137,7 +111,7 @@
 }
 
 
-.fullWidth {
+.fullwidth {
   width: 100%;
 }
 

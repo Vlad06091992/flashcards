@@ -14,7 +14,7 @@ export type CheckBoxProps = ComponentPropsWithoutRef<'input'> & Props
 
 export const CheckboxComponent: React.FC<CheckBoxProps> = ({
   checked,
-
+  className,
   disabled,
   label,
   onChange,
@@ -22,7 +22,7 @@ export const CheckboxComponent: React.FC<CheckBoxProps> = ({
   // const [toggleChecked, setChecked] = useState(checked)
 
   return (
-    <div>
+    <div className={className}>
       <label className={s.Label} htmlFor="c1">
         <div
           tabIndex={1}

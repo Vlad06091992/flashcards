@@ -1,0 +1,14 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+
+  margin-top: 27px;
+
+  //align-items: center;
+}
+
+.checkbox {
+  align-self: start;
+}
