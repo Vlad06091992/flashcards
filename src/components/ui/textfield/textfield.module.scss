@@ -1,59 +1,50 @@
-
 input {
   font-size: var(--font-size-m);
   color: var(--color-light-100); /* Цвет текста */
   background-color: var(--color-dark-900); /* Желаемый цвет фона */
   border: 1px solid grey;
+
+  &:hover {
+    background-color: var(--color-dark-700)
+  }
+
+  &:active {
+    outline: 1px solid var(--color-info-700);
+  }
+
+  &:focus {
+    outline: 1px solid var(--color-info-700);
+  }
 }
 
-input:hover {
-  background-color: var(--color-dark-700)
-}
-
-input:active {
-  outline: 1px solid var(--color-info-700);
-}
-
-input:focus {
-  outline: 1px solid var(--color-info-700);
-}
 
 .inputStandart {
-  width: 90%;
-
-  //width: 283px;
+  width: 100%;
   padding: 7px 10px;
 }
 
 .inputSearch {
-  width: 90%;
-
-  //width: 283px;
+  width: 100%;
   padding: 7px 10px 7px 40px;
 }
 
 .inputVisible {
-  width: 90%;
-
-  //width: 283px;
+  width: 100%;
   padding: 7px 40px 7px 10px;
 }
 
 .inputPrimary {
   outline: 1px solid var(--color-dark-300);
+
+  &:focus {
+    outline: 2px solid var(--color-info-700);
+  }
+
+  &:active {
+    outline: 2px solid var(--color-light-100);
+  }
 }
 
-.inputPrimary:focus {
-  outline: 2px solid var(--color-info-700);
-
-  //outline: none;
-}
-
-.inputPrimary:active {
-  outline: 2px solid var(--color-light-100);
-
-  //outline: none;
-}
 
 .inputError, .inputError:focus, .inputError:active {
   color: var(--color-danger-300);
@@ -70,6 +61,8 @@ input:focus {
 }
 
 .iconVisible {
+  cursor: pointer;
+
   position: absolute;
   top: 8px;
   left: 85%;
@@ -77,7 +70,7 @@ input:focus {
   width: 20px;
 
   font-size: 20px;
-  color: white;
+  color: var(--color-light-100);
 }
 
 .errorDescription {
@@ -90,24 +83,14 @@ input:focus {
   color: red;
 }
 
-.label {
-  position: relative;
-  left: 20px;
-
-  margin: 0;
-
-  //font-size: var(--font-size-xs);
-  color: var(--color-dark-100);
- text-align: left;
-}
-
-.labelStandart {
-  position: relative;
-  left: 20px;
-}
-
 .errorDescriptionStandart {
   position: static;
+}
+
+.label {
+  margin: 0;
+  color: var(--color-dark-100);
+  text-align: left;
 }
 
 .inputDisabled {
@@ -116,3 +99,4 @@ input:focus {
   text-decoration: none; /* Убрать подчеркивание */
   opacity: 0.5;
 }
+
