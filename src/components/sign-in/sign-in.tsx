@@ -43,28 +43,19 @@ export const SignIn = () => {
         />
       </div>
 
-      <Button as={'a'} href={'#'} variant={'link'}>
-        forgot password
-      </Button>
+      <Typography as={'div'} variant={'body2'} className={s.recoverPassword}>
+        Forgot password ?
+      </Typography>
 
-      <Button
-        style={{
-          width: '348px',
-          boxSizing: 'border-box',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-        }}
-        fullWidth={true}
-        as={'button'}
-      >
+      <Button fullWidth={true} className={s.button}>
         Sign in
       </Button>
-      <Typography style={{ color: 'gray' }} variant={'body2'}>
+      <Typography className={s.caption} as={'div'} variant={'body2'}>
         Don't have an account ?
       </Typography>
-      <Button style={{ color: 'blue' }} as={'a'} href={'#'} variant={'link'}>
+      <Typography className={s.signUpLink} as={'div'} variant={'link2'}>
         Sign up
-      </Button>
+      </Typography>
     </Card>
   )
 }

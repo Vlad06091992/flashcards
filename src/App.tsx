@@ -9,9 +9,8 @@ export const App = () => {
       <SignIn />
       {/*<*/}
       {/*<span>123</span>*/}
-      {/*<CheckboxComponent checked={true} onChange={() => {}} />*/}
+
       {/*<Textfield />*/}
-      <div style={{ width: '420px' }}></div>
     </div>
   )
 }

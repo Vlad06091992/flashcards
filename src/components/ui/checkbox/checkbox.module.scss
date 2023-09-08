@@ -3,16 +3,50 @@
 }
 
 .root {
+  position: relative;
+  left: -16px;
+
   display: flex;
   align-items: center;
+
   margin: 0;
 
-  //padding: 15px;
+  &::before {
+    content: '';
+
+    position: relative;
+    z-index: 2;
+    left: 16px;
+
+    width: 36px;
+    height: 36px;
+    margin: -10px;
+
+    opacity: 0;
+    background-color: var(--color-dark-500);
+    border-radius: 18px;
+  }
+
+  &:hover::before {
+    color: var(--color-dark-500);
+    opacity: 1;
+  }
+
+  &:hover:focus::before, &:hover:active::before {
+    opacity: 1;
+    background: var(--color-dark-100);
+  }
+
+  &:not(:hover):focus::before, &:not(:hover):active::before {
+    opacity: 1;
+    background: var(--color-dark-100);
+  }
+
 }
 
 .root_disabled {
   position: relative;
-  left: -22px;
+  left: -16px;
 
   display: flex;
   flex-wrap: wrap;
@@ -21,54 +55,16 @@
   padding-left: 16px;
 
   opacity: 0.5;
-}
 
-.root_disabled::before {
-  opacity: 0;
-}
-
-.root::before {
-  content: '';
-
-  position: relative;
-  z-index: 2;
-  left: 16px;
-
-  width: 36px;
-  height: 36px;
-  margin: -10px;
-
-  opacity: 0;
-  background-color: var(--color-dark-500);
-  border-radius: 18px;
-}
-
-button {
-  all: unset;
-}
-
-
-.root:hover::before {
-  color: var(--color-dark-500);
-  opacity: 1;
-}
-
-.root:hover:focus::before, .root:hover:active::before {
-  opacity: 1;
-  background: var(--color-dark-100);
-}
-
-
-.root:not(:hover):focus::before, .root:not(:hover):active::before {
-  opacity: 1;
-  background: var(--color-dark-100);
+  &::before {
+    opacity: 0;
+  }
 }
 
 
 .CheckboxRoot {
   position: relative;
   z-index: 2;
-
 
   display: flex;
   align-items: center;
@@ -81,7 +77,6 @@ button {
   border-radius: 4px;
 
 }
-
 
 .CheckboxRoot_checked {
   position: relative;

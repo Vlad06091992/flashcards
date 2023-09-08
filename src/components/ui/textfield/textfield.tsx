@@ -30,7 +30,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
 
     return (
       <div className={` ${disabled ? s.inputDisabled : ''}`}>
-        <Typography variant={'body2'} className={s.label}>
+        <Typography variant="body2" as="h3" className={s.label}>
           {label}
         </Typography>
         {!variant && (

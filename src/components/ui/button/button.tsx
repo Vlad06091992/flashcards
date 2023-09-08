@@ -2,13 +2,6 @@ import { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
 
 import s from './button.module.scss'
 
-/**
- * # The Button component
- * Shows a button
- */
-
-//icons - material icons
-
 export type ButtonProps<T extends ElementType = 'button'> = {
   /*tag*/
   as?: T
