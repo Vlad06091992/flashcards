@@ -29,7 +29,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
     const [visible, setVisible] = useState(type == 'password')
 
     return (
-      <div className={` ${disabled ? s.inputDisabled : ''}`}>
+      <div className={` ${disabled ? s.inputDisabled : ''} ${className}`}>
         <Typography variant="body2" as="h3" className={s.label}>
           {label}
         </Typography>

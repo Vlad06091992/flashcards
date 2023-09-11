@@ -33,16 +33,10 @@ export const CheckEmail = () => {
             We’ve sent an Email with instructions to example@mail.com
           </Typography>
           <Button fullWidth={true} className={s.button}>
-            Send Instructions
+            Back to sign in
           </Button>
         </div>
       </form>
-      <Typography className={s.caption} variant={'body2'}>
-        Did you remember your password?
-      </Typography>
-      <Typography className={s.signUpLink} as={'div'} variant={'link2'}>
-        Try logging in
-      </Typography>
     </Card>
   )
 }
