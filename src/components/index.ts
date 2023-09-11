@@ -1,4 +1,5 @@
 export * from './ui'
 export * from './auth'
-export * from './sign-in'
-export * from './sign-up'
+export * from './auth/sign-in'
+export * from './auth/sign-up'
+export * from './auth/forgot-password'

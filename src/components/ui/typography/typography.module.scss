@@ -38,7 +38,7 @@
   @include typography(var(--font-weight-bold), var(--font-size-s), var(--line-height-m))
 }
 
-.caption {
+.instructions {
   @include typography(var(--font-weight-regular), var(--font-size-xs), var(--line-height-s
   ))
 }
