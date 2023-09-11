@@ -1,6 +1,6 @@
 //Textfield, button, таблицы, карточка, пагинация  --- нативно, остальные на основе Radix
 
-import { CheckEmail } from '@/components'
+import { CheckEmail, CreateNewPassword, PersonalInformation } from '@/components'
 
 export const App = () => {
   return (
@@ -9,7 +9,9 @@ export const App = () => {
       {/*<CheckEmail />*/}
       {/*<SignUp />*/}
       {/*<RecoverPassword />*/}
-      <CheckEmail />
+      {/*<CheckEmail />*/}
+      <PersonalInformation />
+      {/*<CreateNewPassword />*/}
       {/*<*/}
       {/*<span>123</span>*/}
 
