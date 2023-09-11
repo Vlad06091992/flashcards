@@ -2,23 +2,25 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-import commonStyle from '../auth/common-auth.module.scss'
+import commonStyle from '../common-auth.module.scss'
 
 import s from './sign-in.module.scss'
 
-import { Button, Card, LoginFormType, Textfield, Typography } from '@/components'
+import { Button, Card, Typography } from '@/components'
 import { ControlledCheckbox } from '@/components/ui/controlled'
 import { ControlledTextfield } from '@/components/ui/controlled/controlled-textfield.tsx'
 
-const loginSchema = z.object({
+const Schema = z.object({
   email: z.string().email().default(''),
   password: z.string().min(3, { message: 'минимальная длина пароля 3 символа' }).default(''),
   rememberMe: z.boolean().default(false).default(false),
 })
 
+export type FormType = z.infer<typeof Schema>
+
 export const SignIn = () => {
-  const { handleSubmit, control, formState } = useForm<LoginFormType>({
-    resolver: zodResolver(loginSchema),
+  const { handleSubmit, control, formState } = useForm<FormType>({
+    resolver: zodResolver(Schema),
   })
 
   return (
