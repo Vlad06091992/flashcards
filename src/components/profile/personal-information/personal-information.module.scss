@@ -1,0 +1,71 @@
+.card {
+    width:413px;
+    padding: 15px 36px 15px 15px;
+
+    text-align: center;
+
+    border:1px solid var(--color-dark-500);
+    border-radius: 3px;
+  
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.title {
+  color: white;
+}
+
+.photoContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+
+  div {
+    position: relative;
+    width: 96px;
+    height: 96px;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 48px;
+  }
+}
+
+.nameWithEditButton{
+  display: flex;
+  justify-content: center;
+  margin: 0;
+
+  //float: initial;
+  //text-align: center;
+}
+
+.name{
+  margin-right: 10px;
+  color:var(--color-light-100);
+}
+
+.editAvatarButton {
+  position: absolute;
+  top: 66px;
+  left: 66px;
+}
+
+.email{
+  position: relative;
+  top:-5px;
+  margin:0;
+  color:var(--color-dark-100)
+}
+
+.buttonContainer{
+  text-align: center;
+}
