@@ -7,7 +7,6 @@ import commonStyle from '../common-auth.module.scss'
 import s from './create-new-password.module.scss'
 
 import { Button, Card, Typography } from '@/components'
-import { ControlledCheckbox } from '@/components/ui/controlled'
 import { ControlledTextfield } from '@/components/ui/controlled/controlled-textfield.tsx'
 
 const Schema = z.object({

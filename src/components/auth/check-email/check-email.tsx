@@ -4,7 +4,7 @@ import { z } from 'zod'
 
 import s from './check-email.module.scss'
 
-import Email from '@/assets/icons/email.tsx'
+import { Email } from '@/assets'
 import { Button, Card, Typography } from '@/components'
 import commonStyle from '@/components/auth/common-auth.module.scss'
 
