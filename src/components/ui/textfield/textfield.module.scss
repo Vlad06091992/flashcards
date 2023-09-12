@@ -73,19 +73,6 @@ input {
   color: var(--color-light-100);
 }
 
-.errorDescription {
-  position: relative;
-  left: 20px;
-
-  margin: 0;
-
-  font-size: var(--font-size-xs);
-  color: red;
-}
-
-.errorDescriptionStandart {
-  position: static;
-}
 
 .label {
   margin: 0;
@@ -100,3 +87,6 @@ input {
   opacity: 0.5;
 }
 
+.error{
+  text-align: left;
+}

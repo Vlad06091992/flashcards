@@ -2,8 +2,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-import commonStyle from '../common-auth.module.scss'
-
 import s from './create-new-password.module.scss'
 
 import { Button, Card, Typography } from '@/components'
@@ -23,7 +21,7 @@ export const CreateNewPassword = () => {
   })
 
   return (
-    <Card className={commonStyle.common}>
+    <Card className={s.card}>
       <Typography color={'white'} variant={'large'}>
         Create new password
       </Typography>

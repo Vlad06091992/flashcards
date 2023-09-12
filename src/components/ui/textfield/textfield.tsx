@@ -1,11 +1,13 @@
 import { ComponentPropsWithoutRef, forwardRef, useState } from 'react'
 
+import { FieldError } from 'react-hook-form'
+
 import s from './textfield.module.scss'
 
 import { Typography } from '@/components'
 
 export type TextfieldProps = {
-  error?: string
+  error?: string | FieldError
   variant?: 'search' | 'visible'
   label?: string
 } & ComponentPropsWithoutRef<'input'>
@@ -22,6 +24,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       placeholder,
       variant,
       label,
+      value,
       ...restProps
     },
     ref
@@ -98,13 +101,9 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
         )}
 
         {error && (
-          <p
-            className={
-              variant ? s.errorDescription : `${s.errorDescriptionStandart} ${s.errorDescription}`
-            }
-          >
-            {error}
-          </p>
+          <Typography variant={'error'} className={s.error}>
+            {error.toString()}
+          </Typography>
         )}
       </div>
     )
