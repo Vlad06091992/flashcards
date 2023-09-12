@@ -6,7 +6,6 @@ import s from './check-email.module.scss'
 
 import { Email } from '@/assets'
 import { Button, Card, Typography } from '@/components'
-import commonStyle from '@/components/auth/common-auth.module.scss'
 
 const schema = z.object({
   email: z.string().email().default(''),
@@ -22,7 +21,7 @@ export const CheckEmail = () => {
   })
 
   return (
-    <Card className={commonStyle.common}>
+    <Card className={s.card}>
       <Typography color={'white'} variant={'large'}>
         Check Email
       </Typography>

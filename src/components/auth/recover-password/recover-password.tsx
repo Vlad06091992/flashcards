@@ -5,7 +5,6 @@ import { z } from 'zod'
 import s from './recover-password.module.scss'
 
 import { Button, Card, Typography } from '@/components'
-import commonStyle from '@/components/auth/common-auth.module.scss'
 import { ControlledTextfield } from '@/components/ui/controlled/controlled-textfield.tsx'
 
 const schema = z.object({
@@ -22,7 +21,7 @@ export const RecoverPassword = () => {
   })
 
   return (
-    <Card className={commonStyle.common}>
+    <Card className={s.card}>
       <Typography color={'white'} variant={'large'}>
         Forgot your password?
       </Typography>

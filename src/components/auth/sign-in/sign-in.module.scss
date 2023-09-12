@@ -1,15 +1,26 @@
+.card{
+  width:413px;
+  padding: 15px 30px ;
+
+  text-align: center;
+
+  border:1px solid var(--color-dark-500);
+  border-radius: 3px;
+}
+
+
 .form {
   display: flex;
   flex-direction: column;
   gap: 24px;
   justify-content: center;
 
-  margin-top: 27px;
+  margin-top: 30px;
 }
 
 .checkbox {
   align-self: start;
-  margin-bottom: 14px;
+  margin-bottom: 55px;
 }
 
 .recoverPassword{
@@ -20,7 +31,6 @@
 
 .button{
   box-sizing: border-box;
-  width: 348px;
   margin-bottom: 25px;
 }
 

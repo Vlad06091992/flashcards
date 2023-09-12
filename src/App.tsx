@@ -1,15 +1,24 @@
 //Textfield, button, таблицы, карточка, пагинация  --- нативно, остальные на основе Radix
 
-import { PersonalInformation, SignUp } from '@/components'
+import {
+  PersonalInformation,
+  SignUp,
+  CheckEmail,
+  CreateNewPassword,
+  LoginForm,
+  SignIn,
+  RecoverPassword,
+} from '@/components'
 
 export const App = () => {
   return (
     <div>
       {/*<LoginForm />*/}
       {/*<CheckEmail />*/}
-      {/*<SignUp />*/}
-      {/*<RecoverPassword />*/}
-      {/*<CheckEmail />*/}
+      <SignUp />
+      <SignIn />
+      <RecoverPassword />
+      <CheckEmail />
       <PersonalInformation
         email={'Smirnov.ru92@mail.ru'}
         name={'Ivan'}
@@ -18,11 +27,7 @@ export const App = () => {
         onLogout={() => {}}
         onNameChange={() => {}}
       />
-      {/*<CreateNewPassword />*/}
-      {/*<*/}
-      {/*<span>123</span>*/}
-
-      {/*<Textfield />*/}
+      <CreateNewPassword />
     </div>
   )
 }

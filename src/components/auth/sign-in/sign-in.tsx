@@ -2,8 +2,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-import commonStyle from '../common-auth.module.scss'
-
 import s from './sign-in.module.scss'
 
 import { Button, Card, Typography } from '@/components'
@@ -24,7 +22,7 @@ export const SignIn = () => {
   })
 
   return (
-    <Card className={commonStyle.common}>
+    <Card className={s.card}>
       <Typography color={'white'} variant={'large'}>
         Sign in
       </Typography>
