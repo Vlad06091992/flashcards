@@ -16,18 +16,18 @@ export const App = () => {
       {/*<LoginForm />*/}
       {/*<CheckEmail />*/}
       <SignUp />
-      <SignIn />
-      <RecoverPassword />
-      <CheckEmail />
-      <PersonalInformation
-        email={'Smirnov.ru92@mail.ru'}
-        name={'Ivan'}
-        avatar={'https://i.pinimg.com/736x/94/ec/85/94ec85ebd3ddae955dcb28cfe7b23ccc.jpg'}
-        onAvatarChange={() => {}}
-        onLogout={() => {}}
-        onNameChange={() => {}}
-      />
-      <CreateNewPassword />
+      {/*<SignIn />*/}
+      {/*<RecoverPassword />*/}
+      {/*<CheckEmail />*/}
+      {/*<PersonalInformation*/}
+      {/*  email={'Smirnov.ru92@mail.ru'}*/}
+      {/*  name={'Ivan'}*/}
+      {/*  avatar={'https://i.pinimg.com/736x/94/ec/85/94ec85ebd3ddae955dcb28cfe7b23ccc.jpg'}*/}
+      {/*  onAvatarChange={() => {}}*/}
+      {/*  onLogout={() => {}}*/}
+      {/*  onNameChange={() => {}}*/}
+      {/*/>*/}
+      {/*<CreateNewPassword />*/}
     </div>
   )
 }

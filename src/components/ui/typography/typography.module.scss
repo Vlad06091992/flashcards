@@ -63,3 +63,8 @@
   text-decoration: underline;
 }
 
+.error {
+  @include typography(var(--font-weight-regilar), var(--font-size-xs), var(--line-height-s));
+  color: var(--color-danger-300);
+}
+
