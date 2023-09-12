@@ -1,9 +1,11 @@
+import { useState } from 'react'
+
 import { Button, Card, Typography } from '../../ui'
 
 import s from './personal-information.module.scss'
 
 import { Camera, Edit } from '@/assets'
-import commonStyle from '@/components/auth/common-auth.module.scss'
+import { Textfield } from '@/components'
 
 type Props = {
   email: string
@@ -21,14 +23,21 @@ export const PersonalInformation = ({
   onNameChange,
   onLogout,
 }: Props) => {
+  const [editMode, setEditMode] = useState(false)
+
   const handleAvatarChanged = () => {
     onAvatarChange('new Avatar')
   }
   const handleNameChanged = () => {
+    setEditMode(true)
     onNameChange('New name')
   }
   const handleLogout = () => {
     onLogout()
+  }
+
+  const handleSaveName = () => {
+    setEditMode(false)
   }
 
   return (
@@ -45,27 +54,41 @@ export const PersonalInformation = ({
             </button>
           </div>
         </div>
-        <div className={s.nameWithEditButton}>
-          <Typography variant="h1" className={s.name}>
-            {name}
-          </Typography>
-          <button className={s.editNameButton} onClick={handleNameChanged}>
-            <Edit />
-          </button>
-        </div>
-        <Typography variant="body2" className={s.email}>
-          {/* eslint-disable-next-line react/no-unescaped-entities */}
-          {email}
-        </Typography>
-        <div className={s.buttonContainer}>
-          <Button variant={'secondary'} onClick={handleLogout}>
-            <span style={{ fontFamily: 'Material Icons' }} className="material-icons">
-              logout
-            </span>
-            Logout
-          </Button>
-        </div>
+        {!editMode && (
+          <>
+            <div className={s.nameWithEditButton}>
+              <Typography variant="h1" className={s.name}>
+                {name}
+              </Typography>
+              <button className={s.editNameButton} onClick={handleNameChanged}>
+                <Edit />
+              </button>
+            </div>
+            <Typography variant="body2" className={s.email}>
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
+              {email}
+            </Typography>
+            <div className={s.buttonContainer}>
+              <Button variant={'secondary'} onClick={handleLogout}>
+                <span style={{ fontFamily: 'Material Icons' }} className="material-icons">
+                  logout
+                </span>
+                Logout
+              </Button>
+            </div>
+
+            <div className={s.editModeOn}></div>
+          </>
+        )}
       </div>
+      {editMode && (
+        <>
+          <Textfield className={s.changeNameTextField} label={'Nickname'} />
+          <Button className={s.saveNameButton} onClick={handleSaveName} fullWidth={true}>
+            Save changes
+          </Button>
+        </>
+      )}
     </Card>
   )
 }
