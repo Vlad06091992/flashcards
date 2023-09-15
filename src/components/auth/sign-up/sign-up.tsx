@@ -1,4 +1,4 @@
-import { Ref, useEffect } from 'react'
+import { Ref } from 'react'
 
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -36,29 +36,27 @@ type PassError = {
     type: 'custom'
   }
 }
-
+type Props = {
+  onSubmit: (data: FormType) => void
+}
 type FormType = z.infer<typeof Schema> & Path<any> & PassError
-export const SignUp = () => {
-  const { handleSubmit, control, setError, formState } = useForm<FormType>({
+export const SignUp = ({ onSubmit }: Props) => {
+  const { handleSubmit, control } = useForm<FormType>({
     resolver: zodResolver(Schema),
   })
 
-  useEffect(() => {
-    console.log(formState.errors.passError?.message)
-  }, [formState])
-
-  const onSubmit = (data: FormType) => {
-    console.log(data)
+  const onSubmitHandler = (data: FormType) => {
+    onSubmit(data)
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <Card className={s.card}>
       <DevTool control={control} />
 
-      <Card className={s.card}>
-        <Typography color={'white'} variant={'large'}>
-          Sign up
-        </Typography>
+      <Typography color={'white'} variant={'large'}>
+        Sign up
+      </Typography>
+      <form onSubmit={handleSubmit(onSubmitHandler)}>
         <div className={s.form}>
           <ControlledTextfield control={control} name={'email'} label={'Email'} />
           <ControlledTextfield
@@ -76,18 +74,18 @@ export const SignUp = () => {
             type={'password'}
             label={'Confirm Password'}
           />
-          {}
         </div>
         <Button fullWidth={true} className={s.button} type={'submit'}>
           Sign up
         </Button>
-        <Typography className={s.caption} as={'div'} variant={'body2'}>
-          Already have an account ?
-        </Typography>
-        <Typography className={s.signUpLink} as={'div'} variant={'link2'}>
-          Sign in
-        </Typography>
-      </Card>
-    </form>
+      </form>
+
+      <Typography className={s.caption} as={'div'} variant={'body2'}>
+        Already have an account ?
+      </Typography>
+      <Typography className={s.signUpLink} as={'div'} variant={'link2'}>
+        Sign in
+      </Typography>
+    </Card>
   )
 }

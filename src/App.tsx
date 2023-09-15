@@ -10,13 +10,18 @@ import {
   RecoverPassword,
 } from '@/components'
 
+const onSubmit = (data: any) => {
+  debugger
+}
+
 export const App = () => {
   return (
     <div>
       {/*<LoginForm />*/}
       {/*<CheckEmail />*/}
-      <SignUp />
-      {/*<SignIn />*/}
+      <SignUp onSubmit={onSubmit} />
+      {/*<SignIn onSubmit={onSubmit} />*/}
+
       {/*<RecoverPassword />*/}
       {/*<CheckEmail />*/}
       {/*<PersonalInformation*/}
@@ -27,7 +32,7 @@ export const App = () => {
       {/*  onLogout={() => {}}*/}
       {/*  onNameChange={() => {}}*/}
       {/*/>*/}
-      {/*<CreateNewPassword />*/}
+      <CreateNewPassword onSubmit={onSubmit} />
     </div>
   )
 }
