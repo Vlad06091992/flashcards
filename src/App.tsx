@@ -23,7 +23,7 @@ export const App = () => {
       {/*<SignIn onSubmit={onSubmit} />*/}
 
       {/*<RecoverPassword />*/}
-      {/*<CheckEmail />*/}
+      <CheckEmail email="Smirnov.ru92@mail.ru" />
       {/*<PersonalInformation*/}
       {/*  email={'Smirnov.ru92@mail.ru'}*/}
       {/*  name={'Ivan'}*/}
