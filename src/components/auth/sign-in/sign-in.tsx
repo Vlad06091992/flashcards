@@ -11,46 +11,58 @@ import { ControlledTextfield } from '@/components/ui/controlled/controlled-textf
 const Schema = z.object({
   email: z.string().email().default(''),
   password: z.string().min(3, { message: 'минимальная длина пароля 3 символа' }).default(''),
-  rememberMe: z.boolean().default(false).default(false),
+  rememberMe: z.boolean().default(false),
 })
 
 export type FormType = z.infer<typeof Schema>
+type Props = {
+  onSubmit: (data: FormType) => void
+}
 
-export const SignIn = () => {
-  const { handleSubmit, control, formState } = useForm<FormType>({
+export const SignIn = ({ onSubmit }: Props) => {
+  const { handleSubmit, control } = useForm<FormType>({
     resolver: zodResolver(Schema),
   })
+
+  const onSubmitHandler = (data: FormType) => {
+    debugger
+    onSubmit(data)
+  }
 
   return (
     <Card className={s.card}>
       <Typography color={'white'} variant={'large'}>
         Sign in
       </Typography>
-      <div className={s.form}>
-        <ControlledTextfield control={control} name={'email'} label={'Email'} />
-        <ControlledTextfield
-          variant={'visible'}
-          control={control}
-          name={'password'}
-          type={'password'}
-          label={'Password'}
-        />
-        <ControlledCheckbox
-          className={s.checkbox}
-          name={'rememberMe'}
-          control={control}
-          label={'Remember me'}
-        />
-      </div>
+      <form onSubmit={handleSubmit(onSubmitHandler)}>
+        <div className={s.form}>
+          <ControlledTextfield control={control} name={'email'} label={'Email'} />
+          <ControlledTextfield
+            variant={'visible'}
+            control={control}
+            name={'password'}
+            type={'password'}
+            label={'Password'}
+          />
+          <ControlledCheckbox
+            className={s.checkbox}
+            name={'rememberMe'}
+            control={control}
+            label={'Remember me'}
+          />
+        </div>
 
-      <Typography as={'div'} variant={'body2'} className={s.recoverPassword}>
-        Forgot password ?
-      </Typography>
+        <Typography as={'div'} variant={'body2'} className={s.recoverPassword}>
+          Forgot password ?
+        </Typography>
 
-      <Button fullWidth={true} className={s.button}>
-        Sign in
-      </Button>
+        <Button fullWidth={true} className={s.button} type={'submit'}>
+          Sign in
+        </Button>
+      </form>
+
       <Typography className={s.caption} as={'div'} variant={'body2'}>
+        {/* eslint-disable-next-line react/no-unescaped-entities */}
         Don't have an account ?
       </Typography>
       <Typography className={s.signUpLink} as={'div'} variant={'link2'}>

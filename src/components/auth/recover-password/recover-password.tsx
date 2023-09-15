@@ -9,23 +9,28 @@ import { ControlledTextfield } from '@/components/ui/controlled/controlled-textf
 
 const schema = z.object({
   email: z.string().email().default(''),
-  password: z.string().min(3, { message: 'минимальная длина пароля 3 символа' }).default(''),
-  rememberMe: z.boolean().default(false).default(false),
 })
 
 type FormType = z.infer<typeof schema>
-
-export const RecoverPassword = () => {
-  const { handleSubmit, control, formState } = useForm<FormType>({
+type Props = {
+  onSubmit: (data: FormType) => void
+}
+export const RecoverPassword = ({ onSubmit }: Props) => {
+  const { handleSubmit, control } = useForm<FormType>({
     resolver: zodResolver(schema),
   })
+
+  const onSubmitHandler = (data: FormType) => {
+    debugger
+    onSubmit(data)
+  }
 
   return (
     <Card className={s.card}>
       <Typography color={'white'} variant={'large'}>
         Forgot your password?
       </Typography>
-      <form>
+      <form onSubmit={handleSubmit(onSubmitHandler)}>
         <div className={s.form}>
           <ControlledTextfield
             className={s.email}
@@ -36,7 +41,7 @@ export const RecoverPassword = () => {
           <Typography className={s.instructions} variant={'body2'}>
             Enter your email address and we will send you further instructions
           </Typography>
-          <Button fullWidth={true} className={s.button}>
+          <Button fullWidth={true} className={s.button} type={'submit'}>
             Send Instructions
           </Button>
         </div>
