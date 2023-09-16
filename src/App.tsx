@@ -8,6 +8,7 @@ import {
   LoginForm,
   SignIn,
   RecoverPassword,
+  CheckboxComponent,
 } from '@/components'
 
 const onSubmit = (data: any) => {
@@ -19,11 +20,11 @@ export const App = () => {
     <div>
       {/*<LoginForm />*/}
       {/*<CheckEmail />*/}
-      <SignUp onSubmit={onSubmit} />
+      {/*<SignUp onSubmit={onSubmit} />*/}
       {/*<SignIn onSubmit={onSubmit} />*/}
 
       {/*<RecoverPassword />*/}
-      <CheckEmail email="Smirnov.ru92@mail.ru" />
+      {/*<CheckEmail email="Smirnov.ru92@mail.ru" />*/}
       {/*<PersonalInformation*/}
       {/*  email={'Smirnov.ru92@mail.ru'}*/}
       {/*  name={'Ivan'}*/}
@@ -32,7 +33,8 @@ export const App = () => {
       {/*  onLogout={() => {}}*/}
       {/*  onNameChange={() => {}}*/}
       {/*/>*/}
-      <CreateNewPassword onSubmit={onSubmit} />
+      <CheckboxComponent onChange={() => {}} label={'checkbox'} />
+      {/*<CreateNewPassword onSubmit={onSubmit} />*/}
     </div>
   )
 }

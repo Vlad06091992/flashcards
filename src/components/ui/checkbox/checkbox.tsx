@@ -5,14 +5,18 @@ import { CheckIcon } from '@radix-ui/react-icons'
 
 import s from './checkbox.module.scss'
 
-type Props = {
+export type CheckboxProps = {
+  className?: string
+  checked?: boolean
+  onChange?: (checked: boolean) => void
+  disabled?: boolean
+  required?: boolean
   label?: string
-  onChange: (arg: boolean) => void
+  id?: string
+  position?: 'left'
 }
 
-export type CheckBoxProps = ComponentPropsWithoutRef<'input'> & Props
-
-export const CheckboxComponent: React.FC<CheckBoxProps> = ({
+export const CheckboxComponent: React.FC<CheckboxProps> = ({
   checked,
   className,
   disabled,
