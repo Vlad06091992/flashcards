@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { CheckboxComponent } from './checkbox.tsx'
@@ -5,22 +7,30 @@ import { CheckboxComponent } from './checkbox.tsx'
 const meta = {
   title: 'Components/Checkbox',
   component: CheckboxComponent,
+
   tags: ['autodocs'],
-  // argTypes: {
-  //   variant: {
-  //     options: ['primary', 'secondary', 'tertiary', 'link'],
-  //     control: { type: 'radio' },
-  //   },
-  // },
+  argTypes: {
+    checked: [true, false],
+    // label: 'label',
+    disabled: [true, false],
+  },
 } satisfies Meta<typeof CheckboxComponent>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
-  args: {
-    label: 'fklds;k',
-    disabled: false,
+export const BaseExample: Story = {
+  render: args => {
+    const [checked, setChecked] = useState(false)
+
+    return (
+      <CheckboxComponent
+        {...args}
+        label="Click here"
+        checked={checked}
+        onChange={() => setChecked(!checked)}
+      />
+    )
   },
 }
 
