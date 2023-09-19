@@ -1,13 +1,11 @@
 import { ComponentPropsWithoutRef, forwardRef, useState } from 'react'
 
-import { FieldError } from 'react-hook-form'
-
 import s from './textfield.module.scss'
 
 import { Typography } from '@/components'
 
 export type TextfieldProps = {
-  error?: string | FieldError
+  error?: string
   variant?: 'search' | 'visible'
   label?: string
 } & ComponentPropsWithoutRef<'input'>
@@ -32,7 +30,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
     const [visible, setVisible] = useState(type == 'password')
 
     return (
-      <div className={` ${disabled ? s.inputDisabled : ''} ${className}`}>
+      <div className={` ${disabled ? s.inputDisabled : ''} ${className} ${s.root}`}>
         <Typography variant="body2" as="h3" className={s.label}>
           {label}
         </Typography>
