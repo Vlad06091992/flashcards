@@ -15,7 +15,7 @@ export const BaseExample: Story = {
   args: {
     name: 'Vlad',
     email: 'some@email.ru',
-    avatar: 'https://picsum.photos/200',
+    avatar: 'https://cs14.pikabu.ru/post_img/big/2023/03/24/10/1679679686187592531.png',
     onLogout: () => {
       console.log('logout')
     },
