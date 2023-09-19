@@ -56,7 +56,7 @@ export const Checked: Story = {
   },
 }
 
-export const NotCheckrd: Story = {
+export const NotChecked: Story = {
   args: {
     checked: false,
     label: 'Not Checked',

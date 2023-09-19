@@ -1,16 +1,6 @@
 //Textfield, button, таблицы, карточка, пагинация  --- нативно, остальные на основе Radix
 
-import {
-  PersonalInformation,
-  SignUp,
-  CheckEmail,
-  CreateNewPassword,
-  LoginForm,
-  SignIn,
-  RecoverPassword,
-  CheckboxComponent,
-  Textfield,
-} from '@/components'
+import { Button, Textfield } from '@/components'
 
 const onSubmit = (data: any) => {
   debugger
@@ -42,6 +32,13 @@ export const App = () => {
           variant={'search'}
           onChange={e => console.log(e.currentTarget.value)}
         />
+        <Button
+          onClick={() => {
+            debugger
+          }}
+        >
+          <p>click me</p>
+        </Button>
       </div>
     </div>
   )

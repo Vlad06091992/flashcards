@@ -10,6 +10,7 @@ export type ButtonProps<T extends ElementType = 'button'> = {
   fullWidth?: boolean
   className?: string
   disabledLink?: boolean
+  onClick?: () => {}
 } & ComponentPropsWithoutRef<T>
 
 export const Button = <T extends ElementType = 'button'>({
@@ -21,6 +22,8 @@ export const Button = <T extends ElementType = 'button'>({
   ...rest
 }: ButtonProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof ButtonProps<T>>) => {
   let Component = as || 'button'
+
+  console.log(rest)
 
   return (
     <Component
