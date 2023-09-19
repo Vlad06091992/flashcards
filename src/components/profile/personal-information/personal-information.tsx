@@ -24,6 +24,7 @@ export const PersonalInformation = ({
   onLogout,
 }: Props) => {
   const [editMode, setEditMode] = useState(false)
+  // const [name, setName] = useState('')
 
   const handleAvatarChanged = () => {
     onAvatarChange('new Avatar')
@@ -39,6 +40,8 @@ export const PersonalInformation = ({
   const handleSaveName = () => {
     setEditMode(false)
   }
+
+  debugger
 
   return (
     <Card className={s.card}>

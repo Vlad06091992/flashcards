@@ -10,7 +10,7 @@ export type ButtonProps<T extends ElementType = 'button'> = {
   fullWidth?: boolean
   className?: string
   disabledLink?: boolean
-  onClick?: () => {}
+  onClick?: () => void
 } & ComponentPropsWithoutRef<T>
 
 export const Button = <T extends ElementType = 'button'>({
