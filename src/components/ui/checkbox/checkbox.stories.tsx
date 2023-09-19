@@ -11,7 +11,6 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     checked: [true, false],
-    // label: 'label',
     disabled: [true, false],
   },
 } satisfies Meta<typeof CheckboxComponent>

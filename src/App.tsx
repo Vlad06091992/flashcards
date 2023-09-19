@@ -9,6 +9,7 @@ import {
   SignIn,
   RecoverPassword,
   CheckboxComponent,
+  Textfield,
 } from '@/components'
 
 const onSubmit = (data: any) => {
@@ -33,8 +34,15 @@ export const App = () => {
       {/*  onLogout={() => {}}*/}
       {/*  onNameChange={() => {}}*/}
       {/*/>*/}
-      <CheckboxComponent onChange={() => {}} label={'checkbox'} />
+      {/*<CheckboxComponent onChange={() => {}} label={'checkbox'} />*/}
       {/*<CreateNewPassword onSubmit={onSubmit} />*/}
+      <div>
+        <Textfield
+          style={{ width: '300px' }}
+          variant={'search'}
+          onChange={e => console.log(e.currentTarget.value)}
+        />
+      </div>
     </div>
   )
 }
