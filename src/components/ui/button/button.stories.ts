@@ -52,14 +52,6 @@ export const WithIcon: Story = {
   },
 }
 
-// export const Link: Story = {
-//     args: {
-//         variant: 'link',
-//         children: 'Tertiary Button',
-//         disabled: false,
-//     },
-// }
-
 export const FullWidth: Story = {
   args: {
     variant: 'primary',
