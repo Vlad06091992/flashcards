@@ -33,44 +33,32 @@ export const BaseExample: Story = {
   },
 }
 
-//
-// export const Secondary: Story = {
-//   args: {
-//     variant: 'secondary',
-//     children: 'Secondary Button',
-//     disabled: false,
-//   },
-// }
-// export const Tertiary: Story = {
-//   args: {
-//     variant: 'tertiary',
-//     children: 'Tertiary Button',
-//     disabled: false,
-//   },
-// }
-// // export const Link: Story = {
-// //     args: {
-// //         variant: 'link',
-// //         children: 'Tertiary Button',
-// //         disabled: false,
-// //     },
-// // }
-//
-// export const FullWidth: Story = {
-//   args: {
-//     variant: 'primary',
-//     children: 'Full Width Button',
-//     disabled: false,
-//     fullWidth: true,
-//   },
-// }
-//
-// export const Link: Story = {
-//   args: {
-//     as: 'a',
-//     size: 'small',
-//     label: 'Button',
-//     children: 'this button is link',
-//     variant: 'link',
-//     href: 'https://www.google.com',
-//   },
+export const Disabled: Story = {
+  render: args => {
+    const [checked, setChecked] = useState(false)
+
+    return (
+      <CheckboxComponent
+        {...args}
+        disabled={true}
+        label="Click here"
+        checked={checked}
+        onChange={() => setChecked(!checked)}
+      />
+    )
+  },
+}
+
+export const Checked: Story = {
+  args: {
+    checked: true,
+    label: 'Checked',
+  },
+}
+
+export const NotCheckrd: Story = {
+  args: {
+    checked: false,
+    label: 'Not Checked',
+  },
+}
