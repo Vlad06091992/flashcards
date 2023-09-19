@@ -41,8 +41,6 @@ export const PersonalInformation = ({
     setEditMode(false)
   }
 
-  debugger
-
   return (
     <Card className={s.card}>
       <Typography variant="large" className={s.title}>
@@ -63,7 +61,7 @@ export const PersonalInformation = ({
               <Typography variant="h1" className={s.name}>
                 {name}
               </Typography>
-              <button className={s.editNameButton} onClick={handleNameChanged}>
+              <button onClick={handleNameChanged}>
                 <Edit />
               </button>
             </div>
@@ -87,7 +85,7 @@ export const PersonalInformation = ({
       {editMode && (
         <>
           <Textfield className={s.changeNameTextField} label={'Nickname'} />
-          <Button className={s.saveNameButton} onClick={handleSaveName} fullWidth={true}>
+          <Button className={s.saveNameButton} onClick={() => handleSaveName} fullWidth={true}>
             Save changes
           </Button>
         </>
