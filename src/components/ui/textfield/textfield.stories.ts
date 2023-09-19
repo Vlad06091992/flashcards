@@ -17,12 +17,35 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
+export const Base: Story = {
   args: {
     variant: 'visible',
     disabled: false,
   },
 }
+
+export const WithError: Story = {
+  args: {
+    variant: 'visible',
+    disabled: false,
+    error: 'Some error',
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    variant: 'visible',
+    disabled: true,
+  },
+}
+
+export const Search: Story = {
+  args: {
+    variant: 'search',
+    disabled: false,
+  },
+}
+
 //
 // export const Secondary: Story = {
 //   args: {
