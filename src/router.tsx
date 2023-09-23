@@ -1,9 +1,9 @@
 import {
   createBrowserRouter,
+  Navigate,
   Outlet,
   RouteObject,
   RouterProvider,
-  Navigate,
 } from 'react-router-dom'
 
 import { Decks } from '@/pages/decks.tsx'
@@ -23,7 +23,7 @@ const publicRoutes: RouteObject[] = [
 
 const privateRoutes: RouteObject[] = [
   {
-    path: '/decks',
+    path: '/',
     element: <Decks />,
   },
 ]
