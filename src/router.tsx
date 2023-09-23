@@ -1,13 +1,15 @@
 import {
   createBrowserRouter,
-  RouterProvider,
-  RouteObject,
   Outlet,
+  RouteObject,
+  RouterProvider,
   Navigate,
 } from 'react-router-dom'
 
+import { Decks } from '@/pages/decks.tsx'
+
 const PrivateRoutes = () => {
-  const isAuthenticated = false
+  const isAuthenticated = true
 
   return isAuthenticated ? <Outlet /> : <Navigate to="/login" />
 }
@@ -21,8 +23,8 @@ const publicRoutes: RouteObject[] = [
 
 const privateRoutes: RouteObject[] = [
   {
-    path: '/',
-    element: <div>hello</div>,
+    path: '/decks',
+    element: <Decks />,
   },
 ]
 
