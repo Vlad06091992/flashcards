@@ -1,22 +1,13 @@
-import { Link } from 'react-router-dom'
-
 import { useCreateDeckMutation, useGetDecksQuery } from '@/services/decks/decks.ts'
 import { Items } from '@/services/decks/types.ts'
 
 export const Decks = () => {
-  const decks = useGetDecksQuery()
-  // @ts-ignore
+  const decks = useGetDecksQuery({ itemsPerPage: '20' })
   const [createDeck] = useCreateDeckMutation()
 
-  // console.log(store.getState())
-
-  console.dir(decks.data?.items)
-
-  // return <div>{JSON.stringify(data) || ''}</div>
   return (
     <div>
       <button onClick={() => createDeck({ name: '123' })}> create deck</button>
-      <Link to={'2'}>go</Link>
 
       <table>
         <thead>
