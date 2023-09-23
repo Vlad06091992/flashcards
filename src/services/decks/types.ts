@@ -16,10 +16,10 @@ export type Items = {
   name: string
   isPrivate: boolean
   shots: number
-  cover?: any
+  cover?: string
   rating: number
-  isDeleted?: any
-  isBlocked?: any
+  isDeleted?: boolean
+  isBlocked?: boolean
   created: string
   updated: string
   cardsCount: number
@@ -31,3 +31,12 @@ export type DecksResponse = {
   pagination: Pagination
   items: Items[]
 }
+
+export type DecksParams = Partial<{
+  minCardsCount: string
+  maxCardsCount: string
+  name: string
+  orderBy: string
+  currentPage: string
+  itemsPerPage: string
+}> | void
