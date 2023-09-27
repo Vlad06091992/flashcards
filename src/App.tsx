@@ -1,16 +1,18 @@
-import { useEffect } from 'react'
+import { SelectDemo } from '@/components/ui/select/select.tsx'
 
-import { Provider } from 'react-redux'
-
-import { Router } from '@/router'
-import { store } from '@/services/store'
+const items = [
+  { value: 'Banana', label: 'Banana' },
+  { value: 'Apple', label: 'Apple' },
+  { value: 'Orange', label: 'Orange' },
+]
 
 export function App() {
-  useEffect(() => {}, [])
-
   return (
-    <Provider store={store}>
-      <Router />
-    </Provider>
+    <div>
+      <SelectDemo items={items} />
+    </div>
+    // <Provider store={store}>
+    //   <Router />
+    // </Provider>
   )
 }

@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { z } from 'zod'
 
 import s from './sign-in.module.scss'
@@ -26,7 +26,7 @@ export const SignIn = () => {
   const { handleSubmit, control, setError } = useForm<FormType>({
     resolver: zodResolver(Schema),
   })
-
+  const navigate = useNavigate()
   const [loginfn, { error }] = useLogInMutation()
 
   console.log(error)
@@ -46,8 +46,8 @@ export const SignIn = () => {
     loginfn(data)
       .unwrap()
       .then(res => {
-        debugger
         console.log(res)
+        navigate('/')
       })
   }
 

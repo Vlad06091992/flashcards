@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { z } from 'zod'
 
 import s from './recover-password.module.scss'
@@ -23,7 +23,7 @@ type FormType = z.infer<typeof schema> & {
 // export const RecoverPassword = ({ onSubmit }: Props) => {
 export const RecoverPassword = () => {
   const [recoverPassword] = useRecoverPasswordMutation()
-
+  const navigate = useNavigate()
   const { handleSubmit, control } = useForm<FormType>({
     resolver: zodResolver(schema),
   })
@@ -39,9 +39,8 @@ export const RecoverPassword = () => {
 
     recoverPassword(requestData)
       .unwrap()
-      .then(res => {
-        debugger
-        console.log(res)
+      .then(() => {
+        navigate('/check-email')
       })
   }
 

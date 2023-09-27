@@ -5,10 +5,10 @@ export const baseApi = createApi({
   tagTypes: ['Decks', 'Auth'],
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://api.flashcards.andrii.es',
-    // credentials: 'include',
-    prepareHeaders: headers => {
-      headers.append('x-auth-skip', 'true')
-    },
+    credentials: 'include',
+    // prepareHeaders: headers => {
+    //   headers.append('x-auth-skip', 'true')
+    // },
   }),
   endpoints: () => ({}),
 })
