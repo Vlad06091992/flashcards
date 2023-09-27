@@ -6,7 +6,6 @@ import {
   RouterProvider,
 } from 'react-router-dom'
 
-import { CheckEmail } from '@/components'
 import { CheckEmailPage } from '@/pages/check-email.page.tsx'
 import { Decks } from '@/pages/decks.tsx'
 import { NewPasswordPage } from '@/pages/new-password.tsx'
