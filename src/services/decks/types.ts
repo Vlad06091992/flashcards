@@ -10,7 +10,7 @@ export type Author = {
   name: string
 }
 
-export type Items = {
+export type Deck = {
   id: string
   userId: string
   name: string
@@ -26,10 +26,10 @@ export type Items = {
   author: Author
 }
 
-export type DecksResponse = {
+export type getDecksResponse = {
   maxCardsCount: number
   pagination: Pagination
-  items: Items[]
+  items: Deck[]
 }
 
 export type DecksParams = Partial<{

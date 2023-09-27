@@ -1,28 +1,48 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 import { z } from 'zod'
 
 import s from './recover-password.module.scss'
 
 import { Button, Card, Typography } from '@/components'
 import { ControlledTextfield } from '@/components/ui/controlled/controlled-textfield.tsx'
+import { useRecoverPasswordMutation } from '@/services/auth/auth.ts'
 
 const schema = z.object({
   email: z.string().email().default(''),
 })
 
-type FormType = z.infer<typeof schema>
-type Props = {
-  onSubmit: (data: FormType) => void
+type FormType = z.infer<typeof schema> & {
+  html: string
+  subject: string
 }
-export const RecoverPassword = ({ onSubmit }: Props) => {
+// type Props = {
+//   onSubmit: (data: FormType) => void
+// }
+// export const RecoverPassword = ({ onSubmit }: Props) => {
+export const RecoverPassword = () => {
+  const [recoverPassword] = useRecoverPasswordMutation()
+
   const { handleSubmit, control } = useForm<FormType>({
     resolver: zodResolver(schema),
   })
 
   const onSubmitHandler = (data: FormType) => {
     debugger
-    onSubmit(data)
+
+    const requestData: FormType = {
+      html: '<h1>Hi, ##name##</h1><p>Click <a href="http://127.0.0.1:5173/set-new-password\\##token##\\">here</a> to recover your password</p>',
+      subject: 'Vlad',
+      email: data.email,
+    }
+
+    recoverPassword(requestData)
+      .unwrap()
+      .then(res => {
+        debugger
+        console.log(res)
+      })
   }
 
   return (
@@ -49,7 +69,7 @@ export const RecoverPassword = ({ onSubmit }: Props) => {
       <Typography className={s.caption} variant={'body2'}>
         Did you remember your password?
       </Typography>
-      <Typography className={s.signUpLink} as={'div'} variant={'link2'}>
+      <Typography className={s.signUpLink} as={Link} to={'/login'} variant={'link2'}>
         Try logging in
       </Typography>
     </Card>

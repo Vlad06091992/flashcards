@@ -47,7 +47,7 @@
   @include typography(var(--font-weight-bold), var(--font-size-xs), var(--line-height-s))
 }
 
-.link1, link1:visited {
+.link1, .link1:visited {
   @include typography(var(--font-weight-regular), var(--font-size-s), var(--line-height-m));
 
   cursor: pointer;
@@ -55,7 +55,7 @@
   text-decoration: underline;
 }
 
-.link2, link2:visited {
+.link2, .link2:visited {
   @include typography(var(--font-weight-bold), var(--font-size-m), var(--line-height-s));
 
   cursor: pointer;
@@ -65,6 +65,7 @@
 
 .error {
   @include typography(var(--font-weight-regilar), var(--font-size-xs), var(--line-height-s));
+
   color: var(--color-danger-300);
 }
 

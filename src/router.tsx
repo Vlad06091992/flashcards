@@ -6,7 +6,13 @@ import {
   RouterProvider,
 } from 'react-router-dom'
 
+import { CheckEmail } from '@/components'
+import { CheckEmailPage } from '@/pages/check-email.page.tsx'
 import { Decks } from '@/pages/decks.tsx'
+import { NewPasswordPage } from '@/pages/new-password.tsx'
+import { RecoverPasswordPage } from '@/pages/recover-password.tsx'
+import { SignInPage } from '@/pages/sign-in.tsx'
+import { SignUpPage } from '@/pages/sign-up.tsx'
 
 const PrivateRoutes = () => {
   const isAuthenticated = true
@@ -17,7 +23,23 @@ const PrivateRoutes = () => {
 const publicRoutes: RouteObject[] = [
   {
     path: '/login',
-    element: <div>login</div>,
+    element: <SignInPage />,
+  },
+  {
+    path: '/sign-up',
+    element: <SignUpPage />,
+  },
+  {
+    path: '/recover-password',
+    element: <RecoverPasswordPage />,
+  },
+  {
+    path: '/set-new-password/:token',
+    element: <NewPasswordPage />,
+  },
+  {
+    path: '/check-email',
+    element: <CheckEmailPage />,
   },
 ]
 
