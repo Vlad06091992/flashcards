@@ -1,14 +1,13 @@
-import { Ref } from 'react'
-
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Path, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 import s from './sign-up.module.scss'
 
 import { Button, Card, Typography } from '@/components'
 import { ControlledTextfield } from '@/components/ui/controlled/controlled-textfield.tsx'
+import { useSignUpMutation } from '@/services/auth/auth.ts'
 
 const Schema = z
   .object({
@@ -29,24 +28,47 @@ const Schema = z
     }
   })
 
-type PassError = {
-  passError?: {
-    message: string
-    ref?: Ref<string>
-    type: 'custom'
-  }
-}
-type Props = {
-  onSubmit: (data: FormType) => void
-}
-type FormType = z.infer<typeof Schema> & Path<any> & PassError
-export const SignUp = ({ onSubmit }: Props) => {
-  const { handleSubmit, control } = useForm<FormType>({
+// type PassError = {
+//   passError?: {
+//     message: string
+//     ref?: Ref<string>
+//     type: 'custom'
+//   }
+// }
+// type Props = {
+//   onSubmit: (data: FormType) => void
+// }
+export type FormType = z.infer<typeof Schema>
+// export const SignUp = ({ onSubmit }: Props) => {
+export const SignUp = () => {
+  const { handleSubmit, control, setError } = useForm<FormType>({
     resolver: zodResolver(Schema),
   })
 
+  const [signUp, { error }] = useSignUpMutation()
+
+  if (
+    error &&
+    'status' in error &&
+    'data' in error &&
+    error.status === 400 &&
+    typeof error.data == 'object' &&
+    error.data &&
+    'errorMessages' in error.data
+  ) {
+    // @ts-ignore
+    setError('email', { type: 'custom', message: error.data.errorMessages[0] })
+  }
+
   const onSubmitHandler = (data: FormType) => {
-    onSubmit(data)
+    const { confirmPassword, ...restData } = data
+
+    signUp(restData)
+      .then(res => {
+        debugger
+        console.log(res)
+      })
+      .catch()
   }
 
   return (

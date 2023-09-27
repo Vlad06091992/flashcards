@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import { Textfield, Button } from '@/components'
 import { useCreateDeckMutation, useGetDecksQuery } from '@/services/decks/decks.ts'
-import { Items } from '@/services/decks/types.ts'
+import { Deck } from '@/services/decks/types.ts'
 
 export const Decks = () => {
   const [itemsPerPage, setItemsPerPage] = useState(10)
@@ -38,7 +38,7 @@ export const Decks = () => {
         </thead>
 
         <tbody>
-          {decks.data?.items.map((deck: Items) => {
+          {decks.data?.items.map((deck: Deck) => {
             return (
               <tr key={deck.id}>
                 <td>{deck.name}</td>

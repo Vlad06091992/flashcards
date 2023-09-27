@@ -23,7 +23,6 @@ export const BaseExample: Story = {
       console.log('newAvatar')
     },
     onNameChange: () => {
-      debugger
       console.log('newNAme')
     },
   },

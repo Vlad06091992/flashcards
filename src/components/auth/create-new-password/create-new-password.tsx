@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import { useParams } from 'react-router-dom'
 import { z } from 'zod'
 
 import s from './create-new-password.module.scss'
@@ -12,18 +13,21 @@ const Schema = z.object({
 })
 
 type FormType = z.infer<typeof Schema>
-type Props = {
-  onSubmit: (data: FormType) => void
-}
+// type Props = {
+//   onSubmit: (data: FormType) => void
+// }
 
-export const CreateNewPassword = ({ onSubmit }: Props) => {
+// export const CreateNewPassword = ({ onSubmit }: Props) => {
+export const CreateNewPassword = () => {
   const { handleSubmit, control } = useForm<FormType>({
     resolver: zodResolver(Schema),
   })
 
-  const onSubmitHandler = (data: FormType) => {
-    onSubmit(data)
-  }
+  const { token } = useParams()
+
+  console.log(token)
+
+  const onSubmitHandler = (data: FormType) => {}
 
   return (
     <Card className={s.card}>

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { RecoverPassword } from './'
 
 const meta = {
-  title: 'Auth/RecoverPassword',
+  title: 'SignIn/RecoverPassword',
   component: RecoverPassword,
   tags: ['autodocs'],
 } satisfies Meta<typeof RecoverPassword>

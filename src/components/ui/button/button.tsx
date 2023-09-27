@@ -23,8 +23,6 @@ export const Button = <T extends ElementType = 'button'>({
 }: ButtonProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof ButtonProps<T>>) => {
   let Component = as || 'button'
 
-  console.log(rest)
-
   return (
     <Component
       className={`${s[variant]} ${disabledLink ? s.disabledLink : ''} ${
