@@ -1,6 +1,10 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+<<<<<<< HEAD
 import { Link, useNavigate } from 'react-router-dom'
+=======
+import { Link, Navigate, useNavigate } from 'react-router-dom'
+>>>>>>> 561927c46c3745e2add43226b1cb4eeb4f294b29
 import { z } from 'zod'
 
 import s from './recover-password.module.scss'

@@ -4,6 +4,7 @@ import { baseApi } from '@/services/base-api.ts'
 export const authApi = baseApi.injectEndpoints({
   endpoints: builder => {
     return {
+<<<<<<< HEAD
       authMe: builder.query<any, void>({
         query: body => {
           return {
@@ -14,6 +15,8 @@ export const authApi = baseApi.injectEndpoints({
         },
         providesTags: ['Auth'],
       }),
+=======
+>>>>>>> 561927c46c3745e2add43226b1cb4eeb4f294b29
       logIn: builder.mutation<any, FormType>({
         query: body => {
           return {
@@ -57,7 +60,10 @@ export const authApi = baseApi.injectEndpoints({
 })
 
 export const {
+<<<<<<< HEAD
   useAuthMeQuery,
+=======
+>>>>>>> 561927c46c3745e2add43226b1cb4eeb4f294b29
   useLogInMutation,
   useResetPasswordMutation,
   useSignUpMutation,
