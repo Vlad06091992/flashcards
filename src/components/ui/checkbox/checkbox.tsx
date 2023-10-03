@@ -26,13 +26,7 @@ export const CheckboxComponent: React.FC<CheckboxProps> = ({
   return (
     <div className={className}>
       <label className={s.Label} htmlFor="c1">
-        <div
-          tabIndex={1}
-          // onKeyPress={() => {
-          //   setChecked(checked => !checked)
-          // }}
-          className={disabled ? `${s.root_disabled}` : s.root}
-        >
+        <div tabIndex={1} className={disabled ? `${s.root_disabled}` : s.root}>
           <Checkbox.Root
             className={
               checked ? `${s.CheckboxRoot}` : `${s.CheckboxRoot} ${s.CheckboxRoot_checked}  `

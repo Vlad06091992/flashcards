@@ -12,11 +12,28 @@ import { NewPasswordPage } from '@/pages/new-password.tsx'
 import { RecoverPasswordPage } from '@/pages/recover-password.tsx'
 import { SignInPage } from '@/pages/sign-in.tsx'
 import { SignUpPage } from '@/pages/sign-up.tsx'
+import { useAuthMeQuery } from '@/services/auth/auth.ts'
 
 const PrivateRoutes = () => {
-  const isAuthenticated = true
+  const { data, isLoading } = useAuthMeQuery()
+  const isAuth = !!data
 
-  return isAuthenticated ? <Outlet /> : <Navigate to="/login" />
+  if (isLoading) return <div>Loading....</div>
+
+  if (isAuth) {
+    return <Outlet />
+  } else {
+    return <Navigate to="/login" />
+  }
+
+  //
+  // // if (isLoading) return <div>Loading...</div>
+  // if (!isLoading) {
+  //   console.log(1)
+  //   debugger
+  // }
+  //
+  // return isAuth ? <Outlet /> : <Navigate to="/login" />
 }
 
 const publicRoutes: RouteObject[] = [
