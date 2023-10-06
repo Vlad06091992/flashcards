@@ -1,7 +1,7 @@
 import { ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons'
 import * as Select from '@radix-ui/react-select'
 
-import s from './select.module.scss'
+import s from './selected.module.scss'
 
 import { Typography } from '@/components'
 
@@ -21,7 +21,7 @@ type Props = {
   defaultValue?: string
 }
 
-export const SelectDemo = ({
+export const Selected = ({
   items,
   disabled,
   onValueChange,
@@ -66,7 +66,7 @@ export const SelectDemo = ({
             <Select.Group>
               {items.map(el => {
                 return (
-                  <Select.Item key={el.value} value={el.value}>
+                  <Select.Item className={s.selectItem} key={el.value} value={el.value}>
                     <Select.ItemText>{el.label}</Select.ItemText>
                   </Select.Item>
                 )

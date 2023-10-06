@@ -1,4 +1,4 @@
-import { SelectDemo } from '@/components/ui/select/select.tsx'
+import { Selected } from '@/components/ui/selected/selected.tsx'
 
 const items = [
   { value: 'Banana', label: 'Select-box' },
@@ -9,7 +9,7 @@ const items = [
 export function App() {
   return (
     <div style={{ margin: '10px' }}>
-      <SelectDemo label={'Select-box'} items={items} />
+      <Selected label={'Select-box'} items={items} />
     </div>
     // <Provider store={store}>
     //   <Router />

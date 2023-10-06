@@ -25,9 +25,13 @@ padding: 6px 12px;
 }
 
 .selectContent {
-  width: 209.9px;
+  width: 210px;
   border: 1px solid grey;
+  
+}
 
+.selectItem{
+  padding:6px 12px;
 }
 
 [data-highlighted] {
