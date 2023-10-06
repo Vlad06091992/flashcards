@@ -1,3 +1,54 @@
 .root{
-  background: var(--color-dark-900);
+  box-sizing: border-box;
 }
+
+.selectTrigger {
+  display: flex;
+
+  //gap: 10px;
+  justify-content: space-between;
+
+  width: 185px;
+padding: 6px 12px;
+
+  background: var(--color-dark-900);
+  border: 1px solid var(--color-dark-100);
+  outline: none;
+
+  &:focus {
+    border-color: var(--color-info-500);
+  }
+
+  &:hover, &:hover + span {
+    background: var(--color-dark-500);
+  }
+}
+
+.selectContent {
+  width: 209.9px;
+  border: 1px solid grey;
+
+}
+
+[data-highlighted] {
+  background: var(--color-accent-700);
+  outline: none;
+}
+
+[data-state='open'] {
+  .selectIcon {
+    transform: rotate(180deg);
+  }
+}
+
+
+[data-disabled] {
+  opacity: 0.5;
+
+  &:hover {
+    background: inherit;
+  }
+}
+
+
+
