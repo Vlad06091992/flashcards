@@ -66,7 +66,7 @@ const privateRoutes: RouteObject[] = [
   },
 ]
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     element: <PrivateRoutes />,
     children: privateRoutes,

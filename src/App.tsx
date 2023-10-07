@@ -1,4 +1,9 @@
+import { Provider } from 'react-redux'
+
+import { Pagination } from '@/components'
 import { Selected } from '@/components/ui/selected/selected.tsx'
+import { Router } from '@/router.tsx'
+import { store } from '@/services/store.ts'
 
 const items = [
   { value: 'Banana', label: 'Select-box' },
@@ -8,9 +13,14 @@ const items = [
 
 export function App() {
   return (
+    // <div style={{ margin: '10px' }}>
+    //   <Selected label={'Select-box'} items={items} />
+    // </div>
+
     <div style={{ margin: '10px' }}>
-      <Selected label={'Select-box'} items={items} />
+      <Pagination activePage={2} pagesQuality={10} />
     </div>
+
     // <Provider store={store}>
     //   <Router />
     // </Provider>
