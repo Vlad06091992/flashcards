@@ -18,9 +18,9 @@ type Story = StoryObj<typeof meta>
 
 export const BaseExample: Story = {
   args: {
-    onSubmit: data => {
-      debugger
-    },
+    // onSubmit: data => {
+    //   debugger
+    // },
   },
   render: () => (
     <Provider store={store}>

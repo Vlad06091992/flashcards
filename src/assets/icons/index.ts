@@ -1,3 +1,5 @@
 export { default as Edit } from './edit.tsx'
 export { default as Camera } from './camera.tsx'
 export { default as Email } from './email.tsx'
+export { default as LeftChevron } from './left-chevron.tsx'
+export { default as RightChevron } from './right-chevron.tsx'
