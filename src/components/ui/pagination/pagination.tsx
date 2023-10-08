@@ -70,15 +70,16 @@ const PaginationNumbers = ({ pagesQuality, activePage, setActivePage }: PropsPag
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
       {pages.map((el, index) => {
-        if (index == 3 && activePage <= 52 && activePage > 4) {
+        if (
+          (index == 3 && activePage <= 52 && activePage > 4) ||
+          (activePage > 52 && index === pages.indexOf(50)) ||
+          (index == 10 && activePage < 52)
+        ) {
           return (
             <div key={el} style={{ width: '24px', height: '24px' }}>
               ...
             </div>
           )
-        }
-        if (activePage > 52 && index === pages.indexOf(50)) {
-          return <div style={{ width: '24px', height: '24px' }}>...</div>
         }
 
         if (activePage < 5 && el > 1 && el < 7) {
