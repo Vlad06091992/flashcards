@@ -71,9 +71,9 @@ const PaginationNumbers = ({ pagesQuality, activePage, setActivePage }: PropsPag
     <div style={{ display: 'flex', alignItems: 'center' }}>
       {pages.map((el, index) => {
         if (
-          (index == 3 && activePage <= 52 && activePage > 4) ||
-          (activePage > 52 && index === pages.indexOf(50)) ||
-          (index == 10 && activePage < 52)
+          (index == 3 && activePage <= pagesQuality - 3 && activePage > 4) ||
+          (activePage > pagesQuality - 3 && index === pages.indexOf(pagesQuality - 5)) ||
+          (index == 10 && activePage < pagesQuality - 3)
         ) {
           return (
             <div key={el} style={{ width: '24px', height: '24px' }}>
@@ -83,8 +83,6 @@ const PaginationNumbers = ({ pagesQuality, activePage, setActivePage }: PropsPag
         }
 
         if (activePage < 5 && el > 1 && el < 6) {
-          // if (el == 6) debugger
-
           return (
             <ItemPagination
               key={el}
@@ -106,7 +104,7 @@ const PaginationNumbers = ({ pagesQuality, activePage, setActivePage }: PropsPag
               />
             )
           }
-        } else if (activePage > pagesQuality - 4 && el < 55 && el > pagesQuality - 6)
+        } else if (activePage > pagesQuality - 4 && el < pagesQuality && el > pagesQuality - 6)
           return (
             <ItemPagination
               key={el}
