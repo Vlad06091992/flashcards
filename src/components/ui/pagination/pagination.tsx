@@ -81,8 +81,11 @@ const PaginationNumbers = ({ pagesQuality, activePage, setActivePage }: PropsPag
             </div>
           )
         }
-
-        if (activePage < 5 && el > 1 && el < 6) {
+        if (
+          (activePage < 5 && el > 1 && el < 6) ||
+          (el > 2 && el < pagesQuality && index > 2 && index < 7) ||
+          (activePage > pagesQuality - 4 && el < pagesQuality && el > pagesQuality - 6)
+        ) {
           return (
             <ItemPagination
               key={el}
@@ -91,28 +94,7 @@ const PaginationNumbers = ({ pagesQuality, activePage, setActivePage }: PropsPag
               pageNumber={el}
             />
           )
-        } else if (el > 2 && el < pagesQuality && index > 2 && index < 7) {
-          // if (el == 7) debugger
-
-          {
-            return (
-              <ItemPagination
-                key={el}
-                onClick={() => setActivePage(el)}
-                isActive={el === activePage}
-                pageNumber={el}
-              />
-            )
-          }
-        } else if (activePage > pagesQuality - 4 && el < pagesQuality && el > pagesQuality - 6)
-          return (
-            <ItemPagination
-              key={el}
-              onClick={() => setActivePage(el)}
-              isActive={el === activePage}
-              pageNumber={el}
-            />
-          )
+        }
       })}
     </div>
   )
