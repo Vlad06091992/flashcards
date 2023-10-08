@@ -18,7 +18,7 @@ export function App() {
     // </div>
 
     <div style={{ margin: '10px' }}>
-      <Pagination activePage={1} pagesQuality={7} />
+      <Pagination activePage={33} pagesQuality={55} />
     </div>
 
     // <Provider store={store}>
