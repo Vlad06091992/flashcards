@@ -11,6 +11,7 @@ type Item = {
 }
 
 type Props = {
+  variant?: 'standart' | 'pagination'
   items: Item[]
   disabled?: boolean
   required?: boolean
@@ -22,10 +23,10 @@ type Props = {
 }
 
 export const Selected = ({
+  variant,
   items,
   disabled,
   onValueChange,
-  defaultValue,
   value,
   required,
   label,
@@ -36,15 +37,20 @@ export const Selected = ({
       {label}
     </Typography>
     <Select.Root
-      defaultValue={defaultValue}
+      defaultValue={items[0].value}
       onValueChange={onValueChange}
       required={required}
       value={value}
       disabled={disabled}
     >
-      <Select.Trigger value={value} className={s.selectTrigger}>
+      <Select.Trigger
+        value={value}
+        className={`${s.selectTrigger} ${
+          variant === 'pagination' ? s.selectTriggerForPagination : ''
+        }`}
+      >
         <div>
-          <Select.Value placeholder={placeholder || 'set value'}></Select.Value>
+          <Select.Value placeholder={placeholder}></Select.Value>
         </div>
         <div>
           <Select.Icon>
@@ -54,7 +60,9 @@ export const Selected = ({
       </Select.Trigger>
       <Select.Portal>
         <Select.Content
-          className={s.selectContent}
+          className={`${s.selectContent} ${
+            variant === 'pagination' ? s.selectContentForPagination : ''
+          }`}
           sideOffset={-0.9}
           align={'start'}
           position={'popper'}
@@ -63,10 +71,16 @@ export const Selected = ({
             <ChevronUpIcon />
           </Select.ScrollUpButton>
           <Select.Viewport>
-            <Select.Group>
+            <Select.Group className={s.selectGroup}>
               {items.map(el => {
                 return (
-                  <Select.Item className={s.selectItem} key={el.value} value={el.value}>
+                  <Select.Item
+                    className={`${s.selectItem} ${
+                      variant === 'pagination' ? s.selectItemForPagination : ''
+                    }`}
+                    key={el.value}
+                    value={el.value}
+                  >
                     <Select.ItemText>{el.label}</Select.ItemText>
                   </Select.Item>
                 )
