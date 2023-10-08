@@ -1,7 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
-// import { withRouter } from 'storybook-addon-react-router-v6'
+import { Provider } from 'react-redux'
+import { reactRouterParameters, withRouter } from 'storybook-addon-react-router-v6'
 
 import { SignUp } from './sign-up.tsx'
+
+import { store } from '@/services/store.ts'
 
 const meta = {
   title: 'SignIn/SignUp',
@@ -18,5 +21,21 @@ export const BaseExample: Story = {
     onSubmit: data => {
       // console.log(data)
     },
+    // reactRouter: reactRouterParameters({
+    //   location: {
+    //     pathParams: { userId: '42' },
+    //     searchParams: { tab: 'activityLog' },
+    //     state: { fromPage: 'homePage' },
+    //   },
+    //   routing: {
+    //     path: '/users/:userId',
+    //     handle: 'Profile',
+    //   },
+    // }),
   },
+  render: () => (
+    <Provider store={store}>
+      <SignUp />
+    </Provider>
+  ),
 }
