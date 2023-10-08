@@ -82,7 +82,9 @@ const PaginationNumbers = ({ pagesQuality, activePage, setActivePage }: PropsPag
           )
         }
 
-        if (activePage < 5 && el > 1 && el < 7) {
+        if (activePage < 5 && el > 1 && el < 6) {
+          // if (el == 6) debugger
+
           return (
             <ItemPagination
               key={el}
@@ -91,7 +93,9 @@ const PaginationNumbers = ({ pagesQuality, activePage, setActivePage }: PropsPag
               pageNumber={el}
             />
           )
-        } else if (el > 1 && el < pagesQuality && index > 2 && index < 8) {
+        } else if (el > 2 && el < pagesQuality && index > 2 && index < 7) {
+          // if (el == 7) debugger
+
           {
             return (
               <ItemPagination
