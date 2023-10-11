@@ -1,7 +1,8 @@
 import { useState } from 'react'
 
-import { LeftChevron, RightChevron } from '@/assets'
 import { ItemPagination } from '@/components/ui/pagination/item-pagination/item-pagination.tsx'
+import { NextButton } from '@/components/ui/pagination/item-pagination/pagination-components/NextButton.tsx'
+import { PrevButton } from '@/components/ui/pagination/item-pagination/pagination-components/PrevButton.tsx'
 
 type Props = {
   pagesQuality: number
@@ -21,8 +22,9 @@ export const Pagination = ({ pagesQuality, activePage }: Props) => {
 
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
-      <LeftChevron
-        onClick={() => {
+      <PrevButton
+        disabled={activePageState === 1}
+        onclickCallback={() => {
           setActivePage(activePageState - 1)
         }}
       />
@@ -33,7 +35,7 @@ export const Pagination = ({ pagesQuality, activePage }: Props) => {
         pageNumber={1}
       />
 
-      <PaginationNumbers
+      <MainPaginationButtons
         setActivePage={setActivePage}
         pagesQuality={pagesQuality}
         activePage={activePageState}
@@ -45,8 +47,9 @@ export const Pagination = ({ pagesQuality, activePage }: Props) => {
         pageNumber={pagesQuality}
       />
 
-      <RightChevron
-        onClick={() => {
+      <NextButton
+        disabled={activePageState === pagesQuality}
+        onclickCallback={() => {
           setActivePage(activePageState + 1)
         }}
       />
@@ -60,32 +63,21 @@ type PropsPaginationNumbers = {
   setActivePage: any
 }
 
-const PaginationNumbers = ({ pagesQuality, activePage, setActivePage }: PropsPaginationNumbers) => {
+const MainPaginationButtons = ({
+  pagesQuality,
+  activePage,
+  setActivePage,
+}: PropsPaginationNumbers) => {
   let pages: Array<number> = []
 
-  for (let i = activePage - 5; i < activePage + 6; i++) {
-    pages.push(i)
-  }
+  if (pagesQuality <= 6) {
+    for (let i = 2; i < pagesQuality; i++) {
+      pages.push(i)
+    }
 
-  return (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-      {pages.map((el, index) => {
-        if (
-          (index == 3 && activePage <= pagesQuality - 3 && activePage > 4) ||
-          (activePage > pagesQuality - 3 && index === pages.indexOf(pagesQuality - 5)) ||
-          (index == 10 && activePage < pagesQuality - 3)
-        ) {
-          return (
-            <div key={el} style={{ width: '24px', height: '24px' }}>
-              ...
-            </div>
-          )
-        }
-        if (
-          (activePage < 5 && el > 1 && el < 6) ||
-          (el > 2 && el < pagesQuality && index > 2 && index < 7) ||
-          (activePage > pagesQuality - 4 && el < pagesQuality && el > pagesQuality - 6)
-        ) {
+    return (
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        {pages.map(el => {
           return (
             <ItemPagination
               key={el}
@@ -94,8 +86,44 @@ const PaginationNumbers = ({ pagesQuality, activePage, setActivePage }: PropsPag
               pageNumber={el}
             />
           )
-        }
-      })}
-    </div>
-  )
+        })}
+      </div>
+    )
+  } else {
+    for (let i = activePage - 5; i < activePage + 6; i++) {
+      pages.push(i)
+    }
+
+    return (
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        {pages.map((el, index) => {
+          if (
+            (index == 3 && activePage <= pagesQuality - 3 && activePage > 4) ||
+            (activePage > pagesQuality - 3 && index === pages.indexOf(pagesQuality - 5)) ||
+            (index == 10 && activePage < pagesQuality - 3)
+          ) {
+            return (
+              <div key={el} style={{ width: '24px', height: '24px' }}>
+                ...
+              </div>
+            )
+          }
+          if (
+            (activePage < 5 && el > 1 && el < 6) ||
+            (el > 2 && el < pagesQuality && index > 2 && index < 7) ||
+            (activePage > pagesQuality - 4 && el < pagesQuality && el > pagesQuality - 6)
+          ) {
+            return (
+              <ItemPagination
+                key={el}
+                onClick={() => setActivePage(el)}
+                isActive={el === activePage}
+                pageNumber={el}
+              />
+            )
+          }
+        })}
+      </div>
+    )
+  }
 }

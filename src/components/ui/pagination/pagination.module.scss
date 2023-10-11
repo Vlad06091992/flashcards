@@ -1,0 +1,11 @@
+.button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.disabled{
+  cursor: inherit;
+  opacity: 0.5;
+}
