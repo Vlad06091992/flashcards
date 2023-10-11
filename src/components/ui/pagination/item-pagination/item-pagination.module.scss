@@ -1,21 +1,31 @@
-.itemPagination{
+.itemPagination {
   width: 24px;
   height: 24px;
   text-align: center;
+  border-radius: 2px;
+
+  &:hover {
+    cursor: pointer;
+    background: grey;
+  }
 }
 
-.active{
+.active {
   color: black;
   background: white;
+
+  &:hover {
+    background: white;
+  }
 }
 
-.button{
+.button {
   display: flex;
   align-items: center;
   justify-content: center;
 
   width: 24px;
-  height:24px;
+  height: 24px;
 
 
 }
