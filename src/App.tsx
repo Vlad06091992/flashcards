@@ -21,8 +21,20 @@ export function App() {
     // </div>
 
     <div style={{ margin: '10px' }}>
-      <Pagination activePage={1} pagesQuality={4} />
-      <Pagination activePage={1} pagesQuality={55} />
+      {/*<Pagination*/}
+      {/*  onChange={(page: number) => {*/}
+      {/*    console.log(page)*/}
+      {/*  }}*/}
+      {/*  page={1}*/}
+      {/*  count={4}*/}
+      {/*/>*/}
+      <Pagination
+        onChange={(page: number) => {
+          console.log(page)
+        }}
+        page={5}
+        count={55}
+      />
       {/*<Selected items={paginationTtems} variant={'pagination'} />*/}
       {/*<Selected items={items} variant={'standart'} />*/}
     </div>
