@@ -11,26 +11,30 @@ type Props = {
   count: number
   page: number
   onChange: (page: number) => void
+  perPage: number
+  onPerPageChange: (pages: number) => void
+  perPageOptions: {
+    value: string
+    label: string
+  }[]
 }
 
-export const Pagination = ({ count, page, onChange }: Props) => {
-  // types
-  // component="div"
-  // count={100}
-  // page={page}
-  // onPageChange={handleChangePage}
-  // rowsPerPage={rowsPerPage}
-  // onRowsPerPageChange={handleChangeRowsPerPage}
-
-  const paginationTtems = [
-    { value: '10', label: '10' },
-    { value: '20', label: '20' },
-    { value: '30', label: '30' },
-    { value: '50', label: '50' },
-    { value: '100', label: '100' },
-  ]
+export const Pagination = ({
+  count,
+  page,
+  onChange,
+  perPageOptions,
+  perPage,
+  onPerPageChange,
+}: Props) => {
+  const valueForPagination = perPageOptions[0].value.toString()
+  const onPerPageChangeCallback = (value: string) => {
+    setPerPage(value)
+    onPerPageChange(+value)
+  }
 
   const [activePage, setActivePage] = useState(page || 1)
+  const [activePerPage, setPerPage] = useState(valueForPagination || perPage.toString)
 
   const itemOnClickHandler = (page: number) => {
     setActivePage(page)
@@ -77,7 +81,12 @@ export const Pagination = ({ count, page, onChange }: Props) => {
       <Typography className={s.paginationTypography} color={'white'} variant={'body2'}>
         Показать
       </Typography>
-      <Selected variant={'pagination'} items={paginationTtems}></Selected>
+      <Selected
+        onValueChange={onPerPageChangeCallback}
+        value={activePerPage}
+        variant={'pagination'}
+        items={perPageOptions}
+      ></Selected>
       <Typography color={'white'} variant={'body2'}>
         на странице
       </Typography>
