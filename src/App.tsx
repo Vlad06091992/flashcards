@@ -21,11 +21,22 @@ export function App() {
       {/*  count={4}*/}
       {/*/>*/}
       <Pagination
+        perPageOptions={[
+          { value: '10', label: '10' },
+          { value: '20', label: '20' },
+          { value: '30', label: '30' },
+          { value: '50', label: '50' },
+          { value: '100', label: '100' },
+        ]}
+        perPage={10}
         onChange={(page: number) => {
           console.log(page)
         }}
         page={5}
         count={55}
+        onPerPageChange={(page: number) => {
+          console.log(page)
+        }}
       />
       {/*<Selected items={paginationTtems} variant={'pagination'} />*/}
       {/*<Selected items={items} variant={'standart'} />*/}
