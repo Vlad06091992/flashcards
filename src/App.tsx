@@ -1,4 +1,6 @@
-import { Pagination } from '@/components/'
+import { AvatarIcon, Pagination } from '@/components/'
+
+//надо сделать: Modal/DropDown/Slider/TabSwitcher/Header
 
 const items = [
   { value: 'Banana', label: 'Select-box' },
@@ -40,6 +42,7 @@ export function App() {
       />
       {/*<Selected items={paginationTtems} variant={'pagination'} />*/}
       {/*<Selected items={items} variant={'standart'} />*/}
+      <AvatarIcon imageUrl={'https://a.d-cd.net/44IeiDnC6Jp8eHkQEFB9w-lCYQI-960.jpg'} />
     </div>
 
     // <Provider store={store}>
