@@ -1,12 +1,7 @@
-import { AvatarIcon, Pagination } from '@/components/'
+import { Pagination } from '@/components/'
+import { DropDownMenuWithAvatar } from '@/components/ui/drop-down-menu/drop-down-menu.tsx'
 
 //надо сделать: Modal/DropDown/Slider/TabSwitcher/Header
-
-const items = [
-  { value: 'Banana', label: 'Select-box' },
-  { value: 'Apple', label: 'Select-box' },
-  { value: 'Orange', label: 'Select-box' },
-]
 
 export function App() {
   return (
@@ -22,6 +17,10 @@ export function App() {
       {/*  page={1}*/}
       {/*  count={4}*/}
       {/*/>*/}
+
+      <div style={{ margin: '200px' }}>
+        <DropDownMenuWithAvatar />
+      </div>
       <Pagination
         perPageOptions={[
           { value: '10', label: '10' },
@@ -40,9 +39,6 @@ export function App() {
           console.log(page)
         }}
       />
-      {/*<Selected items={paginationTtems} variant={'pagination'} />*/}
-      {/*<Selected items={items} variant={'standart'} />*/}
-      <AvatarIcon imageUrl={'https://a.d-cd.net/44IeiDnC6Jp8eHkQEFB9w-lCYQI-960.jpg'} />
     </div>
 
     // <Provider store={store}>

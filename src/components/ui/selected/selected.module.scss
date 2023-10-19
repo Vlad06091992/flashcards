@@ -44,15 +44,17 @@
   padding: 6px 12px;
 }
 
+.selectItem[data-highlighted] {
+  background: var(--color-accent-700);
+  outline: none;
+}
+
 .selectItemForPagination {
   width: 100%;
   padding: 0 4px;
 }
 
-[data-highlighted] {
-  background: var(--color-accent-700);
-  outline: none;
-}
+
 
 [data-state='open'] {
   .selectIcon {
