@@ -1,5 +1,12 @@
+import Delete from '@/assets/icons/delete.tsx'
+import Edit from '@/assets/icons/edit.tsx'
+import MoreVerticalOutline from '@/assets/icons/more-vertical-outline.tsx'
+import Play from '@/assets/icons/play.tsx'
 import { Pagination } from '@/components/'
-import { DropDownMenuWithAvatar } from '@/components/ui/drop-down-menu/drop-down-menu.tsx'
+import {
+  CardDropdownMenu,
+  CustomDropDownMenu,
+} from '@/components/ui/drop-down-menu/drop-down-menu.tsx'
 
 //надо сделать: Modal/DropDown/Slider/TabSwitcher/Header
 
@@ -8,7 +15,6 @@ export function App() {
     // <div style={{ margin: '10px' }}>
     //   <Selected label={'Select-box'} items={items} />
     // </div>
-
     <div style={{ margin: '10px' }}>
       {/*<Pagination*/}
       {/*  onChange={(page: number) => {*/}
@@ -17,9 +23,17 @@ export function App() {
       {/*  page={1}*/}
       {/*  count={4}*/}
       {/*/>*/}
-
+      <Play />
+      <Edit />
+      <Delete />
       <div style={{ margin: '200px' }}>
-        <DropDownMenuWithAvatar />
+        <CustomDropDownMenu
+          trigger={
+            // <AvatarIcon imageUrl={'https://a.d-cd.net/44IeiDnC6Jp8eHkQEFB9w-lCYQI-960.jpg'} />
+            <MoreVerticalOutline />
+          }
+          content={<CardDropdownMenu />}
+        />
       </div>
       <Pagination
         perPageOptions={[
