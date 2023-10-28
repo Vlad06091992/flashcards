@@ -8,7 +8,7 @@ import s from './sign-in.module.scss'
 import { Button, Card, Typography } from '@/components'
 import { ControlledCheckbox } from '@/components/ui/controlled'
 import { ControlledTextfield } from '@/components/ui/controlled/controlled-textfield.tsx'
-import { useLogInMutation, useLoginMutation } from '@/services/auth/auth.ts'
+import { useLogInMutation } from '@/services/auth/auth.ts'
 
 const Schema = z.object({
   email: z.string().email().default(''),
@@ -16,14 +16,14 @@ const Schema = z.object({
   rememberMe: z.boolean().default(false),
 })
 
-export type FormType = z.infer<typeof Schema>
+export type FormTypeSignIn = z.infer<typeof Schema>
 // type Props = {
 //   onSubmit: (data: FormType) => void
 // }
 
 // export const SignIn = ({ onSubmit }: Props) => {
 export const SignIn = () => {
-  const { handleSubmit, control, setError } = useForm<FormType>({
+  const { handleSubmit, control, setError } = useForm<FormTypeSignIn>({
     resolver: zodResolver(Schema),
   })
   const navigate = useNavigate()
@@ -42,7 +42,7 @@ export const SignIn = () => {
     }
   }
 
-  const onSubmitHandler = (data: FormType) => {
+  const onSubmitHandler = (data: FormTypeSignIn) => {
     loginfn(data)
       .unwrap()
       .then(res => {

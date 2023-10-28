@@ -38,10 +38,10 @@ const Schema = z
 // type Props = {
 //   onSubmit: (data: FormType) => void
 // }
-export type FormType = z.infer<typeof Schema>
+export type FormTypeSignUp = z.infer<typeof Schema>
 // export const SignUp = ({ onSubmit }: Props) => {
 export const SignUp = () => {
-  const { handleSubmit, control, setError } = useForm<FormType>({
+  const { handleSubmit, control, setError } = useForm<FormTypeSignUp>({
     resolver: zodResolver(Schema),
   })
 
@@ -60,7 +60,7 @@ export const SignUp = () => {
     setError('email', { type: 'custom', message: error.data.errorMessages[0] })
   }
 
-  const onSubmitHandler = (data: FormType) => {
+  const onSubmitHandler = (data: FormTypeSignUp) => {
     const { confirmPassword, ...restData } = data
 
     signUp(restData)

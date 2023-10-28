@@ -1,4 +1,4 @@
-import { FormType } from '@/components'
+import { FormTypeSignIn } from '@/components'
 import { baseApi } from '@/services/base-api.ts'
 
 export const authApi = baseApi.injectEndpoints({
@@ -15,7 +15,7 @@ export const authApi = baseApi.injectEndpoints({
         providesTags: ['Auth'],
       }),
 
-      logIn: builder.mutation<any, FormType>({
+      logIn: builder.mutation<any, FormTypeSignIn>({
         query: body => {
           return {
             url: '/v1/auth/login',
