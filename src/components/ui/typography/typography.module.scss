@@ -22,7 +22,7 @@
 }
 
 .body1 {
-  @include typography(var(--font-weight-regular), var(--font-size-m), var(--line-height-m))
+  @include typography(var(--font-weight-regular), var(--font-size-xs), var(--line-height-m))
 }
 
 .body2 {
@@ -30,11 +30,11 @@
 }
 
 .subtitle1 {
-  @include typography(var(--font-weight-bold), var(--font-size-m), var(--line-height-m))
+  @include typography(var(--font-weight-bold), var(--font-size-s), var(--line-height-m))
 }
 
 .subtitle2 {
-  @include typography(var(--font-weight-bold), var(--font-size-s), var(--line-height-m))
+  @include typography(var(--font-weight-bold), var(--font-size-m), var(--line-height-m))
 }
 
 .instructions {

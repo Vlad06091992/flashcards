@@ -1,20 +1,41 @@
-.dropDownMenuContent{
+.dropDownMenuContentForPacks{
+  cursor:pointer;
+  
   width:80px;
+
   background: var(--color-dark-700);
   border:1px solid var(--color-dark-500);
   border-radius: 4px;
 }
 
-.item{
+.dropDownMenuContentForAvatar{
   cursor:pointer;
 
+box-sizing: border-box;
+  width:217px;
+
+  background: var(--color-dark-700);
+  border:1px solid var(--color-dark-500);
+  border-radius: 4px;
+}
+
+.profileInfo{
+  margin-left: 10px;
+}
+
+.name{}
+
+.email {
+  margin: 0;
+  color: var(--color-dark-100);
+  text-align: left;
+}
+
+.itemForPacks{
   display: flex;
   gap:5px;
   align-items: center;
-
   margin: 10px 5px;
-
-  //display: inline-block;
 
 }
 
@@ -41,7 +62,6 @@
 
 
 .separator{
-  width: 56px;
   height: 1px;
   margin:  5px auto;
   background-color: var(--color-dark-500);

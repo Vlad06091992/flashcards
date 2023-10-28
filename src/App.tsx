@@ -1,62 +1,30 @@
-import Delete from '@/assets/icons/delete.tsx'
-import Edit from '@/assets/icons/edit.tsx'
 import MoreVerticalOutline from '@/assets/icons/more-vertical-outline.tsx'
-import Play from '@/assets/icons/play.tsx'
-import { Pagination } from '@/components/'
-import {
-  CardDropdownMenu,
-  CustomDropDownMenu,
-} from '@/components/ui/drop-down-menu/drop-down-menu.tsx'
+import { AvatarIcon } from '@/components'
+import { DropDownMenuForAvatar } from '@/components/ui/drop-down-menu/drop-down-menu-for-avatar.tsx'
+import { DropDownMenuForPacks } from '@/components/ui/drop-down-menu/drop-down-menu-for-packs.tsx'
+import { CustomDropDownMenu } from '@/components/ui/drop-down-menu/drop-down-menu.tsx'
 
 //надо сделать: Modal/DropDown/Slider/TabSwitcher/Header
 
 export function App() {
   return (
-    // <div style={{ margin: '10px' }}>
-    //   <Selected label={'Select-box'} items={items} />
-    // </div>
     <div style={{ margin: '10px' }}>
-      {/*<Pagination*/}
-      {/*  onChange={(page: number) => {*/}
-      {/*    console.log(page)*/}
-      {/*  }}*/}
-      {/*  page={1}*/}
-      {/*  count={4}*/}
-      {/*/>*/}
-      <Play />
-      <Edit />
-      <Delete />
       <div style={{ margin: '200px' }}>
         <CustomDropDownMenu
           trigger={
             // <AvatarIcon imageUrl={'https://a.d-cd.net/44IeiDnC6Jp8eHkQEFB9w-lCYQI-960.jpg'} />
             <MoreVerticalOutline />
           }
-          content={<CardDropdownMenu />}
+          content={<DropDownMenuForPacks />}
+        />
+
+        <CustomDropDownMenu
+          trigger={
+            <AvatarIcon imageUrl={'https://a.d-cd.net/44IeiDnC6Jp8eHkQEFB9w-lCYQI-960.jpg'} />
+          }
+          content={<DropDownMenuForAvatar />}
         />
       </div>
-      <Pagination
-        perPageOptions={[
-          { value: '10', label: '10' },
-          { value: '20', label: '20' },
-          { value: '30', label: '30' },
-          { value: '50', label: '50' },
-          { value: '100', label: '100' },
-        ]}
-        perPage={10}
-        onChange={(page: number) => {
-          console.log(page)
-        }}
-        page={5}
-        count={55}
-        onPerPageChange={(page: number) => {
-          console.log(page)
-        }}
-      />
     </div>
-
-    // <Provider store={store}>
-    //   <Router />
-    // </Provider>
   )
 }
