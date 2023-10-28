@@ -4,7 +4,7 @@ import { DropDownMenuForAvatar } from '@/components/ui/drop-down-menu/drop-down-
 import { DropDownMenuForPacks } from '@/components/ui/drop-down-menu/drop-down-menu-for-packs.tsx'
 import { CustomDropDownMenu } from '@/components/ui/drop-down-menu/drop-down-menu.tsx'
 
-//надо сделать: Modal/DropDown/Slider/TabSwitcher/Header
+//надо сделать: Modal/Slider/TabSwitcher/Header
 
 export function App() {
   return (

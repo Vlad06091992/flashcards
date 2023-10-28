@@ -3,7 +3,7 @@ import { CheckIcon } from '@radix-ui/react-icons'
 
 import s from './checkbox.module.scss'
 
-export type CheckboxProps = {
+export type CheckBoxProps = {
   className?: string
   checked?: boolean
   onChange?: (checked: boolean) => void
@@ -14,7 +14,7 @@ export type CheckboxProps = {
   position?: 'left'
 }
 
-export const CheckboxComponent: React.FC<CheckboxProps> = ({
+export const CheckboxComponent: React.FC<CheckBoxProps> = ({
   checked,
   className,
   disabled,
