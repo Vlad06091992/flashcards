@@ -22,7 +22,13 @@ export function App() {
           trigger={
             <AvatarIcon imageUrl={'https://a.d-cd.net/44IeiDnC6Jp8eHkQEFB9w-lCYQI-960.jpg'} />
           }
-          content={<DropDownMenuForAvatar />}
+          content={
+            <DropDownMenuForAvatar
+              imageUrl={'https://a.d-cd.net/44IeiDnC6Jp8eHkQEFB9w-lCYQI-960.jpg'}
+              email={'j&johnson@gmail.com'}
+              name={'Ivan'}
+            />
+          }
         />
       </div>
     </div>

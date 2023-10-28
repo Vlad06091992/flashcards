@@ -1,3 +1,5 @@
+import { forwardRef } from 'react'
+
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 
 import { Delete, Edit, Play } from '@/assets'
@@ -5,9 +7,14 @@ import { Typography } from '@/components'
 import s from '@/components/ui/drop-down-menu/drop-down-menu.module.scss'
 import { Separator } from '@/components/ui/drop-down-menu/drop-down-menu.tsx'
 
-export const DropDownMenuForPacks = () => {
+export const DropDownMenuForPacks = forwardRef<HTMLDivElement, {}>(({}, ref) => {
   return (
-    <DropdownMenu.Content alignOffset={-5} align={'end'} className={s.dropDownMenuContentForPacks}>
+    <DropdownMenu.Content
+      ref={ref}
+      alignOffset={-5}
+      align={'end'}
+      className={s.dropDownMenuContentForPacks}
+    >
       <DropdownMenu.Arrow className={s.arrowBox} asChild>
         <div className={s.arrow} />
       </DropdownMenu.Arrow>
@@ -49,4 +56,4 @@ export const DropDownMenuForPacks = () => {
       </DropdownMenu.Item>
     </DropdownMenu.Content>
   )
-}
+})
