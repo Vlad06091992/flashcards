@@ -25,7 +25,7 @@ export const CheckboxComponent: React.FC<CheckBoxProps> = ({
 
   return (
     <div className={className}>
-      <label className={s.Label} htmlFor="c1">
+      <label className={s.Label}>
         <div tabIndex={1} className={disabled ? `${s.root_disabled}` : s.root}>
           <Checkbox.Root
             className={
