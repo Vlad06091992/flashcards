@@ -17,6 +17,8 @@ export const ControlledCheckbox = <T extends FieldValues>({
     field: { value, onChange },
   } = useController({ control, name, defaultValue: false as PathValue<boolean, () => boolean> })
 
+  debugger
+
   return (
     <CheckboxComponent
       {...{
