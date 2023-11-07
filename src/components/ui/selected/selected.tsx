@@ -10,7 +10,7 @@ type Item = {
   label: string
 }
 
-type Props = {
+export type SelectProps = {
   variant?: 'standart' | 'pagination'
   items: Item[]
   disabled?: boolean
@@ -31,7 +31,7 @@ export const Selected = ({
   required,
   label,
   placeholder,
-}: Props) => (
+}: SelectProps) => (
   <div className={s.root}>
     <Typography variant={'body2'} as={'label'} style={{ color: '#808080' }}>
       {label}
@@ -65,6 +65,7 @@ export const Selected = ({
           }`}
           sideOffset={-0.9}
           align={'start'}
+          side={'bottom'}
           position={'popper'}
         >
           <Select.ScrollUpButton>

@@ -21,8 +21,6 @@ export const CheckboxComponent: React.FC<CheckBoxProps> = ({
   label,
   onChange,
 }) => {
-  // const [toggleChecked, setChecked] = useState(checked)
-
   return (
     <div className={className}>
       <label className={s.Label}>
