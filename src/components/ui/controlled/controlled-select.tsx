@@ -1,4 +1,4 @@
-import { Control, FieldValues, Path, useController } from 'react-hook-form'
+import { Control, FieldValues, Path, PathValue, useController } from 'react-hook-form'
 
 import { Selected, SelectProps } from '@/components'
 
@@ -14,10 +14,11 @@ export const ControlledSelect = <TFieldValues extends FieldValues>({
   const {
     field: { value, onChange },
   } = useController({
+    defaultValue: restProps.items[0].value as PathValue<TFieldValues, Path<TFieldValues>>,
     name: restProps.name,
     control,
     rules: { required: true },
   })
 
-  return <Selected onValueChange={onChange} value={value} {...restProps} />
+  return <Selected onValueChange={onChange} {...restProps} value={value} />
 }
