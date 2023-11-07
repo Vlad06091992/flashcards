@@ -11,7 +11,7 @@ import { ControlledTextfield } from '@/components/ui/controlled/controlled-textf
 
 type Props = {
   cancelCallback: () => void
-  addCardCallback: (arg: any) => void
+  editCardCallback: (arg: any) => void
   closeCallback: () => void
   questionFormatVariants: {
     value: string
@@ -19,8 +19,8 @@ type Props = {
   }[]
 }
 
-export const AddNewCard = ({
-  addCardCallback,
+export const EditCard = ({
+  editCardCallback,
   closeCallback,
   cancelCallback,
   questionFormatVariants,
@@ -36,7 +36,7 @@ export const AddNewCard = ({
   const { control, handleSubmit } = useForm<FieldsType>({ resolver: zodResolver(Schema) })
   const onSubmit = (data: any) => {
     console.log(data)
-    addCardCallback(data)
+    editCardCallback(data)
   }
 
   return (
@@ -45,7 +45,7 @@ export const AddNewCard = ({
         <div className={s.form}>
           <div className={s.formHeader}>
             <Typography color={'white'} variant={'h2'}>
-              Add New Card
+              Edit Card
             </Typography>
             <Close className={s.closeIcon} onClick={closeCallback} />
           </div>
@@ -64,7 +64,7 @@ export const AddNewCard = ({
             <Button type={'button'} onClick={cancelCallback} variant={'secondary'}>
               Cancel
             </Button>
-            <Button type={'submit'}>Add New Card</Button>
+            <Button type={'submit'}>Save Changes</Button>
           </div>
         </div>
       </form>
