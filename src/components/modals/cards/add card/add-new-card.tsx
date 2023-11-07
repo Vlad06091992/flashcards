@@ -1,31 +1,41 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import s from 'src/components/modals/cards/add card/cards.modals.module.scss'
 import { z } from 'zod'
-
-import s from './cards.modals.module.scss'
 
 import { Close } from '@/assets'
 import { Button, Card, Typography } from '@/components'
-import { ControlledCheckbox } from '@/components/ui/controlled'
+import { ControlledSelect } from '@/components/ui/controlled/controlled-select.tsx'
 import { ControlledTextfield } from '@/components/ui/controlled/controlled-textfield.tsx'
 
 type Props = {
   cancelCallback: () => void
-  editCardCallback: (arg: any) => void
+  addCardCallback: (arg: any) => void
   closeCallback: () => void
+  questionFormatVariants: {
+    value: string
+    label: string
+  }[]
 }
 
-export const EditPack = ({ editCardCallback, closeCallback, cancelCallback }: Props) => {
+export const AddNewCard = ({
+  addCardCallback,
+  closeCallback,
+  cancelCallback,
+  questionFormatVariants,
+}: Props) => {
   const Schema = z.object({
-    packName: z.string().min(3),
-    isPrivatePack: z.boolean(),
+    questionFormat: z.string(),
+    question: z.string().min(3),
+    answer: z.string().min(3),
   })
 
   type FieldsType = z.infer<typeof Schema>
 
   const { control, handleSubmit } = useForm<FieldsType>({ resolver: zodResolver(Schema) })
   const onSubmit = (data: any) => {
-    editCardCallback(data)
+    console.log(data)
+    addCardCallback(data)
   }
 
   return (
@@ -34,28 +44,26 @@ export const EditPack = ({ editCardCallback, closeCallback, cancelCallback }: Pr
         <div className={s.form}>
           <div className={s.formHeader}>
             <Typography color={'white'} variant={'h2'}>
-              Edit Pack
+              Add New Card
             </Typography>
             <Close className={s.closeIcon} onClick={closeCallback} />
           </div>
-          <div className={s.line}></div>
-          <ControlledTextfield
-            className={s.textfield}
-            control={control}
-            name={'packName'}
-            label={'Name Pack'}
-          />
-          <ControlledCheckbox
-            className={s.checkbox}
-            label={'Private pack'}
-            name={'isPrivatePack'}
-            control={control}
-          />
+          <div className={s.fields}>
+            <ControlledSelect
+              items={questionFormatVariants}
+              control={control}
+              name={'questionFormat'}
+              label={'Choose a question format'}
+            />
+            <ControlledTextfield control={control} name={'question'} label={'Question'} />
+            <ControlledTextfield control={control} name={'answer'} label={'Answer'} />
+          </div>
+
           <div className={s.buttons}>
             <Button type={'button'} onClick={cancelCallback} variant={'secondary'}>
               Cancel
             </Button>
-            <Button type={'submit'}>Save Changes</Button>
+            <Button type={'submit'}>Add New Card</Button>
           </div>
         </div>
       </form>

@@ -1,8 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import s from 'src/components/modals/add pack/cards.modals.module.scss'
 import { z } from 'zod'
-
-import s from './cards.modals.module.scss'
 
 import { Close } from '@/assets'
 import { Button, Card, Typography } from '@/components'
