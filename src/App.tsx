@@ -1,5 +1,6 @@
-import { AddNewCard } from '@/pages/cards/add card/add-new-card.tsx'
-import { EditCard } from '@/pages/cards/edit deck/edit-card.tsx'
+import { AddNewCard } from '@/components/modals/cards/add card/add-new-card.tsx'
+import { EditCard } from '@/components/modals/cards/edit deck/edit-card.tsx'
+import { DeleteEntity } from '@/components/modals/delete/delete-entity.tsx'
 
 //надо сделать: Modal/TabSwitcher/Header
 
@@ -11,27 +12,14 @@ const questionFormat = [
 export function App() {
   return (
     <div style={{ margin: '10px' }}>
-      <AddNewCard
-        questionFormatVariants={questionFormat}
-        cancelCallback={() => console.log('canceled')}
-        addCardCallback={(data: any) => {
-          console.log('added deck')
-        }}
-        closeCallback={() => {
-          console.log('closed')
-        }}
+      <DeleteEntity
+        cancelCallback={() => {}}
+        deleteCardCallback={() => {}}
+        closeCallback={() => {}}
+        title={'Delete Card'}
+        target={'Card'}
+        entities={'Cards'}
       />
-      <EditCard
-        questionFormatVariants={questionFormat}
-        cancelCallback={() => console.log('canceled')}
-        editCardCallback={(data: any) => {
-          console.log('edit card')
-        }}
-        closeCallback={() => {
-          console.log('closed')
-        }}
-      />
-      {/*</div>*/}
     </div>
   )
 }
