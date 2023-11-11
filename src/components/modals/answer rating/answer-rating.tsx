@@ -1,8 +1,5 @@
-import { Link } from 'react-router-dom'
-
 import s from './answer-rating.module.scss'
 
-import { Email } from '@/assets'
 import { Button, Card, Typography } from '@/components'
 
 type Props = {
@@ -13,13 +10,7 @@ type Props = {
   showAnswerCallback: () => void
 }
 
-export const AnswerRating = ({
-  title,
-  answer,
-  question,
-  answerCount,
-  showAnswerCallback,
-}: Props) => {
+export const AnswerRating = ({ title, question, answerCount, showAnswerCallback }: Props) => {
   return (
     <Card className={s.card}>
       <Typography color={'white'} variant={'large'}>

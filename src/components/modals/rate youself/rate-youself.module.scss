@@ -1,0 +1,62 @@
+.card {
+  position: relative;
+  z-index: 0;
+
+  width: 413px;
+  padding: 15px 30px;
+
+  text-align: center;
+
+  border: 1px solid var(--color-dark-500);
+  border-radius: 3px;
+}
+
+.description {
+  margin-top: 25px;
+  color: white;
+  text-align: left;
+}
+
+
+.email {
+  margin-top: 25px;
+}
+
+.checkbox {
+  align-self: start;
+  margin-bottom: 15px;
+}
+
+.recoverPassword {
+  float: right;
+  margin-bottom: 70px;
+  color: var(--color-light-100);
+}
+
+.button {
+  box-sizing: border-box;
+  margin-bottom: 35px;
+
+}
+
+.form {
+  margin: 30px 0 20px;
+}
+
+.instructions {
+  margin-top: 15px;
+  margin-bottom: 40px;
+  color: var(--color-dark-100);
+  text-align: left;
+}
+
+.caption {
+  margin-bottom: 10px;
+  color: var(--color-light-900);
+  text-align: center;
+}
+
+.signUpLink {
+  margin-bottom: 10px;
+  color: var(--color-accent-500);
+}
