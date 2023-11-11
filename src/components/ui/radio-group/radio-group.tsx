@@ -1,3 +1,5 @@
+import { forwardRef } from 'react'
+
 import * as RadioGroup from '@radix-ui/react-radio-group'
 import { RadioGroupIndicator, RadioGroupProps } from '@radix-ui/react-radio-group'
 
@@ -15,47 +17,41 @@ export type RadioGroupPropsTypes = {
   options: RadioGroupOptionsType[]
 } & RadioGroupProps
 
-export const RadioGroupComponent = ({
-  options,
-  disabled,
-  onChange,
-  ...restProps
-}: RadioGroupPropsTypes) => (
-  <div>
-    <RadioGroup.Root
-      disabled={disabled}
-      onValueChange={() => onChange}
-      className="RadioGroupRoot"
-      aria-label="View density"
-      {...restProps}
-    >
-      {options.map(el => {
-        return (
-          <div
-            className={disabled ? style.disabled : ''}
-            key={el.id}
-            style={{ position: 'relative', display: 'flex', alignItems: 'center', margin: '10px' }}
-          >
-            <RadioGroup.Item
-              className={style.RadioGroupItem}
-              value={el.value}
-              id={el.id}
+export const RadioGroupComponent = forwardRef<HTMLDivElement, RadioGroupPropsTypes>(
+  ({ options, disabled, onChange, ...restProps }, ref) => (
+    <div>
+      <RadioGroup.Root
+        name={'result'}
+        disabled={disabled}
+        onChange={onChange}
+        className="RadioGroupRoot"
+        aria-label="View density"
+        {...restProps}
+      >
+        {options.map(el => {
+          return (
+            <div
+              ref={ref}
+              className={
+                disabled ? `${style.itemsContainer}  ${style.disabled}` : style.itemsContainer
+              }
               key={el.id}
             >
-              <RadioGroupIndicator className={style.RadioGroupIndicator} />
-            </RadioGroup.Item>
-
-            <Typography
-              style={{ marginLeft: '6px', color: 'white' }}
-              variant={'body2'}
-              as={'label'}
-              htmlFor={el.value}
-            >
-              <label htmlFor={el.id}> {el.label}</label>
-            </Typography>
-          </div>
-        )
-      })}
-    </RadioGroup.Root>
-  </div>
+              <RadioGroup.Item
+                className={style.RadioGroupItem}
+                value={el.value}
+                id={el.id}
+                key={el.id}
+              >
+                <RadioGroupIndicator className={style.RadioGroupIndicator} />
+              </RadioGroup.Item>
+              <Typography className={style.label} variant={'body2'} as={'label'} htmlFor={el.value}>
+                <label htmlFor={el.id}> {el.label}</label>
+              </Typography>
+            </div>
+          )
+        })}
+      </RadioGroup.Root>
+    </div>
+  )
 )
