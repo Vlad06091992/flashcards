@@ -9,24 +9,26 @@ type Props = {
   answer: string
   question: string
   answerCount: number
-  showAnswerCallback: () => void
+  showAnswerCallback: (data: any) => void
 }
 
-const RateYouSelfOptions2: RadioGroupOptionsType[] = [
-  { value: '5', label: 'Did not know', id: '5' },
-  { value: '4', label: 'Forgot', id: '4' },
+const RateYouSelfOptions: RadioGroupOptionsType[] = [
+  { value: '1', label: 'Did not know', id: '1' },
+  { value: '2', label: 'Forgot', id: '2' },
   { value: '3', label: 'A lot of though', id: '3' },
-  { value: '2', label: 'Confused', id: '2' },
-  { value: '1', label: 'Knew the answer', id: '1' },
+  { value: '4', label: 'Confused', id: '4' },
+  { value: '5', label: 'Knew the answer', id: '5' },
 ]
 
+type FormType = { result: string }
+
 export const RateYouself = ({ title, question, answerCount, showAnswerCallback }: Props) => {
-  const form = useForm<{ result: string }>()
+  const form = useForm<FormType>()
   const { register, handleSubmit } = form
 
-  const onSubmitHandler = (data: { result: string }) => {
-    console.log(data.result)
-    showAnswerCallback()
+  const onSubmitHandler = (data: FormType) => {
+    console.log(data)
+    showAnswerCallback(data)
   }
 
   return (
@@ -49,9 +51,9 @@ export const RateYouself = ({ title, question, answerCount, showAnswerCallback }
           <Typography variant={'subtitle2'} className={s.description}>
             Rate yourself:
           </Typography>
-          <RadioGroupComponent {...register('result')} options={RateYouSelfOptions2} />
+          <RadioGroupComponent {...register('result')} options={RateYouSelfOptions} />
         </div>
-        <Button type={'submit'} fullWidth={true} className={s.button} onClick={showAnswerCallback}>
+        <Button type={'submit'} fullWidth={true} className={s.button}>
           Show Answer
         </Button>
       </form>
