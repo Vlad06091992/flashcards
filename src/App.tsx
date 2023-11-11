@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { RateYouself } from '@/components/modals/rate youself/rate-youself.tsx'
 import { DialogWindow } from '@/components/ui/dialog/Dialog.tsx'
 
-//надо сделать: Modal/TabSwitcher/Header
+//надо сделать: TabSwitcher/Header
 
 export function App() {
   const [open, setOpen] = useState(false)
