@@ -1,7 +1,10 @@
 import { useState } from 'react'
 
-import { TabSwitcher } from '@/components/ui/tab-switcher/tab-switcher.tsx'
-
+import { Logo } from '@/assets'
+import MoreVerticalOutline from '@/assets/icons/more-vertical-outline.tsx'
+import { AvatarIcon, Button, CustomDropDownMenu } from '@/components'
+import { DropDownMenuForAvatar } from '@/components/ui/drop-down-menu/drop-down-menu-for-avatar.tsx'
+import { Header } from '@/components/ui/header'
 //надо сделать: TabSwitcher/Header
 const tabs = [
   {
@@ -15,19 +18,27 @@ const tabs = [
 ]
 
 export function App() {
-  const [value, setValue] = useState(tabs[0].value)
+  const isLoggedIn = false
 
   return (
-    <div style={{ margin: '10px' }}>
-      <TabSwitcher
-        value={value}
-        onValueChange={data => {
-          console.log(data)
-          setValue(data)
-        }}
-        label={'Show packs cards'}
-        tabs={tabs}
-      />
-    </div>
+    <Header>
+      <Logo />
+      {isLoggedIn ? (
+        <CustomDropDownMenu
+          trigger={
+            <AvatarIcon imageUrl={'https://a.d-cd.net/44IeiDnC6Jp8eHkQEFB9w-lCYQI-960.jpg'} />
+          }
+          content={
+            <DropDownMenuForAvatar
+              name={'Vlad'}
+              email={'Smirnov.ru92@mail.ru'}
+              imageUrl={'https://a.d-cd.net/44IeiDnC6Jp8eHkQEFB9w-lCYQI-960.jpg'}
+            />
+          }
+        />
+      ) : (
+        <Button>Sign In</Button>
+      )}
+    </Header>
   )
 }
