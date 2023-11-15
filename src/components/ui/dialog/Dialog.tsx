@@ -1,22 +1,21 @@
-import { useState } from 'react'
-
 import * as Dialog from '@radix-ui/react-dialog'
 
 import s from './Dialog.module.scss'
 
-import { RateYouself } from '@/components/modals/rate youself/rate-youself.tsx'
-
 type Props = {
+  onCloseAutoFocus?: () => void
   isOpen: boolean
   content: React.JSX.Element
 }
 
-export const DialogWindow = ({ content, isOpen }: Props) => {
+export const DialogWindow = ({ onCloseAutoFocus, content, isOpen }: Props) => {
   return (
     <Dialog.Root open={isOpen}>
       <Dialog.Portal>
         <Dialog.Overlay className={s.DialogOverlay} />
-        <Dialog.Content className={s.DialogContent}>{content}</Dialog.Content>
+        <Dialog.Content onInteractOutside={() => onCloseAutoFocus} className={s.DialogContent}>
+          {content}
+        </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
   )
