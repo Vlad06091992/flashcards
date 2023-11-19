@@ -65,7 +65,6 @@ export const SignUp = () => {
 
     signUp(restData)
       .then(res => {
-        debugger
         console.log(res)
       })
       .catch()

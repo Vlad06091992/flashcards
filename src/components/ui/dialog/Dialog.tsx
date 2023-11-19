@@ -13,7 +13,13 @@ export const DialogWindow = ({ onCloseAutoFocus, content, isOpen }: Props) => {
     <Dialog.Root open={isOpen}>
       <Dialog.Portal>
         <Dialog.Overlay className={s.DialogOverlay} />
-        <Dialog.Content onInteractOutside={() => onCloseAutoFocus} className={s.DialogContent}>
+        <Dialog.Content
+          // onOpenAutoFocus={e => {
+          //   e.preventDefault()
+          // }}
+          onInteractOutside={() => onCloseAutoFocus}
+          className={s.DialogContent}
+        >
           {content}
         </Dialog.Content>
       </Dialog.Portal>
