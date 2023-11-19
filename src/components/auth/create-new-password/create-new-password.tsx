@@ -30,7 +30,6 @@ export const CreateNewPassword = () => {
   console.log(token)
 
   const onSubmitHandler = (data: FormType) => {
-    debugger
     newPassword({ password: data.password, token }).then(() => {
       navigate('/login')
     })

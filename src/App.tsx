@@ -1,10 +1,14 @@
 import { useState } from 'react'
 
+import { initializeUseSelector } from 'react-redux/es/hooks/useSelector'
+
 import { Logo } from '@/assets'
-import MoreVerticalOutline from '@/assets/icons/more-vertical-outline.tsx'
 import { AvatarIcon, Button, CustomDropDownMenu } from '@/components'
+import { AddNewPack } from '@/components/modals/packs/add pack/add-new-pack.tsx'
+import { DialogWindow } from '@/components/ui/dialog'
 import { DropDownMenuForAvatar } from '@/components/ui/drop-down-menu/drop-down-menu-for-avatar.tsx'
 import { Header } from '@/components/ui/header'
+
 //надо сделать: TabSwitcher/Header
 const tabs = [
   {
@@ -19,6 +23,7 @@ const tabs = [
 
 export function App() {
   const isLoggedIn = false
+  const [open, setOpen] = useState(false)
 
   return (
     <Header>
@@ -37,7 +42,7 @@ export function App() {
           }
         />
       ) : (
-        <Button>Sign In</Button>
+        <Button onClick={() => setOpen(!open)}>Sign In</Button>
       )}
     </Header>
   )
