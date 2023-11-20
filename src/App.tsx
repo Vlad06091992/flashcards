@@ -3,13 +3,19 @@ import { useState } from 'react'
 import { initializeUseSelector } from 'react-redux/es/hooks/useSelector'
 
 import { Logo } from '@/assets'
-import { AvatarIcon, Button, CustomDropDownMenu } from '@/components'
+import { AvatarIcon, Button, CustomDropDownMenu, Pagination } from '@/components'
 import { AddNewPack } from '@/components/modals/packs/add pack/add-new-pack.tsx'
 import { DialogWindow } from '@/components/ui/dialog'
 import { DropDownMenuForAvatar } from '@/components/ui/drop-down-menu/drop-down-menu-for-avatar.tsx'
 import { Header } from '@/components/ui/header'
 
 //надо сделать: TabSwitcher/Header
+
+//TODO fixed focus -> focus-visible
+//TODO как работает автофокус в MODAL
+//TODO как сделать мультиязычность, как сделать темную/светлую тему
+//TODO убрать Id у radio group
+
 const tabs = [
   {
     value: 'myCards',
@@ -22,11 +28,22 @@ const tabs = [
 ]
 
 export function App() {
-  const isLoggedIn = false
+  const isLoggedIn = true
   const [open, setOpen] = useState(false)
 
   return (
     <Header>
+      <Pagination
+        count={10}
+        page={1}
+        onChange={() => {}}
+        perPage={2}
+        onPerPageChange={() => {}}
+        perPageOptions={[
+          { value: '1', label: '1' },
+          { value: '2', label: '2' },
+        ]}
+      />
       <Logo />
       {isLoggedIn ? (
         <CustomDropDownMenu
