@@ -20,23 +20,23 @@ type Props = {
 }
 
 export const TabSwitcher = ({ tabs, label, value, onValueChange, defaultValue }: Props) => {
+  const mappedTabs = tabs.map(el => {
+    return (
+      <Tabs.Trigger key={el.value} className={`${s.tab} ${s.first}`} value={el.value}>
+        <Typography className={s.typography} as={'div'} variant={'body1'}>
+          {el.title}
+        </Typography>
+      </Tabs.Trigger>
+    )
+  })
+
   return (
     <div>
       <Typography variant="body2" as="h3" className={s.label}>
         {label}
       </Typography>
       <Tabs.Root defaultValue={defaultValue} value={value} onValueChange={onValueChange}>
-        <Tabs.List>
-          {tabs.map(el => {
-            return (
-              <Tabs.Trigger key={el.value} className={`${s.tab} ${s.first}`} value={el.value}>
-                <Typography className={s.typography} as={'div'} variant={'body1'}>
-                  {el.title}
-                </Typography>
-              </Tabs.Trigger>
-            )
-          })}
-        </Tabs.List>
+        <Tabs.List>{mappedTabs}</Tabs.List>
       </Tabs.Root>
     </div>
   )
