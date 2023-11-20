@@ -5,6 +5,7 @@ import { initializeUseSelector } from 'react-redux/es/hooks/useSelector'
 import { Logo } from '@/assets'
 import { AvatarIcon, Button, CustomDropDownMenu, Pagination } from '@/components'
 import { AddNewPack } from '@/components/modals/packs/add pack/add-new-pack.tsx'
+import { RateYouself } from '@/components/modals/rate youself/rate-youself.tsx'
 import { DialogWindow } from '@/components/ui/dialog'
 import { DropDownMenuForAvatar } from '@/components/ui/drop-down-menu/drop-down-menu-for-avatar.tsx'
 import { Header } from '@/components/ui/header'
@@ -33,6 +34,16 @@ export function App() {
 
   return (
     <Header>
+      <RateYouself
+        title={'title'}
+        key={'key'}
+        question={'question'}
+        answerCount={10}
+        answer={'answer'}
+        showAnswerCallback={(data: any) => {
+          console.log(data)
+        }}
+      />
       <Pagination
         count={10}
         page={1}

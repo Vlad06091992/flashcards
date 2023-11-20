@@ -10,7 +10,7 @@ export type CheckBoxProps = {
   disabled?: boolean
   required?: boolean
   label?: string
-  id?: string
+  id: string
   position?: 'left'
 }
 
@@ -20,6 +20,7 @@ export const CheckboxComponent: React.FC<CheckBoxProps> = ({
   disabled,
   label,
   onChange,
+  id,
 }) => {
   return (
     <div className={className}>
@@ -31,7 +32,7 @@ export const CheckboxComponent: React.FC<CheckBoxProps> = ({
             }
             defaultChecked
             onCheckedChange={onChange}
-            id="c1"
+            id={id}
             checked={checked}
             disabled={disabled}
           >

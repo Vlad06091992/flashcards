@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import s from './rate-youself.module.scss'
 
 import { Button, Card, RadioGroupComponent, RadioGroupOptionsType, Typography } from '@/components'
+import { ControlledRadioGroup } from '@/components/ui/controlled'
 
 type Props = {
   title: string
@@ -24,7 +25,7 @@ type FormType = { result: string }
 
 export const RateYouself = ({ title, question, answerCount, showAnswerCallback }: Props) => {
   const form = useForm<FormType>()
-  const { register, handleSubmit } = form
+  const { register, control, handleSubmit } = form
 
   const onSubmitHandler = (data: FormType) => {
     console.log(data)
@@ -51,7 +52,8 @@ export const RateYouself = ({ title, question, answerCount, showAnswerCallback }
           <Typography variant={'subtitle2'} className={s.description}>
             Rate yourself:
           </Typography>
-          <RadioGroupComponent {...register('result')} options={RateYouSelfOptions} />
+          {/*<RadioGroupComponent {...register('result')} options={RateYouSelfOptions} />*/}
+          <ControlledRadioGroup control={control} options={RateYouSelfOptions} name={'result'} />
         </div>
         <Button type={'submit'} fullWidth={true} className={s.button}>
           Show Answer
