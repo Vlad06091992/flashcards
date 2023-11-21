@@ -20,6 +20,7 @@ import { Header } from '@/components/ui/header'
 //TODO custom hooks in react hook forms(recover password)
 //TODO refactor pagination(double code)
 //TODO 'react-toastify' for notifications
+//TODO slider value | defaultValue ?
 
 const tabs = [
   {
@@ -31,6 +32,14 @@ const tabs = [
     title: 'All Cards',
   },
 ]
+
+interface IStack {
+  #data: unknown[]
+}
+
+class Stack implements IStack {
+  private _data: Array<any> = []
+}
 
 export function App() {
   const isLoggedIn = true
