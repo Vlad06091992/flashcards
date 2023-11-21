@@ -16,6 +16,9 @@ import { Header } from '@/components/ui/header'
 //TODO как работает автофокус в MODAL
 //TODO как сделать мультиязычность, как сделать темную/светлую тему
 //TODO убрать Id у radio group
+//TODO Callback in forms(recover password)
+//TODO custom hooks in react hook forms(recover password)
+//TODO refactor pagination(double code)
 
 const tabs = [
   {
