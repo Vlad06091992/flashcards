@@ -8,7 +8,7 @@ type Props = {
   onValueChange: (values: number[]) => void
 }
 
-export const SliderDemo = ({ onValueChange, values, onValueCommit }: Props) => (
+export const CustomSlider = ({ onValueChange, values, onValueCommit }: Props) => (
   <form className={s.Ranger}>
     <span className={s.number}>{values[0]}</span>
     <Slider.Root
@@ -28,5 +28,3 @@ export const SliderDemo = ({ onValueChange, values, onValueCommit }: Props) => (
     <span className={s.number}>{values[1]}</span>
   </form>
 )
-
-export default SliderDemo
