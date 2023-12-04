@@ -33,58 +33,9 @@ const tabs = [
   },
 ]
 
-interface IStack {
-  #data: unknown[]
-}
-
-class Stack implements IStack {
-  private _data: Array<any> = []
-}
-
 export function App() {
   const isLoggedIn = true
   const [open, setOpen] = useState(false)
 
-  return (
-    <Header>
-      <RateYouself
-        title={'title'}
-        key={'key'}
-        question={'question'}
-        answerCount={10}
-        answer={'answer'}
-        showAnswerCallback={(data: any) => {
-          console.log(data)
-        }}
-      />
-      <Pagination
-        count={10}
-        page={1}
-        onChange={() => {}}
-        perPage={2}
-        onPerPageChange={() => {}}
-        perPageOptions={[
-          { value: '1', label: '1' },
-          { value: '2', label: '2' },
-        ]}
-      />
-      <Logo />
-      {isLoggedIn ? (
-        <CustomDropDownMenu
-          trigger={
-            <AvatarIcon imageUrl={'https://a.d-cd.net/44IeiDnC6Jp8eHkQEFB9w-lCYQI-960.jpg'} />
-          }
-          content={
-            <DropDownMenuForAvatar
-              name={'Vlad'}
-              email={'Smirnov.ru92@mail.ru'}
-              imageUrl={'https://a.d-cd.net/44IeiDnC6Jp8eHkQEFB9w-lCYQI-960.jpg'}
-            />
-          }
-        />
-      ) : (
-        <Button onClick={() => setOpen(!open)}>Sign In</Button>
-      )}
-    </Header>
-  )
+  return <div>app</div>
 }

@@ -18,13 +18,13 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const BaseExample: Story = {
-  render: args => {
+export const BaseExample = {
+  render: () => {
     const [checked, setChecked] = useState(false)
 
     return (
       <CheckboxComponent
-        {...args}
+        id={'id'}
         label="Click here"
         checked={checked}
         onChange={() => setChecked(!checked)}
@@ -33,13 +33,13 @@ export const BaseExample: Story = {
   },
 }
 
-export const Disabled: Story = {
-  render: args => {
+export const Disabled = {
+  render: () => {
     const [checked, setChecked] = useState(false)
 
     return (
       <CheckboxComponent
-        {...args}
+        id={'id'}
         disabled={true}
         label="Click here"
         checked={checked}
@@ -51,6 +51,7 @@ export const Disabled: Story = {
 
 export const Checked: Story = {
   args: {
+    id: 'id',
     checked: true,
     label: 'Checked',
   },
@@ -58,6 +59,7 @@ export const Checked: Story = {
 
 export const NotChecked: Story = {
   args: {
+    id: 'id1',
     checked: false,
     label: 'Not Checked',
   },
