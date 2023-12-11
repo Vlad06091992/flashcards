@@ -1,4 +1,5 @@
 export { default as Edit } from './edit.tsx'
+export { default as ErrorImage } from './ErrorImage.tsx'
 export { default as Play } from './play.tsx'
 export { default as Delete } from './delete.tsx'
 export { default as Camera } from './camera.tsx'

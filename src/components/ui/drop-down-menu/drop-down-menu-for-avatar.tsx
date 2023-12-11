@@ -11,12 +11,13 @@ type Props = {
   imageUrl: string
   email: string
   name: string
+  logout: () => void
 }
 
 // export const DropDownMenuForPacks = React.forwardRef(({}, ref) => {
 
 export const DropDownMenuForAvatar = forwardRef<HTMLDivElement, Props>(
-  ({ name, email, imageUrl }: Props, ref) => {
+  ({ name, email, imageUrl, logout }: Props, ref) => {
     return (
       <DropdownMenu.Content
         ref={ref}
@@ -65,7 +66,7 @@ export const DropDownMenuForAvatar = forwardRef<HTMLDivElement, Props>(
           }}
         >
           <Logout />
-          <Typography as={'span'} variant={'body1'} color={'white'}>
+          <Typography onClick={logout} as={'span'} variant={'body1'} color={'white'}>
             Sign Out
           </Typography>
         </DropdownMenu.Item>
