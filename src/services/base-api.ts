@@ -27,6 +27,7 @@ const baseQueryWithReauth: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQue
       const release = await mutex.acquire()
 
       try {
+        debugger
         // const refreshResult = await baseQuery('/v1/auth/refresh-token', api, extraOptions)
         const refreshResult = await baseQuery(
           { method: 'post', url: '/v1/auth/refresh-token' },
