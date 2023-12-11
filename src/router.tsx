@@ -6,6 +6,8 @@ import {
   RouterProvider,
 } from 'react-router-dom'
 
+import { Layout } from '@/layout/layout.tsx'
+import { ErrorPage } from '@/pages'
 import { CheckEmailPage } from '@/pages/check-email.page.tsx'
 import { Decks } from '@/pages/decks.tsx'
 import { NewPasswordPage } from '@/pages/new-password.tsx'
@@ -19,24 +21,15 @@ const PrivateRoutes = () => {
   const isAuth = !!data
 
   if (isLoading) return <div>Loading....</div>
-
+  console.log(data)
   if (isAuth) {
     return <Outlet />
   } else {
     return <Navigate to="/login" />
   }
-
-  //
-  // // if (isLoading) return <div>Loading...</div>
-  // if (!isLoading) {
-  //   console.log(1)
-  //   debugger
-  // }
-  //
-  // return isAuth ? <Outlet /> : <Navigate to="/login" />
 }
 
-const publicRoutes: RouteObject[] = [
+let publicRoutes = [
   {
     path: '/login',
     element: <SignInPage />,
@@ -68,11 +61,19 @@ const privateRoutes: RouteObject[] = [
 
 export const router = createBrowserRouter([
   {
-    element: <PrivateRoutes />,
-    children: privateRoutes,
+    element: <Layout />,
+    children: [
+      ...publicRoutes,
+      {
+        element: <PrivateRoutes />,
+        children: privateRoutes,
+      },
+      {
+        path: '*',
+        element: <ErrorPage />,
+      },
+    ],
   },
-
-  ...publicRoutes,
 ])
 
 export const Router = () => {

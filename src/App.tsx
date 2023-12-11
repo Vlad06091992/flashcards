@@ -1,14 +1,4 @@
-import { useState } from 'react'
-
-import { initializeUseSelector } from 'react-redux/es/hooks/useSelector'
-
-import { Logo } from '@/assets'
-import { AvatarIcon, Button, CustomDropDownMenu, Pagination } from '@/components'
-import { AddNewPack } from '@/components/modals/packs/add pack/add-new-pack.tsx'
-import { RateYouself } from '@/components/modals/rate youself/rate-youself.tsx'
-import { DialogWindow } from '@/components/ui/dialog'
-import { DropDownMenuForAvatar } from '@/components/ui/drop-down-menu/drop-down-menu-for-avatar.tsx'
-import { Header } from '@/components/ui/header'
+import { Router } from './router.tsx'
 
 //надо сделать: TabSwitcher/Header
 
@@ -22,20 +12,10 @@ import { Header } from '@/components/ui/header'
 //TODO 'react-toastify' for notifications
 //TODO slider value | defaultValue ?
 
-const tabs = [
-  {
-    value: 'myCards',
-    title: 'My Cards',
-  },
-  {
-    value: 'allCards',
-    title: 'All Cards',
-  },
-]
-
 export function App() {
-  const isLoggedIn = true
-  const [open, setOpen] = useState(false)
-
-  return <div>app</div>
+  return (
+    <div>
+      <Router />
+    </div>
+  )
 }

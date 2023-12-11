@@ -30,7 +30,7 @@ export const RecoverPassword = () => {
 
   const onSubmitHandler = (data: FormType) => {
     const requestData: FormType = {
-      html: '<h1>Hi, ##name##</h1><p>Click <a href="http://127.0.0.1:5173/set-new-password\\##token##\\">here</a> to recover your password</p>',
+      html: '<h1>Hi, ##name##</h1><p>Click <a href="http://localhost:5173/set-new-password\\##token##\\">here</a> to recover your password</p>',
       subject: 'Vlad',
       email: data.email,
     }

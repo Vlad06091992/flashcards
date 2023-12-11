@@ -25,6 +25,16 @@ export const authApi = baseApi.injectEndpoints({
         },
         invalidatesTags: ['Auth'],
       }),
+      logout: builder.mutation<any, {}>({
+        query: body => {
+          return {
+            url: '/v1/auth/logout',
+            method: 'POST',
+            body,
+          }
+        },
+        invalidatesTags: ['Auth'],
+      }),
       signUp: builder.mutation<any, any>({
         query: params => ({
           url: `v1/auth/sign-up`,
@@ -35,8 +45,6 @@ export const authApi = baseApi.injectEndpoints({
       }),
       resetPassword: builder.mutation<any, any>({
         query: params => {
-          debugger
-
           return {
             url: `v1/auth/reset-password/${params.token}`,
             method: 'POST',
@@ -59,7 +67,7 @@ export const authApi = baseApi.injectEndpoints({
 
 export const {
   useAuthMeQuery,
-
+  useLogoutMutation,
   useLogInMutation,
   useResetPasswordMutation,
   useSignUpMutation,
