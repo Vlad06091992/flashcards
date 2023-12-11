@@ -17,12 +17,11 @@ import { SignUpPage } from '@/pages/sign-up.tsx'
 import { useAuthMeQuery } from '@/services/auth/auth.ts'
 
 const PrivateRoutes = () => {
-  const { data, isLoading } = useAuthMeQuery()
-  const isAuth = !!data
+  const { data, isLoading, isError } = useAuthMeQuery()
 
   if (isLoading) return <div>Loading....</div>
   console.log(data)
-  if (isAuth) {
+  if (!isError) {
     return <Outlet />
   } else {
     return <Navigate to="/login" />
