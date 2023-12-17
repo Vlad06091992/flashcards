@@ -40,7 +40,7 @@ export const DropDownMenuForAvatar = forwardRef<HTMLDivElement, Props>(
             <Typography as="div" variant={'subtitle2'} color={'white'} className={s.name}>
               {name}
             </Typography>
-            <Typography variant="body1" as="div" className={s.email}>
+            <Typography variant="caption" as="div" className={s.email}>
               {email}
             </Typography>
           </div>
@@ -53,7 +53,7 @@ export const DropDownMenuForAvatar = forwardRef<HTMLDivElement, Props>(
           }}
         >
           <Profile />
-          <Typography as={'span'} variant={'body1'} color={'white'}>
+          <Typography as={'span'} variant={'caption'} color={'white'}>
             My Profile
           </Typography>
         </DropdownMenu.Item>
@@ -66,7 +66,7 @@ export const DropDownMenuForAvatar = forwardRef<HTMLDivElement, Props>(
           }}
         >
           <Logout />
-          <Typography onClick={logout} as={'span'} variant={'body1'} color={'white'}>
+          <Typography onClick={logout} as={'span'} variant={'caption'} color={'white'}>
             Sign Out
           </Typography>
         </DropdownMenu.Item>

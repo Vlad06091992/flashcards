@@ -20,6 +20,10 @@
   @include typography(var(--font-weight-bold), var(--font-size-m), var(--line-height-m))
 }
 
+.caption {
+  @include typography(var(--font-weight-regular), var(--font-size-xs), var(--line-height-m))
+}
+
 .body1 {
   @include typography(var(--font-weight-regular), var(--font-size-m), var(--line-height-m))
 }
@@ -62,7 +66,7 @@
 }
 
 .error {
-  @include typography(var(--font-weight-regilar), var(--font-size-xs), var(--line-height-s));
+  @include typography(var(--font-weight-regular), var(--font-size-xs), var(--line-height-s));
 
   color: var(--color-danger-300);
 }
