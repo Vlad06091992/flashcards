@@ -14,7 +14,7 @@ export const Layout = () => {
 
   const avatarUrl =
     data?.imageUrl ||
-    'https://w7.pngwing.com/pngs/665/132/png-transparent-user-defult-avatar-thumbnail.png'
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOVbDJ_xdBNmEz6DXtOZvguxt0gEcKVyKfgA&usqp=CAU'
 
   // const isAuth = !!data
   return (
