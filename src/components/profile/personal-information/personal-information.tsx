@@ -12,7 +12,7 @@ type Props = {
   avatar: string
   name: string
   onLogout: () => void
-  onAvatarChange: (newAvatar: string) => void
+  onAvatarChange: (arg: any) => void
   onNameChange: (arg: { name: string }) => void
 }
 export const PersonalInformation = ({
@@ -27,8 +27,12 @@ export const PersonalInformation = ({
   const [nameInState, setNameInState] = useState(name)
   // const [name, setName] = useState('')
 
-  const handleAvatarChanged = () => {
-    onAvatarChange('new Avatar')
+  const handleAvatarChanged = (e: ChangeEvent<HTMLInputElement>) => {
+    const formData = new FormData()
+
+    if (e.target.files) formData.append('avatar', e.target.files[0])
+
+    onAvatarChange(formData)
   }
   const handleNameChanged = () => {
     setEditMode(true)
@@ -53,12 +57,23 @@ export const PersonalInformation = ({
       </Typography>
       <div className={s.container}>
         <div className={s.photoContainer}>
-          <div>
-            <img src={avatar} alt={'avatar'} />
-            <button className={s.editAvatarButton} onClick={handleAvatarChanged}>
+          <div className={s.editAvatarButton}>
+            <label htmlFor={'ava'}>
               <Camera />
-            </button>
+            </label>
           </div>
+          <img src={avatar} alt={'avatar'}></img>
+          <input
+            accept="image/png, image/jpeg"
+            style={{ display: 'none' }}
+            type={'file'}
+            className={s.editAvatarButton}
+            id={'ava'}
+            name={'ava'}
+            onChange={handleAvatarChanged}
+          >
+            {/*<Camera />*/}
+          </input>
         </div>
         {!editMode && (
           <>
@@ -90,7 +105,7 @@ export const PersonalInformation = ({
       {editMode && (
         <>
           <Textfield
-            value={nameInState}
+            placeholder={name}
             onChange={onChange}
             className={s.changeNameTextField}
             label={'Nickname'}

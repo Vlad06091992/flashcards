@@ -19,8 +19,6 @@ import { useAuthMeQuery } from '@/services/auth/auth.ts'
 const PrivateRoutes = () => {
   const { data, isLoading, isError } = useAuthMeQuery()
 
-  debugger
-  console.log(data)
   if (isLoading) return <div>Loading....</div>
   if (!isError) {
     return <Outlet />

@@ -7,15 +7,13 @@ export const Profile = () => {
   const [updateData] = useUpdateMeMutation()
   const [logout] = useLogoutMutation()
 
-  console.log(data)
-
   return (
     <PersonalInformation
       email={data.email}
       avatar={data.avatar || DefaultAvatar}
       name={data.name}
       onLogout={logout}
-      onAvatarChange={() => {}}
+      onAvatarChange={updateData}
       onNameChange={updateData}
     />
   )

@@ -29,7 +29,6 @@ export const SignIn = () => {
   const navigate = useNavigate()
   const [loginfn, { error }] = useLogInMutation()
 
-  console.log(error)
   if (error) {
     if (
       'status' in error &&
