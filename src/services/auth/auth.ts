@@ -12,7 +12,7 @@ export const authApi = baseApi.injectEndpoints({
             body,
           }
         },
-        providesTags: ['Auth'],
+        providesTags: ['Me'],
       }),
 
       logIn: builder.mutation<any, FormTypeSignIn>({
@@ -23,7 +23,19 @@ export const authApi = baseApi.injectEndpoints({
             body,
           }
         },
-        invalidatesTags: ['Auth'],
+        invalidatesTags: ['Me'],
+      }),
+      updateMe: builder.mutation<any, any>({
+        query: body => {
+          console.log(body)
+
+          return {
+            url: '/v1/auth/me',
+            method: 'PATCH',
+            body,
+          }
+        },
+        invalidatesTags: ['Me'],
       }),
       logout: builder.mutation<any, void>({
         query: () => {
@@ -33,7 +45,7 @@ export const authApi = baseApi.injectEndpoints({
             body: {},
           }
         },
-        invalidatesTags: ['Auth'],
+        invalidatesTags: ['Me'],
       }),
       signUp: builder.mutation<any, any>({
         query: params => ({
@@ -66,6 +78,7 @@ export const authApi = baseApi.injectEndpoints({
 })
 
 export const {
+  useUpdateMeMutation,
   useAuthMeQuery,
   useLogoutMutation,
   useLogInMutation,

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 
 import { Button, Card, Typography } from '../../ui'
 
@@ -13,7 +13,7 @@ type Props = {
   name: string
   onLogout: () => void
   onAvatarChange: (newAvatar: string) => void
-  onNameChange: (newName: string) => void
+  onNameChange: (arg: { name: string }) => void
 }
 export const PersonalInformation = ({
   avatar,
@@ -24,6 +24,7 @@ export const PersonalInformation = ({
   onLogout,
 }: Props) => {
   const [editMode, setEditMode] = useState(false)
+  const [nameInState, setNameInState] = useState(name)
   // const [name, setName] = useState('')
 
   const handleAvatarChanged = () => {
@@ -31,14 +32,18 @@ export const PersonalInformation = ({
   }
   const handleNameChanged = () => {
     setEditMode(true)
-    onNameChange('New name')
   }
   const handleLogout = () => {
     onLogout()
   }
 
   const handleSaveName = () => {
+    onNameChange({ name: nameInState })
     setEditMode(false)
+  }
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setNameInState(e.currentTarget.value)
   }
 
   return (
@@ -84,8 +89,18 @@ export const PersonalInformation = ({
       </div>
       {editMode && (
         <>
-          <Textfield className={s.changeNameTextField} label={'Nickname'} />
-          <Button className={s.saveNameButton} onClick={() => handleSaveName} fullWidth={true}>
+          <Textfield
+            value={nameInState}
+            onChange={onChange}
+            className={s.changeNameTextField}
+            label={'Nickname'}
+          />
+          <Button
+            as={'button'}
+            className={s.saveNameButton}
+            onClick={handleSaveName}
+            fullWidth={true}
+          >
             Save changes
           </Button>
         </>
