@@ -1,10 +1,7 @@
 .HeaderContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
     width: 100%;
     height: 3.75rem;
+    margin: auto;
     padding: 0 8.5rem;
 
     background: var(--color-dark-700);

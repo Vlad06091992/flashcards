@@ -1,6 +1,15 @@
 import { useState } from 'react'
 
-import { Textfield, Button } from '@/components'
+import {
+  Textfield,
+  Button,
+  Table,
+  TableHead,
+  TableRow,
+  TableHeadCell,
+  TableBody,
+  TableCell,
+} from '@/components'
 import { useCreateDeckMutation, useGetDecksQuery } from '@/services/decks/decks.ts'
 import { Deck } from '@/services/decks/types.ts'
 
@@ -27,29 +36,29 @@ export const Decks = () => {
       <Button onClick={() => setItemsPerPage(20)}> 20</Button>
       <Button onClick={() => setItemsPerPage(30)}> 30</Button>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Cards</th>
-            <th>Last Updated</th>
-            <th>Created by</th>
-          </tr>
-        </thead>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableHeadCell>Name</TableHeadCell>
+            <TableHeadCell>Cards</TableHeadCell>
+            <TableHeadCell>Last Updated</TableHeadCell>
+            <TableHeadCell>Created by</TableHeadCell>
+          </TableRow>
+        </TableHead>
 
-        <tbody>
+        <TableBody>
           {decks.data?.items.map((deck: Deck) => {
             return (
-              <tr key={deck.id}>
-                <td>{deck.name}</td>
-                <td>{deck.cardsCount}</td>
-                <td>{deck.updated}</td>
-                <td>{deck.author.name}</td>
-              </tr>
+              <TableRow key={deck.id}>
+                <TableCell>{deck.name}</TableCell>
+                <TableCell>{deck.cardsCount}</TableCell>
+                <TableCell>{deck.updated}</TableCell>
+                <TableCell>{deck.author.name}</TableCell>
+              </TableRow>
             )
           })}
-        </tbody>
-      </table>
+        </TableBody>
+      </Table>
     </div>
   )
 }
