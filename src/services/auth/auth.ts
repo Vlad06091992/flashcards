@@ -26,14 +26,8 @@ export const authApi = baseApi.injectEndpoints({
         invalidatesTags: ['Me'],
       }),
       updateMe: builder.mutation<any, any>({
-        query: body => {
-          console.log(body)
-
-          return {
-            url: '/v1/auth/me',
-            method: 'PATCH',
-            body,
-          }
+        query: args => {
+          return { url: `v1/auth/me`, method: 'PATCH', body: args }
         },
         invalidatesTags: ['Me'],
       }),
