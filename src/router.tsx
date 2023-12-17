@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom'
 
 import { Layout } from '@/layout/layout.tsx'
-import { ErrorPage } from '@/pages'
+import { ErrorPage, Profile } from '@/pages'
 import { CheckEmailPage } from '@/pages/check-email.page.tsx'
 import { Decks } from '@/pages/decks.tsx'
 import { NewPasswordPage } from '@/pages/new-password.tsx'
@@ -19,8 +19,9 @@ import { useAuthMeQuery } from '@/services/auth/auth.ts'
 const PrivateRoutes = () => {
   const { data, isLoading, isError } = useAuthMeQuery()
 
-  if (isLoading) return <div>Loading....</div>
+  debugger
   console.log(data)
+  if (isLoading) return <div>Loading....</div>
   if (!isError) {
     return <Outlet />
   } else {
@@ -55,6 +56,10 @@ const privateRoutes: RouteObject[] = [
   {
     path: '/',
     element: <Decks />,
+  },
+  {
+    path: '/profile',
+    element: <Profile />,
   },
 ]
 

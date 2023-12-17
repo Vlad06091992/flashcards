@@ -1,6 +1,7 @@
 import { forwardRef } from 'react'
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
+import { Link } from 'react-router-dom'
 
 import { Logout, Profile } from '@/assets'
 import { AvatarIcon, Typography } from '@/components'
@@ -53,7 +54,7 @@ export const DropDownMenuForAvatar = forwardRef<HTMLDivElement, Props>(
           }}
         >
           <Profile />
-          <Typography as={'span'} variant={'caption'} color={'white'}>
+          <Typography as={Link} to={'/profile'} variant={'caption'} color={'white'}>
             My Profile
           </Typography>
         </DropdownMenu.Item>
