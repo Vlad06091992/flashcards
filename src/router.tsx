@@ -9,7 +9,7 @@ import {
 import { Layout } from '@/layout/layout.tsx'
 import { ErrorPage, Profile } from '@/pages'
 import { CheckEmailPage } from '@/pages/check-email.page.tsx'
-import { Decks } from '@/pages/decks.tsx'
+import { Decks } from '@/pages/decks/decks.tsx'
 import { NewPasswordPage } from '@/pages/new-password.tsx'
 import { RecoverPasswordPage } from '@/pages/recover-password.tsx'
 import { SignInPage } from '@/pages/sign-in.tsx'

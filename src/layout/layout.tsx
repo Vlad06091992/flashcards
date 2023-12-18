@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
 import s from './layout.module.scss'
 
@@ -35,10 +35,14 @@ export const Layout = () => {
             />
           )}
 
-          {!data && <Button>Login</Button>}
+          {!data && (
+            <Button className={s.linkButton} as={Link} to={'/login'} onClick={() => {}}>
+              Login
+            </Button>
+          )}
         </div>
       </Header>
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }}>
+      <div className={s.outletContainer}>
         <Outlet></Outlet>
       </div>
     </div>
