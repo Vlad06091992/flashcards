@@ -5,6 +5,7 @@ import { Input } from '@hookform/devtools/dist/styled'
 import s from './decks.module.scss'
 
 import Basket from '@/assets/icons/basket.tsx'
+import { useDebounce } from '@/common/hooks/useDebounce.ts'
 import {
   Textfield,
   Button,
@@ -37,7 +38,7 @@ export const Decks = () => {
   const dispatch = useAppDispatch()
   const decks = useGetDecksQuery({
     itemsPerPage,
-    name,
+    name: useDebounce(name, 3000),
     currentPage,
     maxCardsCount,
     minCardsCount,
