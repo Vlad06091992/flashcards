@@ -1,7 +1,5 @@
 import { Router } from './router.tsx'
 
-//надо сделать: TabSwitcher/Header
-
 //TODO fixed focus -> focus-visible
 //TODO как работает автофокус в MODAL
 //TODO как сделать мультиязычность, как сделать темную/светлую тему
