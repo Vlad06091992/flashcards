@@ -37,7 +37,11 @@ export const Decks = () => {
 
   console.log(name)
 
+<<<<<<< HEAD
   const { data, isFetching } = useGetDecksQuery({
+=======
+  const { data } = useGetDecksQuery({
+>>>>>>> 4f37ac16d18e1db96ce0f9a6c844bd3e6dcd0c7e
     itemsPerPage,
     name: useDebounce(name, 1000),
     currentPage,
