@@ -14,7 +14,7 @@ type Props = {
   perPage: number
   onPerPageChange: (pages: number) => void
   perPageOptions: {
-    value: string
+    value: number
     label: string
   }[]
 }
@@ -85,7 +85,7 @@ export const Pagination = ({
         onValueChange={onPerPageChangeCallback}
         value={activePerPage}
         variant={'pagination'}
-        items={perPageOptions}
+        items={perPageOptions.map(el => ({ label: el.label, value: el.value.toString() }))}
       ></Selected>
       <Typography color={'white'} variant={'body2'}>
         на странице

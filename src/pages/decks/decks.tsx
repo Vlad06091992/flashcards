@@ -17,17 +17,34 @@ import {
   Typography,
   TabSwitcher,
   TabType,
+  Pagination,
 } from '@/components'
 import { CustomSlider } from '@/components/ui/slider'
+import {
+  setCardsAuthor,
+  setCurrentPage,
+  setDeckName,
+  setItemsPerPage,
+} from '@/services/decks/decks.slice.ts'
 import { useCreateDeckMutation, useGetDecksQuery } from '@/services/decks/decks.ts'
 import { Deck } from '@/services/decks/types.ts'
+import { useAppDispatch, useAppSelector } from '@/services/store.ts'
 
 export const Decks = () => {
-  const [itemsPerPage, setItemsPerPage] = useState(10)
-  const [search, setSearch] = useState('')
+  const { currentPage, itemsPerPage, name, minCardsCount, maxCardsCount, orderBy } = useAppSelector(
+    state => state.decks
+  )
+  const dispatch = useAppDispatch()
+  const decks = useGetDecksQuery({
+    itemsPerPage,
+    name,
+    currentPage,
+    maxCardsCount,
+    minCardsCount,
+    orderBy,
+  })
 
-  const decks = useGetDecksQuery({ itemsPerPage, name: search })
-  const [createDeck, { isLoading }] = useCreateDeckMutation()
+  // const [createDeck, { isLoading }] = useCreateDeckMutation()
 
   const tabs: TabType[] = [
     { value: 'allCards', title: 'All Cards', disabled: false },
@@ -41,8 +58,21 @@ export const Decks = () => {
         <Button>Add new pack</Button>
       </div>
       <div className={s.searchSettings}>
-        <Textfield placeholder={'Input search'} className={s.searchInput} variant={'search'} />
-        <TabSwitcher tabs={tabs} label={'Show packs cards'} />
+        <Textfield
+          placeholder={'Input search'}
+          onChange={event => {
+            dispatch(setDeckName(event.currentTarget.value))
+          }}
+          className={s.searchInput}
+          variant={'search'}
+        />
+        <TabSwitcher
+          tabs={tabs}
+          onValueChange={value => {
+            dispatch(setCardsAuthor(value))
+          }}
+          label={'Show packs cards'}
+        />
         <CustomSlider
           label={'Number of cards'}
           values={[1, 60]}
@@ -77,6 +107,25 @@ export const Decks = () => {
           })}
         </TableBody>
       </Table>
+      <div className={s.paginationContainer}>
+        <Pagination
+          count={10}
+          page={currentPage}
+          onChange={value => {
+            dispatch(setCurrentPage(value))
+          }}
+          perPage={itemsPerPage}
+          onPerPageChange={value => {
+            dispatch(setItemsPerPage(value))
+          }}
+          perPageOptions={[
+            { value: 10, label: '10' },
+            { value: 20, label: '20' },
+            { value: 50, label: '50' },
+            { value: 100, label: '100' },
+          ]}
+        />
+      </div>
     </div>
   )
 }
