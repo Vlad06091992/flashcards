@@ -26,6 +26,8 @@ import {
   setCurrentPage,
   setDeckName,
   setItemsPerPage,
+  setMaxCardsCount,
+  setMinCardsCount,
 } from '@/services/decks/decks.slice.ts'
 import { useCreateDeckMutation, useGetDecksQuery } from '@/services/decks/decks.ts'
 import { Deck } from '@/services/decks/types.ts'
@@ -35,15 +37,22 @@ export const Decks = () => {
   const { currentPage, itemsPerPage, name, minCardsCount, maxCardsCount, orderBy } = useAppSelector(
     state => state.decks
   )
-  const dispatch = useAppDispatch()
-  const decks = useGetDecksQuery({
+
+  console.log(name)
+
+  const { data } = useGetDecksQuery({
     itemsPerPage,
-    name: useDebounce(name, 3000),
+    name: useDebounce(name, 1000),
     currentPage,
-    maxCardsCount,
-    minCardsCount,
+    maxCardsCount: useDebounce(maxCardsCount, 1000),
+    minCardsCount: useDebounce(minCardsCount, 1000),
     orderBy,
   })
+
+  const totalPages = data?.pagination?.totalPages
+
+  console.log(data?.pagination)
+  const dispatch = useAppDispatch()
 
   // const [createDeck, { isLoading }] = useCreateDeckMutation()
 
@@ -76,9 +85,12 @@ export const Decks = () => {
         />
         <CustomSlider
           label={'Number of cards'}
-          values={[1, 60]}
+          values={[minCardsCount, maxCardsCount]}
           onValueCommit={() => {}}
-          onValueChange={() => {}}
+          onValueChange={values => {
+            dispatch(setMinCardsCount(values[0]))
+            dispatch(setMaxCardsCount(values[1]))
+          }}
         />
         <Button variant={'secondary'}>
           <Basket />
@@ -96,7 +108,7 @@ export const Decks = () => {
         </TableHead>
 
         <TableBody>
-          {decks.data?.items.map((deck: Deck) => {
+          {data?.items.map((deck: Deck) => {
             return (
               <TableRow key={deck.id}>
                 <TableCell>{deck.name}</TableCell>
@@ -110,7 +122,7 @@ export const Decks = () => {
       </Table>
       <div className={s.paginationContainer}>
         <Pagination
-          count={10}
+          count={totalPages || 1}
           page={currentPage}
           onChange={value => {
             dispatch(setCurrentPage(value))
