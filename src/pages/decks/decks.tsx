@@ -1,26 +1,23 @@
-import { useState } from 'react'
-
-import { Input } from '@hookform/devtools/dist/styled'
-
 import s from './decks.module.scss'
 
 import Basket from '@/assets/icons/basket.tsx'
 import { useDebounce } from '@/common/hooks/useDebounce.ts'
 import {
-  Textfield,
   Button,
+  Pagination,
   Table,
-  TableHead,
-  TableRow,
-  TableHeadCell,
   TableBody,
   TableCell,
-  Typography,
+  TableHead,
+  TableHeadCell,
+  TableRow,
   TabSwitcher,
   TabType,
-  Pagination,
+  Textfield,
+  Typography,
 } from '@/components'
 import { CustomSlider } from '@/components/ui/slider'
+import { FetchingSpinner } from '@/pages/common/spinners'
 import {
   setCardsAuthor,
   setCurrentPage,
@@ -29,7 +26,7 @@ import {
   setMaxCardsCount,
   setMinCardsCount,
 } from '@/services/decks/decks.slice.ts'
-import { useCreateDeckMutation, useGetDecksQuery } from '@/services/decks/decks.ts'
+import { useGetDecksQuery } from '@/services/decks/decks.ts'
 import { Deck } from '@/services/decks/types.ts'
 import { useAppDispatch, useAppSelector } from '@/services/store.ts'
 
@@ -40,7 +37,11 @@ export const Decks = () => {
 
   console.log(name)
 
+<<<<<<< HEAD
+  const { data, isFetching } = useGetDecksQuery({
+=======
   const { data } = useGetDecksQuery({
+>>>>>>> 4f37ac16d18e1db96ce0f9a6c844bd3e6dcd0c7e
     itemsPerPage,
     name: useDebounce(name, 1000),
     currentPage,
@@ -63,6 +64,7 @@ export const Decks = () => {
 
   return (
     <div>
+      <FetchingSpinner loading={isFetching} isMain={true} />
       <div className={s.titleAndButton}>
         <Typography variant={'large'}>Packs List</Typography>
         <Button>Add new pack</Button>
