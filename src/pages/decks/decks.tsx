@@ -1,5 +1,6 @@
 import s from './decks.module.scss'
 
+import { Arrow } from '@/assets'
 import Basket from '@/assets/icons/basket.tsx'
 import { useDebounce } from '@/common/hooks/useDebounce.ts'
 import {
@@ -25,6 +26,7 @@ import {
   setItemsPerPage,
   setMaxCardsCount,
   setMinCardsCount,
+  setOrderBy,
 } from '@/services/decks/decks.slice.ts'
 import { useGetDecksQuery } from '@/services/decks/decks.ts'
 import { Deck } from '@/services/decks/types.ts'
@@ -57,6 +59,14 @@ export const Decks = () => {
     { value: 'allCards', title: 'All Cards', disabled: false },
     { value: 'myCards', title: 'My Cards', disabled: false },
   ]
+
+  const sortHandler = (field: string) => {
+    orderBy === `${field}-asc`
+      ? dispatch(setOrderBy(`${field}-desc`))
+      : dispatch(setOrderBy(`${field}-asc`))
+
+    console.log(orderBy)
+  }
 
   return (
     <div>
@@ -98,10 +108,30 @@ export const Decks = () => {
       <Table>
         <TableHead>
           <TableRow>
-            <TableHeadCell>Name</TableHeadCell>
-            <TableHeadCell>Cards</TableHeadCell>
-            <TableHeadCell>Last Updated</TableHeadCell>
-            <TableHeadCell>Created by</TableHeadCell>
+            <TableHeadCell>
+              <span onClick={() => sortHandler('name')}>Name</span>
+              <Arrow className={`${s.arrow} ${orderBy === `name-desc` ? `${s.arrowDown}` : ''} `} />
+            </TableHeadCell>
+            <TableHeadCell>
+              <span onClick={() => sortHandler('cardsCount')}>Cards</span>
+              <Arrow
+                className={`${s.arrow} ${orderBy === `cardsCount-desc` ? `${s.arrowDown}` : ''} `}
+              />
+            </TableHeadCell>
+            <TableHeadCell>
+              {' '}
+              <span onClick={() => sortHandler('updated')}>Last Updated</span>
+              <Arrow
+                className={`${s.arrow} ${orderBy === `updated-desc` ? `${s.arrowDown}` : ''} `}
+              />
+            </TableHeadCell>
+            <TableHeadCell>
+              {' '}
+              <span onClick={() => sortHandler('created')}>Created By</span>
+              <Arrow
+                className={`${s.arrow} ${orderBy === `created-desc` ? `${s.arrowDown}` : ''} `}
+              />
+            </TableHeadCell>
           </TableRow>
         </TableHead>
 
