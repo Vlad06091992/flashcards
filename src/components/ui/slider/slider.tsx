@@ -21,6 +21,7 @@ export const CustomSlider = ({ onValueChange, values, onValueCommit, label }: Pr
       <Slider.Root
         onValueCommit={onValueCommit}
         className={s.SliderRoot}
+        value={values}
         defaultValue={values}
         max={100}
         step={1}

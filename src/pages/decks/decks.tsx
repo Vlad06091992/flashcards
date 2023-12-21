@@ -27,6 +27,7 @@ import {
   setMaxCardsCount,
   setMinCardsCount,
   setOrderBy,
+  resetState,
 } from '@/services/decks/decks.slice.ts'
 import { useGetDecksQuery } from '@/services/decks/decks.ts'
 import { Deck } from '@/services/decks/types.ts'
@@ -100,7 +101,7 @@ export const Decks = () => {
             dispatch(setMaxCardsCount(values[1]))
           }}
         />
-        <Button variant={'secondary'}>
+        <Button onClick={() => dispatch(resetState({}))} variant={'secondary'}>
           <Basket />
           Clear Filter
         </Button>
