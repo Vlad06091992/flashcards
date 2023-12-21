@@ -1,10 +1,13 @@
+import { memo } from 'react'
+
 import { Arrow } from '@/assets'
 import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from '@/components'
 import s from '@/pages/decks/decks.module.scss'
 import { useDeckOptions } from '@/pages/decks/hooks/useDecksOptions.ts'
 import { Deck } from '@/services/decks/types.ts'
 
-export const TableMain = () => {
+export const TableMain = memo(() => {
+  console.log('render table')
   const { sortHandler, orderBy, data } = useDeckOptions()
 
   return (
@@ -52,4 +55,4 @@ export const TableMain = () => {
       </TableBody>
     </Table>
   )
-}
+})

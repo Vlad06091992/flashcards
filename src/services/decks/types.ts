@@ -39,4 +39,5 @@ export type DecksParams = Partial<{
   orderBy: string
   currentPage: number
   itemsPerPage: number
+  authorId: string
 }> | void

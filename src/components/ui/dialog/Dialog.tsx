@@ -3,7 +3,7 @@ import * as Dialog from '@radix-ui/react-dialog'
 import s from './Dialog.module.scss'
 
 type Props = {
-  onCloseAutoFocus?: () => void
+  onCloseAutoFocus: () => void
   isOpen: boolean
   content: React.JSX.Element
 }
@@ -14,10 +14,8 @@ export const DialogWindow = ({ onCloseAutoFocus, content, isOpen }: Props) => {
       <Dialog.Portal>
         <Dialog.Overlay className={s.DialogOverlay} />
         <Dialog.Content
-          // onOpenAutoFocus={e => {
-          //   e.preventDefault()
-          // }}
-          onInteractOutside={() => onCloseAutoFocus}
+          onCloseAutoFocus={onCloseAutoFocus}
+          onInteractOutside={() => onCloseAutoFocus()}
           className={s.DialogContent}
         >
           {content}

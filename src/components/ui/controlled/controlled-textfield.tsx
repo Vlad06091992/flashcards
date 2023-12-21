@@ -11,23 +11,26 @@ export const ControlledTextfield = <TFieldValues extends FieldValues>({
   control,
   className,
   error,
+  name,
   ...restProps
 }: ControlledTextfieldProps<TFieldValues>) => {
   const {
-    field: { value, onChange },
+    field: { value, ref, onChange },
     fieldState: { error: err },
   } = useController({
-    name: restProps.name,
+    name,
     control,
     rules: { required: true },
   })
 
   return (
     <Textfield
+      id={name}
+      ref={ref}
       className={className}
       error={err?.message}
       onChange={onChange}
-      value={value}
+      value={value || ''}
       {...restProps}
     />
   )

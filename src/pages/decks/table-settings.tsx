@@ -3,11 +3,16 @@ import { Button, TabSwitcher, Textfield } from '@/components'
 import { CustomSlider } from '@/components/ui/slider'
 import s from '@/pages/decks/decks.module.scss'
 import { useDeckOptions } from '@/pages/decks/hooks/useDecksOptions.ts'
+import { useAuthMeQuery } from '@/services/auth/auth.ts'
+import { setAuthorId } from '@/services/decks/decks.slice.ts'
 import { useAppDispatch } from '@/services/store.ts'
 
 export const TableSettings = () => {
+  console.log('render table settings')
   const dispatch = useAppDispatch()
   const {
+    cardsAuthor,
+    authorId,
     name,
     minCardsCount,
     setDeckName,
@@ -18,6 +23,10 @@ export const TableSettings = () => {
     setMaxCardsCount,
     resetState,
   } = useDeckOptions()
+
+  const {
+    data: { id },
+  } = useAuthMeQuery()
 
   return (
     <div className={s.searchSettings}>
@@ -33,6 +42,8 @@ export const TableSettings = () => {
       <TabSwitcher
         tabs={tabs}
         onValueChange={value => {
+          console.log(cardsAuthor, authorId)
+          cardsAuthor === 'allCards' ? dispatch(setAuthorId(id)) : dispatch(setAuthorId(''))
           dispatch(setCardsAuthor(value))
         }}
         label={'Show packs cards'}
