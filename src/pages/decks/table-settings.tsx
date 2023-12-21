@@ -8,6 +8,7 @@ import { useAppDispatch } from '@/services/store.ts'
 export const TableSettings = () => {
   const dispatch = useAppDispatch()
   const {
+    name,
     minCardsCount,
     setDeckName,
     tabs,
@@ -21,6 +22,7 @@ export const TableSettings = () => {
   return (
     <div className={s.searchSettings}>
       <Textfield
+        value={name}
         placeholder={'Input search'}
         onChange={event => {
           dispatch(setDeckName(event.currentTarget.value))
