@@ -7,7 +7,7 @@ export const decksSlice = createSlice({
     maxCardsCount: 10,
     name: '',
     authorId: '',
-    orderBy: '',
+    orderBy: 'name-asc',
     currentPage: 1,
     itemsPerPage: 10,
     cardsAuthor: 'allCards',
@@ -31,6 +31,9 @@ export const decksSlice = createSlice({
     setMaxCardsCount: (state, action: PayloadAction<number>) => {
       state.maxCardsCount = action.payload
     },
+    setOrderBy: (state, action: PayloadAction<string>) => {
+      state.orderBy = action.payload
+    },
   },
 })
 
@@ -43,4 +46,5 @@ export const {
   setItemsPerPage,
   setCardsAuthor,
   setCurrentPage,
+  setOrderBy,
 } = decksSlice.actions
