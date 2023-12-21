@@ -22,7 +22,6 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       placeholder,
       variant,
       label,
-      value,
       ...restProps
     },
     ref
