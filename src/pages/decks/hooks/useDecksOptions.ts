@@ -14,9 +14,16 @@ import { useGetDecksQuery } from '@/services/decks/decks.ts'
 import { useAppDispatch, useAppSelector } from '@/services/store.ts'
 
 export const useDeckOptions = () => {
-  const { currentPage, itemsPerPage, name, minCardsCount, maxCardsCount, orderBy } = useAppSelector(
-    state => state.decks
-  )
+  const {
+    currentPage,
+    itemsPerPage,
+    name,
+    minCardsCount,
+    maxCardsCount,
+    orderBy,
+    cardsAuthor,
+    authorId,
+  } = useAppSelector(state => state.decks)
 
   const { data, isFetching } = useGetDecksQuery({
     itemsPerPage,
@@ -25,6 +32,7 @@ export const useDeckOptions = () => {
     maxCardsCount: useDebounce(maxCardsCount, 1000),
     minCardsCount: useDebounce(minCardsCount, 1000),
     orderBy,
+    authorId,
   })
 
   const totalPages = data?.pagination?.totalPages
@@ -41,6 +49,8 @@ export const useDeckOptions = () => {
   }
 
   return {
+    cardsAuthor,
+    authorId,
     currentPage,
     itemsPerPage,
     totalPages,

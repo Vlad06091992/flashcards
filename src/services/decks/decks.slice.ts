@@ -35,6 +35,9 @@ export const decksSlice = createSlice({
     setOrderBy: (state, action: PayloadAction<string>) => {
       state.orderBy = action.payload
     },
+    setAuthorId: (state, action: PayloadAction<string>) => {
+      state.authorId = action.payload
+    },
     resetState: () => {
       return initialState
     },
@@ -52,4 +55,5 @@ export const {
   setCurrentPage,
   setOrderBy,
   resetState,
+  setAuthorId,
 } = decksSlice.actions
