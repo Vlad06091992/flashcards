@@ -1,17 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
+export const initialState = {
+  minCardsCount: 0,
+  maxCardsCount: 100,
+  name: '',
+  authorId: '',
+  orderBy: 'name-asc',
+  currentPage: 1,
+  itemsPerPage: 10,
+  cardsAuthor: 'allCards',
+}
 export const decksSlice = createSlice({
   name: 'decks',
-  initialState: {
-    minCardsCount: 0,
-    maxCardsCount: 10,
-    name: '',
-    authorId: '',
-    orderBy: 'name-asc',
-    currentPage: 1,
-    itemsPerPage: 10,
-    cardsAuthor: 'allCards',
-  },
+  initialState,
   reducers: {
     setItemsPerPage: (state, action: PayloadAction<number>) => {
       state.itemsPerPage = action.payload
@@ -34,6 +35,9 @@ export const decksSlice = createSlice({
     setOrderBy: (state, action: PayloadAction<string>) => {
       state.orderBy = action.payload
     },
+    resetState: (state, action: PayloadAction<{}>) => {
+      return initialState
+    },
   },
 })
 
@@ -47,4 +51,5 @@ export const {
   setCardsAuthor,
   setCurrentPage,
   setOrderBy,
+  resetState,
 } = decksSlice.actions
