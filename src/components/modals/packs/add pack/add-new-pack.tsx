@@ -17,8 +17,8 @@ type Props = {
 
 export const AddNewPack = ({ addCardCallback, closeCallback, cancelCallback }: Props) => {
   const Schema = z.object({
-    packName: z.string().min(3),
-    isPrivatePack: z.boolean(),
+    name: z.string().min(3),
+    isPrivate: z.boolean(),
   })
 
   type FieldsType = z.infer<typeof Schema>
@@ -42,13 +42,13 @@ export const AddNewPack = ({ addCardCallback, closeCallback, cancelCallback }: P
           <ControlledTextfield
             className={s.textfield}
             control={control}
-            name={'packName'}
+            name={'name'}
             label={'Name Pack'}
           />
           <ControlledCheckbox
             className={s.checkbox}
             label={'Private pack'}
-            name={'isPrivatePack'}
+            name={'isPrivate'}
             control={control}
           />
           <div className={s.buttons}>
