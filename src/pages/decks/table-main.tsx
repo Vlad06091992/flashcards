@@ -10,6 +10,8 @@ export const TableMain = memo(() => {
   console.log('render table')
   const { sortHandler, orderBy, data } = useDeckOptions()
 
+  console.log(data)
+
   return (
     <Table>
       <TableHead>
@@ -45,7 +47,14 @@ export const TableMain = memo(() => {
         {data?.items.map((deck: Deck) => {
           return (
             <TableRow key={deck.id}>
-              <TableCell>{deck.name}</TableCell>
+              <TableCell className={s.nameColumn}>
+                {deck.cover && (
+                  <div>
+                    <img className={s.image} src={deck.cover} />
+                  </div>
+                )}
+                <div>{deck.name}</div>
+              </TableCell>
               <TableCell>{deck.cardsCount}</TableCell>
               <TableCell>{deck.updated}</TableCell>
               <TableCell>{deck.author.name}</TableCell>
