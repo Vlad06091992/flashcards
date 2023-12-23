@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -19,13 +21,22 @@ export const AddNewPack = ({ addCardCallback, closeCallback, cancelCallback }: P
   const Schema = z.object({
     name: z.string().min(3),
     isPrivate: z.boolean(),
+    cover: z.any().optional(),
   })
 
   type FieldsType = z.infer<typeof Schema>
 
-  const { control, handleSubmit } = useForm<FieldsType>({ resolver: zodResolver(Schema) })
+  const { register, control, handleSubmit } = useForm<FieldsType>({ resolver: zodResolver(Schema) })
+
+  const [image, setImage] = useState<File>()
+
   const onSubmit = (data: any) => {
-    addCardCallback(data)
+    const formData = new FormData()
+
+    formData.append('isPrivate', data.isPrivate)
+    formData.append('name', data.name)
+    formData.append('cover', data.cover[0])
+    addCardCallback(formData)
   }
 
   return (
@@ -45,6 +56,17 @@ export const AddNewPack = ({ addCardCallback, closeCallback, cancelCallback }: P
             name={'name'}
             label={'Name Pack'}
           />
+          <label htmlFor={'cover'}>
+            <div>Add Image</div>
+            <input
+              accept="image/png, image/jpeg"
+              style={{ display: 'none' }}
+              type={'file'}
+              id={'cover'}
+              {...register('cover')}
+            />
+          </label>
+
           <ControlledCheckbox
             className={s.checkbox}
             label={'Private pack'}
