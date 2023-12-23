@@ -8,7 +8,7 @@ import { useCreateDeckMutation } from '@/services/decks/decks.ts'
 
 export const TitleAndAddButton = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [createDeck, result] = useCreateDeckMutation()
+  const [createDeck] = useCreateDeckMutation()
 
   console.log(createDeck)
 
