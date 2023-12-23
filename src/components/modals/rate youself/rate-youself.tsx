@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 
 import s from './rate-youself.module.scss'
 
-import { Button, Card, RadioGroupComponent, RadioGroupOptionsType, Typography } from '@/components'
+import { Button, Card, RadioGroupOptionsType, Typography } from '@/components'
 import { ControlledRadioGroup } from '@/components/ui/controlled'
 
 type Props = {
@@ -25,7 +25,7 @@ type FormType = { result: string }
 
 export const RateYouself = ({ title, question, answerCount, showAnswerCallback }: Props) => {
   const form = useForm<FormType>()
-  const { register, control, handleSubmit } = form
+  const { control, handleSubmit } = form
 
   const onSubmitHandler = (data: FormType) => {
     console.log(data)
