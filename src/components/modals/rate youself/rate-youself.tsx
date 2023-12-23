@@ -28,7 +28,7 @@ export const RateYouself = ({ title, question, answerCount, showAnswerCallback }
   const { control, handleSubmit } = form
 
   const onSubmitHandler = (data: FormType) => {
-    console.log(data)
+    // console.log(data)
     showAnswerCallback(data)
   }
 
