@@ -33,7 +33,9 @@ export const Decks = () => {
           }}
           perPage={itemsPerPage}
           onPerPageChange={value => {
+            debugger
             dispatch(setItemsPerPage(value))
+            dispatch(setCurrentPage(1))
           }}
           perPageOptions={[
             { value: 10, label: '10' },
