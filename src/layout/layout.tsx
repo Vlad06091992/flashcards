@@ -12,7 +12,7 @@ export const Layout = () => {
   const { data } = useAuthMeQuery()
   const [logout] = useLogoutMutation()
 
-  const avatarUrl = data?.imageUrl || DefaultAvatar
+  const avatarUrl = data?.avatar || DefaultAvatar
 
   return (
     <div>
