@@ -41,6 +41,8 @@ export const Pagination = ({
     onChange(page)
   }
 
+  console.log(page)
+
   return (
     <div className={s.pagination}>
       <PrevButton
@@ -51,11 +53,13 @@ export const Pagination = ({
         }}
       />
 
-      <ItemPagination
-        onClick={() => itemOnClickHandler(1)}
-        isActive={1 === activePage}
-        pageNumber={1}
-      />
+      {count > 1 && (
+        <ItemPagination
+          onClick={() => itemOnClickHandler(1)}
+          isActive={1 === activePage}
+          pageNumber={1}
+        />
+      )}
 
       <MainPaginationButtons
         itemOnClickHandler={itemOnClickHandler}
@@ -64,11 +68,13 @@ export const Pagination = ({
         activePage={activePage}
       />
 
-      <ItemPagination
-        onClick={() => itemOnClickHandler(count)}
-        isActive={count === activePage}
-        pageNumber={count}
-      />
+      {count > 1 && (
+        <ItemPagination
+          onClick={() => itemOnClickHandler(count)}
+          isActive={count === activePage}
+          pageNumber={count}
+        />
+      )}
 
       <NextButton
         disabled={activePage === count}
@@ -108,7 +114,20 @@ const MainPaginationButtons = ({
 }: PropsPaginationNumbers) => {
   let pages: Array<number> = []
 
-  if (pagesQuality <= 6) {
+  if (pagesQuality === 1) {
+    console.log(true)
+
+    return (
+      <div className={s.pagination}>
+        <ItemPagination
+          key={1}
+          onClick={() => itemOnClickHandler(1)}
+          isActive={true}
+          pageNumber={1}
+        />
+      </div>
+    )
+  } else if (pagesQuality <= 6) {
     for (let i = 2; i < pagesQuality; i++) {
       pages.push(i)
     }

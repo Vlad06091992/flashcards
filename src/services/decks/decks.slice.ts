@@ -24,6 +24,7 @@ export const decksSlice = createSlice({
       state.cardsAuthor = action.payload
     },
     setCurrentPage: (state, action: PayloadAction<number>) => {
+      debugger
       state.currentPage = action.payload
     },
     setMinCardsCount: (state, action: PayloadAction<number>) => {
