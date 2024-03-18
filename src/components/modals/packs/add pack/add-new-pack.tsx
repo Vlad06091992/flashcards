@@ -28,7 +28,6 @@ export const AddNewPack = ({ addCardCallback, closeCallback, cancelCallback }: P
 
   const { register, control, handleSubmit } = useForm<FieldsType>({ resolver: zodResolver(Schema) })
 
-  const [image, setImage] = useState<File>()
 
   const onSubmit = (data: any) => {
     const formData = new FormData()
