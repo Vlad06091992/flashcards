@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -27,7 +25,6 @@ export const AddNewPack = ({ addCardCallback, closeCallback, cancelCallback }: P
   type FieldsType = z.infer<typeof Schema>
 
   const { register, control, handleSubmit } = useForm<FieldsType>({ resolver: zodResolver(Schema) })
-
 
   const onSubmit = (data: any) => {
     const formData = new FormData()
