@@ -52,7 +52,7 @@ let publicRoutes = [
 
 const privateRoutes: RouteObject[] = [
   {
-    path: '/',
+    path: '/packs',
     element: <Decks />,
   },
   {
