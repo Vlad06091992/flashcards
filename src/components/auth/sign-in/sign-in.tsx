@@ -46,7 +46,7 @@ export const SignIn = () => {
       .unwrap()
       .then(res => {
         console.log(res)
-        navigate('/')
+        navigate('/packs')
       })
   }
 

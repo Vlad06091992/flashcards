@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useHref, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { z } from 'zod'
 
 import s from './recover-password.module.scss'
@@ -29,8 +29,10 @@ export const RecoverPassword = () => {
   })
 
   const onSubmitHandler = (data: FormType) => {
+    const url = window.location.href.split('/')[2] // Получаем динамический URL
+
     const requestData: FormType = {
-      html: '<h1>Hi, ##name##</h1><p>Click <a href="http://localhost:5173/set-new-password\\##token##\\">here</a> to recover your password</p>',
+      html: `<h1>Hi, user</h1><p>Click <a href="http://${url}/set-new-password/##token##">here</a> to recover your password</p>`,
       subject: 'Vlad',
       email: data.email,
     }
